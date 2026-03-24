@@ -5,7 +5,7 @@ This project is the result of a collaborative team effort combining expertise in
 ## Analog Members
 
 - [Aouissi Brahim](https://github.com/AouissiBrahim)
-- Boudali F
+- Boudali Fatma
 - Djalal Boubaa
 - [Habis Kheira](https://github.com/habiskheira)
 - [Hadji Med Salah](https://github.com/OGX300)
