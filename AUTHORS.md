@@ -8,7 +8,7 @@ This project is the result of a collaborative team effort combining expertise in
 - Boudali Fatma
 - Djalal Boubaa
 - [Habis Kheira](https://github.com/habiskheira)
-- [Hadji Med Salah](https://github.com/OGX300)
+- [Hadji Mohammed Salah](https://github.com/OGX300)
 - [Yacine Sotehi](https://github.com/YacineSot)
 - [Zerzour Youcef](https://github.com/youcefzerzour)
 
@@ -23,5 +23,5 @@ This project is the result of a collaborative team effort combining expertise in
 - [Mehdiya Redadaa](https://github.com/R-mehdiya)
 - [Salah](https://github.com/sa19lah)
 - [Talhi Mehdi](https://github.com/Mehdi-Talhi)
-- [Yasmina Salsabil Smd](https://github.com/SalsabilSmd)
+- [Yasmina Salsabil Semmadi](https://github.com/SalsabilSmd)
 
