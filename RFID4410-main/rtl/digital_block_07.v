@@ -1,7 +1,7 @@
 
 `timescale 1ns / 1ps
 
-module digital_block_07 (clk, en, rst_n, frame_in, frame_in_v, start_tran, frame_length, sram_dout, sram_dout_len, sram_dout_valid, test_mode, state_fsm, tx_out, enc_done);  
+module digital_block_07 (clk, en, rst_n, frame_in, frame_in_v, start_tran, frame_length, sram_dout, sram_dout_len, sram_dout_valid, test_mode, forcing, state_fsm, tx_out, enc_done);  
  
     input  wire        clk; 
     input  wire        en; 	
@@ -14,7 +14,8 @@ module digital_block_07 (clk, en, rst_n, frame_in, frame_in_v, start_tran, frame
     input  wire [31:0] sram_dout;
     input  wire [5:0]  sram_dout_len;
     input wire         sram_dout_valid;
-    input wire         test_mode;	
+    input wire         test_mode;
+	input  wire [3:0]  forcing;
     output reg         tx_out;
     output reg         enc_done;
     
@@ -46,24 +47,18 @@ module digital_block_07 (clk, en, rst_n, frame_in, frame_in_v, start_tran, frame
         case (state)
 			IDLE: begin
 				
-					if ((!test_mode && frame_in_v) || (test_mode && sram_dout_valid))
+					if ((frame_in_v) || (test_mode && sram_dout_valid))
 						next_state = READY;
 					else
 						next_state = IDLE;
 			end
-            READY: begin
-				if (!test_mode)
-					if (frame_length_signal != 6'd0) 
-						if (start_tran && state_fsm != 4'b0111)
+            READY: begin	                                            
+				    if (frame_length_signal != 6'd0) 
+						if (start_tran && ((state_fsm != 4'b0111) || (test_mode &&  forcing != 4'b0)) || (test_mode && forcing == 4'b0))
 							next_state = SEND_SOF;
 						else 
 							next_state = READY;
 					else           
-					  next_state = IDLE;
-				else
-					if (frame_length_signal != 6'd0)
-						next_state = SEND_SOF;
-					else
 						next_state = IDLE;
             end
             SEND_SOF: begin
@@ -111,7 +106,7 @@ module digital_block_07 (clk, en, rst_n, frame_in, frame_in_v, start_tran, frame
 						clk_count <= 3'b111;
 						bit_in_byte_count <= 3'b111;
 						bit_count <= 6'b0;
-						if (!test_mode && frame_in_v)
+						if (frame_in_v)
 							frame_length_signal <= frame_length;
 						else if (test_mode && sram_dout_valid)
 							frame_length_signal <= sram_dout_len;
@@ -121,7 +116,11 @@ module digital_block_07 (clk, en, rst_n, frame_in, frame_in_v, start_tran, frame
 					READY: begin
 						clk_count <= 3'b111;
 						bit_in_byte_count <= 3'b111;
-						bit_count <= 6'b0;					
+						bit_count <= 6'b0;	
+                        if (frame_in_v)
+							frame_length_signal <= frame_length;
+					    else
+							frame_length_signal <= frame_length_signal;
 					end
 					SEND_SOF: begin
 						clk_count <= clk_count - 1'b1;
@@ -188,13 +187,13 @@ module digital_block_07 (clk, en, rst_n, frame_in, frame_in_v, start_tran, frame
 				bit_to_send <= 1'b0;
 			end else begin 
 				if (((state == SEND_SOF) || (state == SEND_PARITY)) && (clk_count == 3'b000))
-					if (!test_mode)
+					if (!test_mode || (test_mode && forcing != 4'b0))
 						bit_to_send <= frame_in[bit_count];
 					else
 						bit_to_send <= sram_dout[bit_count[4:0]];
 				else if ((state == SEND_DATA) && (clk_count == 3'b000))	
 					if (bit_in_byte_count != 3'b0)
-						if (!test_mode)
+						if (!test_mode  || (test_mode && forcing != 4'b0))
 							bit_to_send <= frame_in[bit_count];
 						else
 							bit_to_send <= sram_dout[bit_count[4:0]];
@@ -258,5 +257,4 @@ module digital_block_07 (clk, en, rst_n, frame_in, frame_in_v, start_tran, frame
 			end    
 
 endmodule
-
 

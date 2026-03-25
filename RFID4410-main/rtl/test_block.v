@@ -75,9 +75,9 @@ always @(posedge clk) begin
         end else begin
             prev_test_mode <= test_mode;
             prev_in_force_state   <= in_force_state;
-            if (test_mode & ~prev_test_mode) begin
+            if ((test_mode & ~prev_test_mode) & (in_force_state != 4'b0000)) begin
                 out_str_pulse_enable <= 1'b1;
-            end else if (test_mode & (in_force_state != prev_in_force_state)) begin
+            end else if (test_mode && (in_force_state != prev_in_force_state) && (in_force_state != 4'b0000)) begin
                 out_str_pulse_enable <= 1'b1;
             end else begin
                 out_str_pulse_enable <= 1'b0;
@@ -98,11 +98,11 @@ always @(posedge clk) begin
                 out_force_state <= in_force_state;
             end else begin
                 out_force_state <= in_force_state;
-                out_str     <= 1'b0;
+                out_str  <= 1'b0;
                 out_p_ok <= 1'b0;
                 out_l_b  <= 1'b0;
                 if (out_str_pulse_enable) begin
-                    out_str     <= 1'b1;  
+                    out_str  <= 1'b1;  
                     out_p_ok <= 1'b1;  
                 end
                 case (in_force_state)   
@@ -130,78 +130,8 @@ always @(posedge clk) begin
 			    sram_dout_len <= sram_dout_len;
             	        end          	           	    
             	    end           
-                4'b0001: begin
-                    out_4bits_A  <= 4'h6;
-		    out_4bits_B  <= 4'h0;
-		    out_4bits_C  <= 4'h2;
-		    out_4bits_D  <= 4'h0;
-		    out_8bits_A  <= 8'h0;
-		    out_16bits_A <= 16'h0;
-		    out_16bits_B <= 16'h0;
-		    out_16bits_C <= 16'h0;
-                    out_l_b <= 1'b0;
-                    out_force_state <= 4'b0;
-                end
-                4'b0010: begin
-                    out_4bits_A  <= 4'h3;
-		    out_4bits_B  <= 4'h0;
-		    out_4bits_C  <= 4'h9;
-		    out_4bits_D  <= 4'h2;
-		    out_8bits_A  <= 8'h0;
-		    out_16bits_A <= 16'h0;
-		    out_16bits_B <= 16'h0;
-		    out_16bits_C <= 16'h0;
-                    out_l_b <= 1'b0;
-                    out_force_state <= 4'b0;
-                end
-                4'b0011: begin
-                    out_4bits_A  <= 4'h3;
-		    out_4bits_B  <= 4'h0;
-		    out_4bits_C  <= 4'h9;
-		    out_4bits_D  <= 4'h3;
-		    out_8bits_A  <= 8'h0;
-		    out_16bits_A <= 16'h0088;
-		    out_16bits_B <= 16'h0;
-		    out_16bits_C <= 16'h0;
-                    out_l_b <= out_str_pulse_enable;  
-                    out_force_state <= 4'b0;
-                end
-                4'b0100: begin
-                    out_4bits_A  <= 4'h3;
-		    out_4bits_B  <= 4'h0;
-		    out_4bits_C  <= 4'h9;
-		    out_4bits_D  <= 4'h7;
-		    out_8bits_A  <= 8'h88;
-		    out_16bits_A <= 16'h1188;
-		    out_16bits_B <= 16'h3322;
-		    out_16bits_C <= 16'hFAF4;
-                    out_force_state <= 4'b0;
-                end
-/*
-                4'b0101: begin
-                    cmd      <= 8'h95;
-                    param    <= 8'h70;
-                    uid_casc <= 40'h0077665544;
-                    crc_out   <= 16'hB87A;
-                    out_force_state <= 4'b0;
-                end
-                4'b0110: begin
-                    cmd      <= 8'h16;
-                    param    <= 8'h00;
-                    uid_casc <= 40'h0;
-                    crc_out   <= 16'h0;
-                    out_force_state <= 4'b0;
-                end
-                4'b0111: begin
-                    cmd      <= 8'h07;
-                    param    <= 8'h00;
-                    uid_casc <= 40'h0;
-                    crc_out   <= 16'h0;
-                    out_force_state <= 4'b0;
-                end
-*/                
-                default: begin
-                    out_4bits_A  <= 4'h0;
+		4'b0001: begin
+		    out_4bits_A  <= 4'h1;
 		    out_4bits_B  <= 4'h0;
 		    out_4bits_C  <= 4'h0;
 		    out_4bits_D  <= 4'h0;
@@ -209,8 +139,166 @@ always @(posedge clk) begin
 		    out_16bits_A <= 16'h0;
 		    out_16bits_B <= 16'h0;
 		    out_16bits_C <= 16'h0;
-                    out_force_state <= 4'b0;
-                end
+		    out_l_b <= 1'b0;
+		    out_force_state <= 4'b0;
+		end
+		4'b0011: begin
+		    out_4bits_A  <= 4'h0;
+		    out_4bits_B  <= 4'h0;
+		    out_4bits_C  <= 4'h2;
+		    out_4bits_D  <= 4'h4;
+		    out_8bits_A  <= 8'h0;
+		    out_16bits_A <= 16'h0;
+		    out_16bits_B <= 16'h0;
+		    out_16bits_C <= 16'h0;
+		    out_l_b <= 1'b0;
+		    out_force_state <= 4'b0;
+		end
+		4'b0010: begin
+		    out_4bits_A  <= 4'h0;
+		    out_4bits_B  <= 4'h0;
+		    out_4bits_C  <= 4'h2;
+		    out_4bits_D  <= 4'h6;
+		    out_8bits_A  <= 8'h0;
+		    out_16bits_A <= 16'h0088;
+		    out_16bits_B <= 16'h0;
+		    out_16bits_C <= 16'h0;
+		    out_l_b <= out_str_pulse_enable;  
+		    out_force_state <= 4'b0;
+		end
+		4'b0110: begin
+		    out_4bits_A  <= 4'h0;
+		    out_4bits_B  <= 4'h3;
+		    out_4bits_C  <= 4'h2;
+		    out_4bits_D  <= 4'h9;
+		    out_8bits_A  <= 8'h88;
+		    out_16bits_A <= 16'h1188;
+		    out_16bits_B <= 16'h3322;
+		    out_16bits_C <= 16'h82AD;
+		    out_force_state <= 4'b0;
+		end
+		4'b0111: begin
+		    out_4bits_A  <= 4'h0;
+		    out_4bits_B  <= 4'h0;
+		    out_4bits_C  <= 4'h7;
+		    out_4bits_D  <= 4'h4;
+		    out_8bits_A  <= 8'h00;
+		    out_16bits_A <= 16'h0000;
+		    out_16bits_B <= 16'h0000;
+		    out_16bits_C <= 16'h0000;
+		    out_force_state <= 4'b0;
+		end
+		4'b0101: begin
+		    out_4bits_A  <= 4'h0;
+		    out_4bits_B  <= 4'h4;
+		    out_4bits_C  <= 4'h7;
+		    out_4bits_D  <= 4'h7;
+		    out_8bits_A  <= 8'h00;
+		    out_16bits_A <= 16'h5544;
+		    out_16bits_B <= 16'h0006;
+		    out_16bits_C <= 16'h0000;
+		    out_force_state <= 4'b0;
+		end
+		4'b0100: begin
+		    out_4bits_A  <= 4'h0;
+		    out_4bits_B  <= 4'h3;
+		    out_4bits_C  <= 4'h7;
+		    out_4bits_D  <= 4'h9;
+		    out_8bits_A  <= 8'h00;
+		    out_16bits_A <= 16'h5544;
+		    out_16bits_B <= 16'h7766;
+		    out_16bits_C <= 16'hE42F;
+		    out_force_state <= 4'b0;
+		end
+		4'b1100: begin
+		    out_4bits_A  <= 4'h6;
+		    out_4bits_B  <= 4'h0;
+		    out_4bits_C  <= 4'h6;
+		    out_4bits_D  <= 4'h4;
+		    out_8bits_A  <= 8'hCF;
+		    out_16bits_A <= 16'hBBAA;
+		    out_16bits_B <= 16'hDDCC;
+		    out_16bits_C <= 16'h00DA;
+		    out_force_state <= 4'b0;
+		end
+		4'b1101: begin
+		    out_4bits_A  <= 4'h7;
+		    out_4bits_B  <= 4'h0;
+		    out_4bits_C  <= 4'h7;
+		    out_4bits_D  <= 4'h4;
+		    out_8bits_A  <= 8'h0;
+		    out_16bits_A <= 16'h0;
+		    out_16bits_B <= 16'h0;
+		    out_16bits_C <= 16'h0;
+		    out_force_state <= 4'b0;
+		end
+		4'b1111: begin
+		    out_4bits_A  <= 4'h4;
+		    out_4bits_B  <= 4'h0;
+		    out_4bits_C  <= 4'h4;
+		    out_4bits_D  <= 4'h0;
+		    out_8bits_A  <= 8'h0;
+		    out_16bits_A <= 16'h3FA6;
+		    out_16bits_B <= 16'h0;
+		    out_16bits_C <= 16'h0;
+		    out_force_state <= 4'b0;
+		end
+		4'b1110: begin
+		    out_4bits_A  <= 4'h0;
+		    out_4bits_B  <= 4'h0;
+		    out_4bits_C  <= 4'h1;
+		    out_4bits_D  <= 4'h0;
+		    out_8bits_A  <= 8'h0;
+		    out_16bits_A <= 16'h0;
+		    out_16bits_B <= 16'h0;
+		    out_16bits_C <= 16'h0;
+		    out_force_state <= 4'b0;
+		end
+		4'b1010: begin
+		    out_4bits_A  <= 4'h6;
+		    out_4bits_B  <= 4'h0;
+		    out_4bits_C  <= 4'h1;
+		    out_4bits_D  <= 4'h0;
+		    out_8bits_A  <= 8'h0;
+		    out_16bits_A <= 16'h0;
+		    out_16bits_B <= 16'h0;
+		    out_16bits_C <= 16'h0;
+		    out_force_state <= 4'b0;
+		end
+		4'b1011: begin
+		    out_4bits_A  <= 4'h7;
+		    out_4bits_B  <= 4'h0;
+		    out_4bits_C  <= 4'h0;
+		    out_4bits_D  <= 4'h0;
+		    out_8bits_A  <= 8'h0;
+		    out_16bits_A <= 16'h0;
+		    out_16bits_B <= 16'h0;
+		    out_16bits_C <= 16'h0;
+		    out_force_state <= 4'b0;
+		end
+		4'b1001: begin
+		    out_4bits_A  <= 4'h1;
+		    out_4bits_B  <= 4'h0;
+		    out_4bits_C  <= 4'h2;
+		    out_4bits_D  <= 4'h0;
+		    out_8bits_A  <= 8'h0;
+		    out_16bits_A <= 16'h0;
+		    out_16bits_B <= 16'h0;
+		    out_16bits_C <= 16'h0;
+		    out_force_state <= 4'b0;
+		end
+	       
+		default: begin
+		    out_4bits_A  <= 4'h0;
+		    out_4bits_B  <= 4'h0;
+		    out_4bits_C  <= 4'h0;
+		    out_4bits_D  <= 4'h0;
+		    out_8bits_A  <= 8'h0;
+		    out_16bits_A <= 16'h0;
+		    out_16bits_B <= 16'h0;
+		    out_16bits_C <= 16'h0;
+		    out_force_state <= 4'b0;
+		end
             endcase
         end
     end

@@ -207,13 +207,19 @@ module digital_block_11 (clk, en, rst_n, out_4bits_A, out_4bits_B, out_4bits_C, 
         case (state)
             STATE_IDLE: begin
                 if (str) begin
-                    if (p_ok && ((out_4bits_A == 4'h0 && out_4bits_C == 4'h1)||(out_4bits_A == 4'h1 && out_4bits_C == 4'h0))) begin
-                        next_state = STATE_WAIT_ANTICOLL;
-                    end else if (!p_ok) begin
+                    if ((out_4bits_A == 4'h0 && out_4bits_C == 4'h1)||(out_4bits_A == 4'h1 && out_4bits_C == 4'h0)) begin
+                        if (p_ok) begin
+                            next_state = STATE_WAIT_ANTICOLL;
+                        end else begin
                         resp_fsm[7:0]   = RESP_ERROR_00;
                         resp_length_fsm = RESP_LEN_8BIT;
                         resp_valid_fsm  = 1'b1;
-                    end
+                        end
+                   end else begin 
+                        resp_fsm         = 72'd0;
+                        resp_length_fsm  = 7'd0;
+                        resp_valid_fsm   = 1'b1;
+                   end
                 end
             end
 
@@ -268,10 +274,11 @@ module digital_block_11 (clk, en, rst_n, out_4bits_A, out_4bits_B, out_4bits_C, 
 
             STATE_ACTIVE: begin
                 if (str) begin
-                    if (!p_ok) begin
+                    if (!p_ok && (((out_4bits_A == 4'h4 && out_4bits_C == 4'h4) && (out_4bits_B == 4'h0 && out_4bits_D == 4'h0)) || (out_4bits_A == 4'h6 && out_4bits_C == 4'h6) || (out_4bits_A == 4'h7 && out_4bits_C == 4'h7)) ) begin
                         resp_fsm[7:0]   = RESP_ERROR_00;
                         resp_length_fsm = RESP_LEN_8BIT;
                         resp_valid_fsm  = 1'b1;
+                        next_state      = STATE_ACTIVE;
                     end else if ((out_4bits_A == 4'h4 && out_4bits_C == 4'h4) && (out_4bits_B == 4'h0 && out_4bits_D == 4'h0)) begin
                         resp_fsm[7:0]   = {out_4bits_C, out_4bits_A};
                         resp_fsm[15:8]  = {out_4bits_D, out_4bits_B};
@@ -294,7 +301,7 @@ module digital_block_11 (clk, en, rst_n, out_4bits_A, out_4bits_B, out_4bits_C, 
                         resp_valid_fsm   = 1'b1;
                         next_state       = STATE_READ_SRAM;
                     end else begin
-                        resp_valid_fsm = 1'b1;
+                        next_state       = STATE_ACTIVE;
                     end
                 end
             end
@@ -389,9 +396,9 @@ module digital_block_11 (clk, en, rst_n, out_4bits_A, out_4bits_B, out_4bits_C, 
                             next_state      = STATE_ACTIVE;
                         end
                     end else begin
-                        resp_fsm[7:0]   = RESP_ERROR_00;
-                        resp_length_fsm = RESP_LEN_8BIT;
-                        resp_valid_fsm  = 1'b1;
+                        resp_fsm         = 72'd0;
+                        resp_length_fsm  = 7'd0;
+                        resp_valid_fsm   = 1'b1;
                         next_state      = (anticoll_level == ANTICOLL_LEVEL_1) ? 
                                           STATE_READY1 : STATE_READY2;
                     end

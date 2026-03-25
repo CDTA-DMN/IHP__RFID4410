@@ -217,6 +217,7 @@ module top_module (
 	.sram_dout_len(sram_dout_len_test),
 	.sram_dout_valid(dout_valid_sram),	
 	.test_mode(test_mode),	
+	.forcing(force_state),
         .state_fsm(state_dbg_fsm),        
         .tx_out(tx_out),
         .enc_done(enc_done_enc)

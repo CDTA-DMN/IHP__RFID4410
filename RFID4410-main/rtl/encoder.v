@@ -1,7 +1,7 @@
 
 `timescale 1ns / 1ps
 
-module digital_block_08 (clk, en, rst_n, frame_in, frame_len, frame_in_v, crc_cal, crc_frame, crc_done, start_tran, state_fsm, sram_dout, sram_dout_len, sram_dout_valid, test_mode, tx_out, enc_done);  
+module digital_block_08 (clk, en, rst_n, frame_in, frame_len, frame_in_v, crc_cal, crc_frame, crc_done, start_tran, state_fsm, sram_dout, sram_dout_len, sram_dout_valid, test_mode, forcing, tx_out, enc_done);  
      
     input  wire        clk;  
     input  wire        en;
@@ -18,6 +18,7 @@ module digital_block_08 (clk, en, rst_n, frame_in, frame_len, frame_in_v, crc_ca
     input  wire [5:0]  sram_dout_len;
     input wire         sram_dout_valid;
     input wire         test_mode;
+    input  wire [3:0]  forcing;
     output wire         tx_out;
     output wire         enc_done;
 
@@ -40,6 +41,7 @@ module digital_block_08 (clk, en, rst_n, frame_in, frame_len, frame_in_v, crc_ca
     .sram_dout_len(sram_dout_len),
     .sram_dout_valid(sram_dout_valid),
     .test_mode(test_mode),
+    .forcing(forcing),
     .state_fsm(state_fsm),
     .tx_out(tx_out),
     .enc_done(enc_done)
