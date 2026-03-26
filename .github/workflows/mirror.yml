@@ -3,21 +3,17 @@ name: Mirror to CDTA-DMN
 on:
   push:
     branches:
-      - main  # If your Golden Repo uses "master", change this to master
+      - main   # change if your branch is different (e.g. master)
 
 jobs:
-  git-mirror:
+  mirror:
     runs-on: ubuntu-latest
+
     steps:
-      - uses: actions/checkout@v3
-        with:
-          fetch-depth: 0
-      - name: Push to CDTA-DMN Organization
-        env:
-          # This ensures the secret is loaded correctly
-          GHR_TOKEN: ${{ secrets.SYNC_TOKEN }}
+      - name: Checkout
+        uses: actions/checkout@v3
+
+      - name: Mirror push to company
         run: |
-          # Use the token to add the remote
-          git remote add company https://x-access-token:${GHR_TOKEN}@github.com/CDTA-DMN/IHP__RFID4410.git
-          # Force push the main branch
-          git push --force company main
+          git remote add company https://x-access-token:${{ secrets.SYNC_TOKEN }}@github.com/CDTA-DMN/IHP__RFID4410.git
+          git push company --mirror
