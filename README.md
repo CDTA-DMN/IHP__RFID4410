@@ -43,6 +43,11 @@ RFID4410 implements a complete digital baseband for a HF RFID tag. It handles mu
 
 ```bash
 cd RFID4410-main/testbenches
+# quik sim
+bash run_quick_sim.sh
+gtkwave wave.vcd
+
+# full sim
 bash top_module_run_sim.sh
 gtkwave wave.vcd
 ```
