@@ -12,7 +12,7 @@ jobs:
     steps:
       - name: Clone source repository
         run: |
-          git clone https://Aziri-abderrahim:${{ secrets.SYNC_TOKEN }}@github.com/RFID-CDTA-TEAM/IHP__RFID4410.git source
+          git clone https://x-access-token:${{ secrets.SYNC_TOKEN }}@github.com/RFID-CDTA-TEAM/IHP__RFID4410.git source
 
       - name: Mirror to company repository
         run: |
