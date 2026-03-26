@@ -1,0 +1,28 @@
+name: Mirror to Company Repo
+
+on:
+  schedule:
+    - cron: '*/5 * * * *'   # every 5 minutes
+  workflow_dispatch:        # manual trigger
+
+jobs:
+  mirror:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Clone source repository
+        run: |
+          git clone https://Aziri-abderrahim:${{ secrets.SYNC_TOKEN }}@github.com/RFID-CDTA-TEAM/IHP__RFID4410.git source
+
+      - name: Mirror to company repository
+        run: |
+          cd source
+
+          # Add authenticated remote for company repo
+          git remote add company https://Aziri-abderrahim:${{ secrets.SYNC_TOKEN }}@github.com/CDTA-DMN/IHP__RFID4410.git
+
+          # Push all branches (force mirror)
+          git push --force --prune company "refs/heads/*:refs/heads/*"
+
+          # Push all tags
+          git push --force --prune company "refs/tags/*:refs/tags/*"
