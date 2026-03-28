@@ -1,3 +1,3 @@
-# bondpad_70x70_novias-main
+# bondpad_70x70-main
 
-Notes for cell `bondpad_70x70_novias-main`.
+Notes for cell `bondpad_70x70-main`.

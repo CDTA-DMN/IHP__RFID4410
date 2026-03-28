@@ -1,4 +1,4 @@
-module bondpad_70x70_novias (
+module bondpad_70x70 (
     inout pad
 );
 endmodule
