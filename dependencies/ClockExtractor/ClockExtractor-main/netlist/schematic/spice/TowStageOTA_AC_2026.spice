@@ -1,0 +1,66 @@
+** sch_path: /foss/designs/YOUCEF_DOCKER/TowStageOTA_AC_2026.sch
+**.subckt TowStageOTA_AC_2026
+vip vip GND dc 0.9 ac 0
+C2 net1 GND 10GF
+R1 vout net1 10G
+vin- net1 GND 0.9 ac 1
+C1 vout GND 0.1p
+VDD VDD GND 3.3
+XM4 net4 net4 VDD VDD sg13_hv_pmos w=2u l=1.5u ng=1
+XM1 net3 net4 VDD VDD sg13_hv_pmos w=2u l=1.5u ng=1 m=6
+XM2 vout net4 VDD VDD sg13_hv_pmos w=2u l=1.5u ng=1 m=6
+XM3 net5 vip net3 VDD sg13_hv_pmos w=4.5u l=1u ng=1 m=2
+XM5 net2 net1 net3 VDD sg13_hv_pmos w=4.5u l=1u ng=1 m=2
+XM10 net5 net2 net6 net6 sg13_hv_nmos w=1.2u l=0.8u ng=1 m=2
+XM11 net2 net2 net6 net6 sg13_hv_nmos w=1.2u l=0.8u ng=1 m=2
+XM12 vout net5 net6 net6 sg13_hv_nmos w=1.2u l=0.8u ng=1 m=4
+I0 VDD net7 1u
+Vmeas net6 GND 0
+.save i(vmeas)
+XM6 net4 net7 net6 net6 sg13_hv_nmos w=3u l=10u ng=1 m=2
+XM7 net7 net7 net6 net6 sg13_hv_nmos w=3u l=10u ng=1
+**** begin user architecture code
+
+.lib cornerMOShv.lib mos_tt
+.lib cornerRES.lib res_typ
+.lib cornerCAP.lib cap_typ
+
+
+
+.param temp=27
+.control
+save all
+op
+ac dec 100 1 2G
+let gain_db = db(v(vout))
+let phase = ph(v(vout))*180/pi
+meas ac dc_gain find vdb(vout) at=1
+ meas ac gain_at_13_56MHz find vdb(vout) at=13.56meg
+  let 3dB_gain = dc_gain - 3
+  meas ac bandwidth when vdb(vout)=3dB_gain fall=1
+ print dc_gain
+ print 3dB_gain
+ print bandwidth
+
+ meas ac unity_freq when gain_db=0
+ meas ac phase_at_unity find phase at=unity_freq
+ let phase_margin = 180 - phase_at_unity
+
+ print unity_freq
+ print phase_margin
+
+ print gain_at_13_56MHz
+
+
+ plot db(v(vout))
+ plot cph(v(vout))*180/pi
+
+write TowStageOTA_AC_2026.raw
+.endc
+
+
+**** end user architecture code
+**.ends
+.GLOBAL GND
+.GLOBAL VDD
+.end

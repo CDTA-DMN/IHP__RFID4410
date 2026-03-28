@@ -1,0 +1,144 @@
+** sch_path: /foss/designs/postLayoutsimulatins/postlayout_TRAN_clock_extractor_2026.sch
+**.subckt postlayout_TRAN_clock_extractor_2026
+X1 VDD net1 VDD1 ANT22 ANT11 net2 vclk Clock_Extractor_2026
+I0 VDD net2 1u
+VDD VDD GND 3
+VDD1 VDD1 GND 1.2
+VIN1 net3 GND sine(0 4.3 13560k 0 0) 1 ac 1
+
+L11 GND net6 0.9u
+C2 net5 GND 106.14p
+R7 net4 net3 50
+C4 net5 net4 48.29p
+R8 net6 net5 4.79
+L12 net23 net14 5.43u
+XR16 ANT11 net14 sub! rsil w=2u l=1.23u m=1 b=0
+XR19 ANT22 net23 sub! rsil w=2u l=1.23u m=1 b=0
+XC6 ANT11 ANT22 cap_cmim w=40u l=50u
+XM8 ANT11 ANT11 net7 net7 sg13_hv_pmos w=w1 l=l1 ng=ng1 m=m1
+XM9 net10 net10 net18 net11 sg13_hv_pmos w=w1 l=l1 ng=ng1 m=m1
+R20 net20 ANT22 100K
+R21 ANT11 net12 100K
+XM13 ANT11 ANT11 net15 net21 sg13_hv_nmos w=w2 l=l2 ng=ng1 m=m2
+XM14 ANT22 ANT22 net15 net22 sg13_hv_nmos w=w2 l=l2 ng=ng1 m=m2
+C11 net16 VSS 1n
+R22 net13 VSS 5k
+Vmeas12 net12 net11 0
+.save i(vmeas12)
+C12 ANT11 VSS 46p
+C13 VSS ANT22 46p
+XM15 ANT11 ANT22 net17 net21 sg13_hv_nmos w=w2 l=l2 ng=ng1 m=m2
+XM16 ANT22 ANT11 net17 net22 sg13_hv_nmos w=w2 l=l2 ng=ng1 m=m2
+XM17 net7 net7 net8 net8 sg13_hv_pmos w=w1 l=l1 ng=ng1 m=m1
+XM18 net8 net8 net19 net20 sg13_hv_pmos w=w1 l=l1 ng=ng1 m=m1
+XM19 net9 net9 net10 net10 sg13_hv_pmos w=w1 l=l1 ng=ng1 m=m1
+XM20 ANT22 ANT22 net9 net9 sg13_hv_pmos w=w1 l=l1 ng=ng1 m=m1
+Vmeas7 Voo net13 0
+.save i(vmeas7)
+Vmeas9 Voo net16 0
+.save i(vmeas9)
+Vmeas10 net19 ANT22 0
+.save i(vmeas10)
+Vmeas11 ANT11 net18 0
+.save i(vmeas11)
+Vmeas13 net17 VSS 0
+.save i(vmeas13)
+Vmeas14 net15 Voo 0
+.save i(vmeas14)
+Vmeas15 net21 net17 0
+.save i(vmeas15)
+Vmeas16 net22 net17 0
+.save i(vmeas16)
+R24 VSS net24 1000Meg
+VIN2 net24 GND 0
+Vmeas net1 GND 0
+.save i(vmeas)
+**** begin user architecture code
+
+.lib cornerMOSlv.lib mos_tt
+.lib cornerMOShv.lib mos_tt
+.lib cornerCAP.lib cap_typ
+.lib cornerRES.lib res_typ
+
+
+
+.param temp=27
+.options rshunt =1e12
+.param w1=5u
+.param w2=10u
+.param l1=0.5u
+.param l2=1u
+.param ng1=1
+.param m1=20
+.param m2=10
+.param Coef=0.1
+.save all
+.control
+
+* Transient simulation
+tran 50p 3.5u
+plot vclk
+plot i(Vmeas7)
+plot i(Vmeas)
+
+meas tran avg_current AVG I(VDD)  from=1u to=1.5u
+let  power_VDD=3*avg_current
+meas tran avg_current_1 AVG I(VDD1) from=1u to=1.5u
+let  power_VDD1=1.2*avg_current_1
+let total_power=power_VDD + power_VDD1
+
+meas tran thigh TRIG v(vclk) VAL=1.08 RISE=39 TARG v(vclk) VAL=1.08 FALL=39
+meas tran tlow TRIG  v(vclk)  VAL=0.12 FALL=39  TARG v(vclk) VAL=0.12 RISE=40
+
+//meas tran thigh TRIG v(vclk) VAl=0.6 RISE=25 TARG v(vclk) VAl=0.6 FALL=25
+//meas tran tlow  TRIG v(vclk) VAl=0.6 FALL=25 TARG v(vclk) VAl=0.6 RISE=26
+  * rise time and fall time
+meas tran t100 when v(vclk)=0.12 rise=25
+meas tran t90  when  v(vclk)=1.08 rise=25
+
+let RiseTime = t90 - t100
+
+meas tran t90_f when v(vclk)=1.08 fall=25
+meas tran t10_f when v(vclk)=0.12 fall=25
+
+let FallTime = t10_f - t90_f
+
+
+
+meas tran t19 when v(vclk)=0.6 rise=43
+meas tran t20 when v(vclk)=0.6 rise=44
+let period1 =(t20 - t19)
+let freq1 =1/period1
+
+meas tran t21 when v(vclk)=0.6 rise=45
+let period2 =(t21 - t20)
+let freq2 =1/period2
+
+
+let duty_cycle =thigh/(period1)*100
+
+print freq1
+print freq2
+
+print thigh
+print tlow
+print RiseTime
+print FallTime
+print duty_cycle
+print total_power
+
+
+ write postlayout_TRAN_clock_extractor_2026.raw
+.endc
+K1 L11 L12  0.7
+
+
+
+.include /foss/designs/Layout2026/Clock_Extractor_2026.spice
+
+**** end user architecture code
+**.ends
+.GLOBAL VDD
+.GLOBAL VDD1
+.GLOBAL GND
+.end

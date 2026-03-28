@@ -1,0 +1,48 @@
+** sch_path: /foss/designs/YOUCEF_DOCKER/TowStageOTA_DC_2026.sch
+**.subckt TowStageOTA_DC_2026
+VDD VDD GND 3.3
+XM4 net2 net2 VDD VDD sg13_hv_pmos w=5u l=3.8u ng=1
+XM1 net7 net2 VDD VDD sg13_hv_pmos w=5u l=0.8u ng=1 m=5
+XM2 vout1 net2 VDD VDD sg13_hv_pmos w=5u l=0.4u ng=1 m=6
+XM3 net5 vip net3 VDD sg13_hv_pmos w=10u l=0.8u ng=1 m=2
+XM5 net6 vin net3 VDD sg13_hv_pmos w=10u l=0.8u ng=1 m=2
+XM10 v2 v1 net1 net1 sg13_hv_nmos w=8u l=5u ng=1 m=2
+XM11 v1 v1 net1 net1 sg13_hv_nmos w=8u l=5u ng=1 m=2
+XM12 net4 v2 net1 net1 sg13_hv_nmos w=2u l=0.45u ng=1 m=4
+vin vin GND 1.5
+vip vip GND 0
+Vmeas net1 GND 0
+.save i(vmeas)
+Vmeas1 net5 v2 0
+.save i(vmeas1)
+Vmeas2 net6 v1 0
+.save i(vmeas2)
+Vmeas3 vout1 net4 0
+.save i(vmeas3)
+Vmeas4 net7 net3 0
+.save i(vmeas4)
+I1 VDD net8 1u
+XM9 net2 net8 net1 net1 sg13_hv_nmos w=4u l=10u ng=1 m=3
+XM6 net8 net8 net1 net1 sg13_hv_nmos w=4u l=10u ng=1
+**** begin user architecture code
+
+.lib cornerMOShv.lib mos_tt
+
+
+
+.control
+ save all
+op
+//dc vin 0 1.2 0.001
+//plot vin vout
+dc vip 0 3.3 0.001
+plot vip vout1
+write towstageOTA_DC_2026.raw
+.endc
+
+
+**** end user architecture code
+**.ends
+.GLOBAL GND
+.GLOBAL VDD
+.end

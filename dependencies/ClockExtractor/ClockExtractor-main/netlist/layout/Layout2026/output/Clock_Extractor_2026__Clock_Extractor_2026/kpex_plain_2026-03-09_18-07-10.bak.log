@@ -1,0 +1,71 @@
+GDS input file passed, running in LVS mode
+No explicit top cell specified, using top cell 'Clock_Extractor_2026'
+LVS input schematic not specified (argument --schematic), using dummy schematic
+Calling MAGIC
+magic -dnull -noconsole -rcfile /foss/pdks/ihp-sg13g2/libs.tech/magic/ihp-sg13g2.magicrc output/Clock_Extractor_2026__Clock_Extractor_2026/magic_RC/Clock_Extractor_2026_MAGIC_RC_Script.tcl, output file: output/Clock_Extractor_2026__Clock_Extractor_2026/magic_RC/Clock_Extractor_2026_MAGIC_RC_Output.txt
+
+Magic 8.3 revision 603 - Compiled on Sat Feb 14 01:20:09 AM CET 2026.
+Starting magic under Tcl interpreter
+Using the terminal as the console.
+WARNING: RLIMIT_NOFILE is above 1024 and Tcl_Version<9 this may cause runtime issues [rlim_cur=1048576]
+Using NULL graphics device.
+Processing system .magicrc file
+Switching to WIRING tool.
+Switching to NETLIST tool.
+Switching to PICK tool.
+Switching to BOX tool.
+Sourcing design .magicrc for technology ihp-sg13g2 ...
+2 Magic internal units = 1 Lambda
+Input style sg13g2(): scaleFactor=2, multiplier=2
+The following types are not handled by extraction and will be treated as non-electrical types:
+    pblock sealcont difffill nemitter hvnemitter hvisodiffres sealvia1 sealvia2 sealvia3 sealvia4 sealvia5 sealvia6 pillar solder seal glass thruvia inductor 
+Scaled tech values by 2 / 1 to match internal grid scaling
+Loading ihp-sg13g2 Device Generator Menu ...
+Loading "output/Clock_Extractor_2026__Clock_Extractor_2026/magic_RC/Clock_Extractor_2026_MAGIC_RC_Script.tcl" from command line.
+Warning: Calma reading is not undoable!  I hope that's OK.
+Library written using GDS-II Release 6.0
+Library name: LIB
+Reading "$$$CONTEXT_INFO$$$".
+Reading "pmosHV$6".
+Reading "nmosHV$8".
+Reading "guard_ring$5".
+Reading "pmosHV$2".
+Reading "via_stack$3".
+Reading "via_stack$5".
+Reading "via_stack".
+Reading "nmosHV$4".
+Reading "nmosHV$6".
+Reading "guard_ring$6".
+Reading "via_stack$1".
+Reading "pmosHV$5".
+Reading "pmosHV".
+Reading "nmosHV$7".
+Reading "nmos$1".
+Reading "pmos$1".
+Reading "nmosHV".
+Reading "via_stack$6".
+Reading "via_stack$4".
+Reading "current_mirror2".
+Reading "iput_diff".
+Reading "current_mirror_loadN".
+Making label "VSS" on type metal1 in cell current_mirror_loadN sticky.
+Reading "current_mirror3".
+Error while reading cell "current_mirror3" (byte position 132488): Warning: cell "via_stack$5" placed on top of itself.  Ignoring the extra one.
+Error while reading cell "current_mirror3" (byte position 132614): Warning: cell "via_stack$5" placed on top of itself.  Ignoring the extra one.
+Reading "2stage_ota".
+Reading "inverter_hv".
+Reading "inverter_lv".
+Reading "Clock_Extractor_2026".
+Extracting Clock_Extractor_2026 into /foss/designs/Layout2026/output/Clock_Extractor_2026__Clock_Extractor_2026/magic_RC/Clock_Extractor_2026.ext:
+Warning:  Ports "VDD_1v2" and "VDD" are electrically shorted.
+Clock_Extractor_2026: 12 warnings
+Total of 12 warnings.
+Warning:  Ports "VDD_1v2" and "VDD" are electrically shorted.
+exttosim finished.
+Adding  2stage_ota_0.gate_M2; Tnew = 0.00ns, Told = -16719.54ns
+Adding  current_mirror3_0.drain_M1
+Adding  current_mirror_loadN_0.drain_M11
+Adding  current_mirror_loadN_0.drain_M10
+Adding  2stage_ota_0.drain_M2_M12_outputOTA
+Adding  inverter_hv_0.vout_hv
+Adding  VSS

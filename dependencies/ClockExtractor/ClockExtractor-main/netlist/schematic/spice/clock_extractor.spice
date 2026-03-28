@@ -1,0 +1,37 @@
+** sch_path: /foss/designs/ClockExtractor2026/clock_extractor.sch
+**.subckt clock_extractor vdd_1v2 VDD vclk vin_N vin_P v_bm VSS
+*.ipin vin_N
+*.ipin vin_P
+*.ipin v_bm
+*.iopin VDD
+*.iopin vdd_1v2
+*.iopin VSS
+*.opin vclk
+XM7 vout1 vout net3 net3 sg13_hv_nmos w=1.05u l=0.45u ng=1
+XM6 vout1 vout vdd_1v2 vdd_1v2 sg13_hv_pmos w=1.43u l=0.4u ng=1
+XM4 net1 net1 VDD VDD sg13_hv_pmos w=2u l=1.5u ng=1
+XM1 net7 net1 VDD VDD sg13_hv_pmos w=2u l=1.5u ng=1 m=6
+XM2 vout net1 VDD VDD sg13_hv_pmos w=2u l=1.5u ng=1 m=6
+XM3 net5 vin_P net2 VDD sg13_hv_pmos w=4.5u l=1u ng=1 m=2
+XM5 net6 vin_N net2 VDD sg13_hv_pmos w=4.5u l=1u ng=1 m=2
+XM10 v2 v1 net3 net3 sg13_hv_nmos w=1.2u l=0.8u ng=1 m=2
+XM11 v1 v1 net3 net3 sg13_hv_nmos w=1.2u l=0.8u ng=1 m=2
+XM12 net4 v2 net3 net3 sg13_hv_nmos w=1.2u l=0.8u ng=1 m=4
+Vmeas net3 VSS 0
+.save i(vmeas)
+Vmeas1 net5 v2 0
+.save i(vmeas1)
+Vmeas2 net6 v1 0
+.save i(vmeas2)
+Vmeas3 vout net4 0
+.save i(vmeas3)
+Vmeas4 net7 net2 0
+.save i(vmeas4)
+XM27 vclk vout1 vdd_1v2 vdd_1v2 sg13_lv_pmos w=1.12u l=0.13u ng=1
+XM29 vclk vout1 net3 net3 sg13_lv_nmos w=0.74u l=0.13u ng=1
+XM31 net8 v_bm net3 net3 sg13_hv_nmos w=3u l=10u ng=1 m=2
+XM32 v_bm v_bm net3 net3 sg13_hv_nmos w=3u l=10u ng=1
+Vmeas8 net1 net8 0
+.save i(vmeas8)
+**.ends
+.end

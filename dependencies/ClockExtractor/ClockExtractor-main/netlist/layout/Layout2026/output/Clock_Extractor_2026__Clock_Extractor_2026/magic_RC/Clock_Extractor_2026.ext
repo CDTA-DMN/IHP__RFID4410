@@ -1,0 +1,137 @@
+timestamp 0
+version 8.3
+tech ihp-sg13g2
+style ngspice()
+scale 1000 1 0.5
+resistclasses 3000000 67000 110 88 88 88 88 18 11 7000 260000 1360000
+parameters sg13_lv_nmos l=l w=w a1=as p1=ps a2=ad p2=pd
+parameters sg13_lv_pmos l=l w=w a1=as p1=ps a2=ad p2=pd
+parameters sg13_hv_nmos l=l w=w a1=as p1=ps a2=ad p2=pd
+parameters sg13_hv_pmos l=l w=w a1=as p1=ps a2=ad p2=pd
+port "vclk" 11 -1645 -38 -1548 2 m2
+port "vin_P" 7 -7157 2141 -7094 2181 m2
+port "vin_N" 6 -7153 2265 -7095 2305 m2
+port "v_bm" 9 -6334 -3646 -6245 -3588 m2
+port "vdd_1v2" 5 -2144 -5219 -2054 -5168 m1
+port "VDD" 1 -2412 5273 -2352 5368 m1
+port "VSS" 3 -4874 -6537 -4814 -6450 m1
+node "vclk" 20 1897.09 -1645 -38 m2 0 0 0 0 22152 1360 318680 16014 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+node "inverter_hv_0.vout_hv" 11 1196.67 -4526 -5078 p 0 0 0 0 48222 2558 177612 7876 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+equiv "inverter_hv_0.vout_hv" "inverter_lv_0.vin_inv"
+node "2stage_ota_0.drain_M2_M12_outputOTA" 26 2303.62 -4436 -2721 hvndif 0 0 0 0 175040 10870 236030 9198 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+equiv "2stage_ota_0.drain_M2_M12_outputOTA" "inverter_hv_0.VINH"
+node "current_mirror_loadN_0.drain_M10" 26 2634.98 -4515 -469 hvndif 0 0 0 0 106588 6314 335392 15550 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+equiv "current_mirror_loadN_0.drain_M10" "iput_diff_0.drain_M3"
+equiv "current_mirror_loadN_0.drain_M10" "2stage_ota_0.gate_M12"
+node "current_mirror_loadN_0.drain_M11" 17 2149.12 -4638 -748 p 0 0 0 0 133748 8380 95950 3838 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+equiv "current_mirror_loadN_0.drain_M11" "iput_diff_0.drain_M5"
+node "vin_P" 9 500.66 -7157 2141 m2 0 0 0 0 5880 364 149520 7556 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+node "vin_N" 11 586.425 -7153 2265 m2 0 0 0 0 11760 728 182707 9138 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+node "v_bm" 4 15694.5 -6334 -3646 m2 0 0 0 0 33186 2000 29638 1138 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+node "current_mirror3_0.drain_M1" 32 491.702 -3665 1014 hvpdif 0 0 0 0 303356 18534 35322 1334 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+equiv "current_mirror3_0.drain_M1" "iput_diff_0.source_M3_M5"
+node "2stage_ota_0.gate_M2" 24 1820.95 -5718 705 hvndif 0 0 0 0 87776 5578 107902 4844 250876 10786 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+equiv "2stage_ota_0.gate_M2" "current_mirror2_0.drain_M31"
+equiv "2stage_ota_0.gate_M2" "current_mirror3_0.drain_M4"
+node "vdd_1v2" 13 865.771 -2144 -5219 m1 0 0 0 0 431178 14646 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+node "VDD" 119 4237.59 -2412 5273 m1 0 0 0 0 2660740 107608 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+equiv "VDD" "iput_diff_0.VDD"
+equiv "VDD" "2stage_ota_0.VDD"
+substrate "VSS" 0 0 -4874 -6537 m1 0 0 0 0 2960172 109710 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+equiv "VSS" "inverter_lv_0.VSS"
+equiv "VSS" "inverter_hv_0.VSS"
+equiv "VSS" "2stage_ota_0.VSS"
+equiv "VSS" "current_mirror_loadN_0.VSS"
+cap "vclk" "current_mirror_loadN_0.drain_M11" 0.018119
+cap "vin_P" "current_mirror_loadN_0.drain_M11" 59.9787
+cap "inverter_hv_0.vout_hv" "VDD" 0.535012
+cap "v_bm" "VDD" 78.7847
+cap "v_bm" "vin_N" 127.933
+cap "2stage_ota_0.drain_M2_M12_outputOTA" "VDD" 1323.91
+cap "vdd_1v2" "VDD" 81.4914
+cap "2stage_ota_0.gate_M2" "VDD" 10782.9
+cap "vin_N" "2stage_ota_0.gate_M2" 66.0046
+cap "v_bm" "current_mirror3_0.drain_M1" 0.2106
+cap "current_mirror3_0.drain_M1" "2stage_ota_0.gate_M2" 529.708
+cap "v_bm" "current_mirror_loadN_0.drain_M11" 7.87451
+cap "2stage_ota_0.drain_M2_M12_outputOTA" "current_mirror_loadN_0.drain_M11" 0.214023
+cap "current_mirror_loadN_0.drain_M10" "VDD" 1259.37
+cap "current_mirror_loadN_0.drain_M10" "vin_N" 178.417
+cap "current_mirror_loadN_0.drain_M11" "2stage_ota_0.gate_M2" 68.7376
+cap "inverter_hv_0.vout_hv" "vclk" 741.666
+cap "2stage_ota_0.drain_M2_M12_outputOTA" "vclk" 88.7762
+cap "vin_P" "v_bm" 168.194
+cap "current_mirror_loadN_0.drain_M10" "current_mirror3_0.drain_M1" 346.401
+cap "vclk" "vdd_1v2" 672.298
+cap "vclk" "2stage_ota_0.gate_M2" 198.144
+cap "vin_P" "2stage_ota_0.gate_M2" 85.5697
+cap "current_mirror_loadN_0.drain_M10" "current_mirror_loadN_0.drain_M11" 1368.63
+cap "vclk" "current_mirror_loadN_0.drain_M10" 38.5197
+cap "vin_P" "current_mirror_loadN_0.drain_M10" 202.848
+cap "inverter_hv_0.vout_hv" "2stage_ota_0.drain_M2_M12_outputOTA" 280.146
+cap "2stage_ota_0.drain_M2_M12_outputOTA" "v_bm" 1.24727
+cap "v_bm" "2stage_ota_0.gate_M2" 248.405
+cap "inverter_hv_0.vout_hv" "vdd_1v2" 852.173
+cap "2stage_ota_0.drain_M2_M12_outputOTA" "2stage_ota_0.gate_M2" 526.543
+cap "2stage_ota_0.drain_M2_M12_outputOTA" "vdd_1v2" 487.246
+cap "2stage_ota_0.gate_M2" "vdd_1v2" 0.195707
+cap "current_mirror_loadN_0.drain_M10" "v_bm" 20.8724
+cap "inverter_hv_0.vout_hv" "current_mirror_loadN_0.drain_M10" 0.00805604
+cap "2stage_ota_0.drain_M2_M12_outputOTA" "current_mirror_loadN_0.drain_M10" 623.536
+cap "current_mirror_loadN_0.drain_M10" "2stage_ota_0.gate_M2" 351.564
+cap "vin_N" "VDD" 1652.34
+cap "current_mirror3_0.drain_M1" "VDD" 2598.4
+cap "current_mirror3_0.drain_M1" "vin_N" 263.796
+cap "current_mirror_loadN_0.drain_M11" "VDD" 774.08
+cap "current_mirror_loadN_0.drain_M11" "vin_N" 254
+cap "vclk" "VDD" 487.19
+cap "current_mirror_loadN_0.drain_M11" "current_mirror3_0.drain_M1" 339.022
+cap "vin_P" "VDD" 1854.43
+cap "vin_P" "vin_N" 2146.32
+cap "vin_P" "current_mirror3_0.drain_M1" 249.625
+device msubckt sg13_lv_pmos -2632 -5329 -2631 -5328 l=26 w=224 "vdd_1v2" "inverter_hv_0.vout_hv" 52 0 "vclk" 224 15232,584 "vdd_1v2" 224 15232,584
+device msubckt sg13_lv_nmos -4472 -5263 -4471 -5262 l=26 w=148 "VSS" "inverter_hv_0.vout_hv" 52 0 "VSS" 148 10064,432 "vclk" 148 10064,432
+device msubckt sg13_hv_pmos -2748 -4379 -2747 -4378 l=80 w=286 "vdd_1v2" "2stage_ota_0.drain_M2_M12_outputOTA" 160 0 "inverter_hv_0.vout_hv" 286 19448,708 "vdd_1v2" 286 19448,708
+device msubckt sg13_hv_nmos -4418 -4279 -4417 -4278 l=90 w=210 "VSS" "2stage_ota_0.drain_M2_M12_outputOTA" 180 0 "VSS" 210 14280,556 "inverter_hv_0.vout_hv" 210 14280,556
+device msubckt sg13_hv_nmos -5718 -5447 -5717 -5446 l=2000 w=600 "VSS" "VSS" 4000 0 "VSS" 600 40800,1336 "v_bm" 600 22800,676
+device msubckt sg13_hv_pmos -3000 -2937 -2999 -2936 l=300 w=400 "VDD" "VDD" 600 0 "VDD" 0 0 "VDD" 800 15200,476
+device msubckt sg13_hv_pmos -3000 -2561 -2999 -2560 l=300 w=400 "VDD" "2stage_ota_0.gate_M2" 600 0 "VDD" 400 15200,476 "2stage_ota_0.drain_M2_M12_outputOTA" 400 15200,476
+device msubckt sg13_hv_pmos -3000 -2185 -2999 -2184 l=300 w=400 "VDD" "2stage_ota_0.gate_M2" 600 0 "2stage_ota_0.drain_M2_M12_outputOTA" 400 15200,476 "VDD" 400 15200,476
+device msubckt sg13_hv_pmos -3000 -1809 -2999 -1808 l=300 w=400 "VDD" "2stage_ota_0.gate_M2" 600 0 "VDD" 400 15200,476 "2stage_ota_0.drain_M2_M12_outputOTA" 400 15200,476
+device msubckt sg13_hv_pmos -3000 -1433 -2999 -1432 l=300 w=400 "VDD" "2stage_ota_0.gate_M2" 600 0 "2stage_ota_0.drain_M2_M12_outputOTA" 400 15200,476 "VDD" 400 15200,476
+device msubckt sg13_hv_nmos -4436 -2653 -4435 -2652 l=160 w=240 "VSS" "current_mirror_loadN_0.drain_M10" 320 0 "2stage_ota_0.drain_M2_M12_outputOTA" 240 16320,616 "VSS" 240 9120,316
+device msubckt sg13_hv_nmos -4436 -2417 -4435 -2416 l=160 w=240 "VSS" "current_mirror_loadN_0.drain_M10" 320 0 "VSS" 240 9120,316 "2stage_ota_0.drain_M2_M12_outputOTA" 240 9120,316
+device msubckt sg13_hv_nmos -4436 -2181 -4435 -2180 l=160 w=240 "VSS" "current_mirror_loadN_0.drain_M10" 320 0 "2stage_ota_0.drain_M2_M12_outputOTA" 240 9120,316 "VSS" 240 9120,316
+device msubckt sg13_hv_nmos -4436 -1945 -4435 -1944 l=160 w=240 "VSS" "current_mirror_loadN_0.drain_M10" 320 0 "VSS" 240 9120,316 "2stage_ota_0.drain_M2_M12_outputOTA" 240 16320,616
+device msubckt sg13_hv_pmos -3000 -1057 -2999 -1056 l=300 w=400 "VDD" "2stage_ota_0.gate_M2" 600 0 "VDD" 400 15200,476 "2stage_ota_0.drain_M2_M12_outputOTA" 400 15200,476
+device msubckt sg13_hv_pmos -3000 -681 -2999 -680 l=300 w=400 "VDD" "2stage_ota_0.gate_M2" 600 0 "2stage_ota_0.drain_M2_M12_outputOTA" 400 15200,476 "VDD" 400 15200,476
+device msubckt sg13_hv_pmos -3000 -305 -2999 -304 l=300 w=400 "VDD" "VDD" 600 0 "VDD" 0 0 "VDD" 800 27200,936
+device msubckt sg13_hv_nmos -4067 -1139 -4066 -1138 l=90 w=240 "VSS" "VSS" 180 0 "VSS" 0 0 "VSS" 480 16320,616
+device msubckt sg13_hv_nmos -4515 -1139 -4514 -1138 l=90 w=240 "VSS" "VSS" 180 0 "VSS" 0 0 "VSS" 480 16320,616
+device msubckt sg13_hv_nmos -4067 -805 -4066 -804 l=160 w=240 "VSS" "current_mirror_loadN_0.drain_M11" 320 0 "VSS" 240 16320,616 "current_mirror_loadN_0.drain_M10" 240 16320,616
+device msubckt sg13_hv_nmos -4515 -805 -4514 -804 l=160 w=240 "VSS" "current_mirror_loadN_0.drain_M11" 320 0 "VSS" 240 16320,616 "current_mirror_loadN_0.drain_M11" 240 16320,616
+device msubckt sg13_hv_nmos -4067 -401 -4066 -400 l=160 w=240 "VSS" "current_mirror_loadN_0.drain_M11" 320 0 "current_mirror_loadN_0.drain_M11" 240 16320,616 "VSS" 240 16320,616
+device msubckt sg13_hv_nmos -4515 -401 -4514 -400 l=160 w=240 "VSS" "current_mirror_loadN_0.drain_M11" 320 0 "current_mirror_loadN_0.drain_M10" 240 16320,616 "VSS" 240 16320,616
+device msubckt sg13_hv_nmos -4067 3 -4066 4 l=90 w=240 "VSS" "VSS" 180 0 "VSS" 0 0 "VSS" 480 16320,616
+device msubckt sg13_hv_nmos -4515 3 -4514 4 l=90 w=240 "VSS" "VSS" 180 0 "VSS" 0 0 "VSS" 480 16320,616
+device msubckt sg13_hv_nmos -5718 -3371 -5717 -3370 l=2000 w=600 "VSS" "v_bm" 4000 0 "v_bm" 600 22800,676 "VSS" 600 22800,676
+device msubckt sg13_hv_pmos -2429 1014 -2428 1015 l=200 w=900 "VDD" "VDD" 400 0 "VDD" 0 0 "VDD" 1800 61200,1936
+device msubckt sg13_hv_pmos -3013 1014 -3012 1015 l=200 w=900 "VDD" "vin_N" 400 0 "current_mirror_loadN_0.drain_M11" 900 61200,1936 "current_mirror3_0.drain_M1" 900 61200,1936
+device msubckt sg13_hv_pmos -3597 1014 -3596 1015 l=200 w=900 "VDD" "vin_P" 400 0 "current_mirror3_0.drain_M1" 900 61200,1936 "current_mirror_loadN_0.drain_M10" 900 61200,1936
+device msubckt sg13_hv_pmos -4181 1014 -4180 1015 l=200 w=900 "VDD" "VDD" 400 0 "VDD" 0 0 "VDD" 1800 61200,1936
+device msubckt sg13_hv_pmos -2429 2527 -2428 2528 l=200 w=900 "VDD" "VDD" 400 0 "VDD" 0 0 "VDD" 1800 61200,1936
+device msubckt sg13_hv_pmos -3013 2527 -3012 2528 l=200 w=900 "VDD" "vin_P" 400 0 "current_mirror_loadN_0.drain_M10" 900 61200,1936 "current_mirror3_0.drain_M1" 900 61200,1936
+device msubckt sg13_hv_pmos -3597 2527 -3596 2528 l=200 w=900 "VDD" "vin_N" 400 0 "current_mirror3_0.drain_M1" 900 61200,1936 "current_mirror_loadN_0.drain_M11" 900 61200,1936
+device msubckt sg13_hv_pmos -4181 2527 -4180 2528 l=200 w=900 "VDD" "VDD" 400 0 "VDD" 0 0 "VDD" 1800 61200,1936
+device msubckt sg13_hv_nmos -5718 -1295 -5717 -1294 l=2000 w=600 "VSS" "v_bm" 4000 0 "VSS" 600 22800,676 "2stage_ota_0.gate_M2" 600 22800,676
+device msubckt sg13_hv_nmos -5718 781 -5717 782 l=2000 w=600 "VSS" "v_bm" 4000 0 "2stage_ota_0.gate_M2" 600 22800,676 "VSS" 600 22800,676
+device msubckt sg13_hv_pmos -1238 4391 -1237 4392 l=300 w=400 "VDD" "VDD" 600 0 "VDD" 0 0 "VDD" 800 15200,476
+device msubckt sg13_hv_pmos -1614 4391 -1613 4392 l=300 w=400 "VDD" "2stage_ota_0.gate_M2" 600 0 "current_mirror3_0.drain_M1" 400 15200,476 "VDD" 400 15200,476
+device msubckt sg13_hv_pmos -1990 4391 -1989 4392 l=300 w=400 "VDD" "2stage_ota_0.gate_M2" 600 0 "VDD" 400 15200,476 "current_mirror3_0.drain_M1" 400 15200,476
+device msubckt sg13_hv_pmos -2366 4391 -2365 4392 l=300 w=400 "VDD" "2stage_ota_0.gate_M2" 600 0 "current_mirror3_0.drain_M1" 400 15200,476 "VDD" 400 15200,476
+device msubckt sg13_hv_pmos -2742 4391 -2741 4392 l=300 w=400 "VDD" "2stage_ota_0.gate_M2" 600 0 "VDD" 400 15200,476 "current_mirror3_0.drain_M1" 400 15200,476
+device msubckt sg13_hv_pmos -3118 4391 -3117 4392 l=300 w=400 "VDD" "2stage_ota_0.gate_M2" 600 0 "current_mirror3_0.drain_M1" 400 15200,476 "VDD" 400 15200,476
+device msubckt sg13_hv_pmos -3494 4391 -3493 4392 l=300 w=400 "VDD" "2stage_ota_0.gate_M2" 600 0 "VDD" 400 15200,476 "current_mirror3_0.drain_M1" 400 15200,476
+device msubckt sg13_hv_pmos -3870 4391 -3869 4392 l=300 w=400 "VDD" "2stage_ota_0.gate_M2" 600 0 "2stage_ota_0.gate_M2" 400 15200,476 "VDD" 400 15200,476
+device msubckt sg13_hv_pmos -4246 4391 -4245 4392 l=300 w=400 "VDD" "VDD" 600 0 "VDD" 400 27200,936 "2stage_ota_0.gate_M2" 400 15200,476
+device msubckt sg13_hv_nmos -5718 2857 -5717 2858 l=2000 w=600 "VSS" "VSS" 4000 0 "VSS" 0 0 "VSS" 1200 40800,1336

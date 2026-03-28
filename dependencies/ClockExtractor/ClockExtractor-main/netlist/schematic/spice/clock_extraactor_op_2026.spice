@@ -1,0 +1,266 @@
+** sch_path: /foss/designs/YOUCEF_DOCKER/clock_extraactor_op_2026.sch
+**.subckt clock_extraactor_op_2026
+VDD VDD GND 2.5
+VDD1 VDD1 GND 1.2
+XM7 vout1 vout net10 net10 sg13_hv_nmos w=1.05u l=0.45u ng=1
+XM6 vout1 vout VDD1 VDD1 sg13_hv_pmos w=1.43u l=0.4u ng=1
+Vmeas6 net10 GND 0
+.save i(vmeas6)
+XM4 net1 net1 VDD VDD sg13_hv_pmos w=4u l=1.5u ng=1
+XM1 net7 net1 VDD VDD sg13_hv_pmos w=5u l=1.5u ng=1 m=4
+XM2 vout net1 VDD VDD sg13_hv_pmos w=5u l=1.5u ng=1 m=4
+XM3 net5 vip net2 VDD sg13_hv_pmos w=4.5u l=1u ng=1 m=2
+XM5 net6 vin net2 VDD sg13_hv_pmos w=4.5u l=1u ng=1 m=2
+XM10 v2 v1 net3 net3 sg13_hv_nmos w=2.15u l=0.75u ng=1
+XM11 v1 v1 net3 net3 sg13_hv_nmos w=2.15u l=0.75u ng=1
+XM12 net4 v2 net3 net3 sg13_hv_nmos w=2.15u l=0.75u ng=1 m=2
+Vmeas net3 GND 0
+.save i(vmeas)
+Vmeas1 net5 v2 0
+.save i(vmeas1)
+Vmeas2 net6 v1 0
+.save i(vmeas2)
+Vmeas3 vout net4 0
+.save i(vmeas3)
+Vmeas4 net7 net2 0
+.save i(vmeas4)
+Vmeas5 net11 GND 0
+.save i(vmeas5)
+XM27 vclk vout1 VDD2 VDD2 sg13_lv_pmos w=1.12u l=0.13u ng=1
+XM29 vclk vout1 net11 net11 sg13_lv_nmos w=0.74u l=0.13u ng=1
+VDD2 VDD2 GND 1.2
+XM31 net9 net8 net3 net3 sg13_hv_nmos w=3u l=10u ng=1 m=2
+XM32 net8 net8 net3 net3 sg13_hv_nmos w=3u l=10u ng=1
+Vmeas8 net1 net9 0
+.save i(vmeas8)
+I0 VDD net8 1u
+vin vin GND 1.25
+vip vip GND 1.25
+**** begin user architecture code
+
+.lib cornerMOShv.lib mos_tt
+.lib cornerMOSlv.lib mos_tt
+
+
+
+.param temp=27
+//.include clock_extraactor_op_2026.save
+//.save all
+//.save @n.xm1.nsg13_hv_pmos
+.control
+save all
+op
+
+save @n.xm1.nsg13_hv_pmos[gm]
+save @n.xm1.nsg13_hv_pmos[vds]
+save @n.xm1.nsg13_hv_pmos[vth]
+save @n.xm1.nsg13_hv_pmos[vgs]
+save @n.xm1.nsg13_hv_pmos[ids]
+save @n.xm1.nsg13_hv_pmos[gds]
+save @n.xm1.nsg13_hv_pmos[cgg]
+save @n.xm1.nsg13_hv_pmos[cgd]
+save @n.xm1.nsg13_hv_pmos[vsat]
+
+print @n.xm1.nsg13_hv_pmos[ids]
+print @n.xm1.nsg13_hv_pmos[gds]
+print @n.xm1.nsg13_hv_pmos[gm]
+print @n.xm1.nsg13_hv_pmos[vds]
+print @n.xm1.nsg13_hv_pmos[vth]
+print @n.xm1.nsg13_hv_pmos[vsat]
+print @n.xm1.nsg13_hv_pmos[vgs]
+print @n.xm1.nsg13_hv_pmos[cgg]
+print @n.xm1.nsg13_hv_pmos[cgd]
+
+save @n.xm4.nsg13_hv_pmos[gm]
+save @n.xm4.nsg13_hv_pmos[vds]
+save @n.xm4.nsg13_hv_pmos[vgs]
+save @n.xm4.nsg13_hv_pmos[vth]
+save @n.xm4.nsg13_hv_pmos[ids]
+save @n.xm4.nsg13_hv_pmos[gds]
+save @n.xm4.nsg13_hv_pmos[cgg]
+save @n.xm4.nsg13_hv_pmos[vsat]
+save @n.xm4.nsg13_hv_pmos[cgd]
+
+print @n.xm4.nsg13_hv_pmos[ids]
+print @n.xm4.nsg13_hv_pmos[gds]
+print @n.xm4.nsg13_hv_pmos[gm]
+print @n.xm4.nsg13_hv_pmos[vds]
+print @n.xm4.nsg13_hv_pmos[vth]
+print @n.xm4.nsg13_hv_pmos[vsat]
+print @n.xm4.nsg13_hv_pmos[vgs]
+print @n.xm4.nsg13_hv_pmos[cgg]
+print @n.xm4.nsg13_hv_pmos[cgd]
+
+save @n.xm2.nsg13_hv_pmos[gm]
+save @n.xm2.nsg13_hv_pmos[vdss]
+save @n.xm2.nsg13_hv_pmos[vgs]
+save @n.xm2.nsg13_hv_pmos[vth]
+save @n.xm2.nsg13_hv_pmos[ids]
+save @n.xm2.nsg13_hv_pmos[gds]
+save @n.xm2.nsg13_hv_pmos[cgg]
+save @n.xm2.nsg13_hv_pmos[vsat]
+save @n.xm2.nsg13_hv_pmos[cgd]
+
+print @n.xm2.nsg13_hv_pmos[ids]
+print @n.xm2.nsg13_hv_pmos[gds]
+print @n.xm2.nsg13_hv_pmos[gm]
+print @n.xm2.nsg13_hv_pmos[vds]
+print @n.xm2.nsg13_hv_pmos[vth]
+print @n.xm2.nsg13_hv_pmos[vsat]
+print @n.xm2.nsg13_hv_pmos[vgs]
+print @n.xm2.nsg13_hv_pmos[cgg]
+print @n.xm2.nsg13_hv_pmos[cgd]
+
+
+save @n.xm5.nsg13_hv_pmos[gm]
+save @n.xm5.nsg13_hv_pmos[vds]
+save @n.xm5.nsg13_hv_pmos[vth]
+save @n.xm5.nsg13_hv_pmos[vgs]
+save @n.xm5.nsg13_hv_pmos[ids]
+save @n.xm5.nsg13_hv_pmos[gds]
+save @n.xm5.nsg13_hv_pmos[cgg]
+save @n.xm5.nsg13_hv_pmos[cgd]
+save @n.xm5.nsg13_hv_pmos[vsat]
+
+print @n.xm5.nsg13_hv_pmos[ids]
+print @n.xm5.nsg13_hv_pmos[gds]
+print @n.xm5.nsg13_hv_pmos[gm]
+print @n.xm5.nsg13_hv_pmos[vds]
+print @n.xm5.nsg13_hv_pmos[vth]
+print @n.xm5.nsg13_hv_pmos[vsat]
+print @n.xm5.nsg13_hv_pmos[vgs]
+print @n.xm5.nsg13_hv_pmos[cgg]
+print @n.xm5.nsg13_hv_pmos[cgd]
+
+save @n.xm11.nsg13_hv_nmos[gm]
+save @n.xm11.nsg13_hv_nmos[vds]
+save @n.xm11.nsg13_hv_nmos[vgs]
+save @n.xm11.nsg13_hv_nmos[vth]
+save @n.xm11.nsg13_hv_nmos[ids]
+save @n.xm11.nsg13_hv_nmos[gds]
+save @n.xm11.nsg13_hv_nmos[cgg]
+save @n.xm11.nsg13_hv_nmos[vsat]
+save @n.xm11.nsg13_hv_nmos[cgd]
+
+print @n.xm11.nsg13_hv_nmos[ids]
+print @n.xm11.nsg13_hv_nmos[gds]
+print @n.xm11.nsg13_hv_nmos[gm]
+print @n.xm11.nsg13_hv_nmos[vds]
+print @n.xm11.nsg13_hv_nmos[vth]
+print @n.xm11.nsg13_hv_nmos[vsat]
+print @n.xm11.nsg13_hv_nmos[vgs]
+print @n.xm11.nsg13_hv_nmos[cgg]
+print @n.xm11.nsg13_hv_nmos[cgd]
+
+save @n.xm12.nsg13_hv_nmos[gm]
+save @n.xm12.nsg13_hv_nmos[vds]
+save @n.xm12.nsg13_hv_nmos[vgs]
+save @n.xm12.nsg13_hv_nmos[vth]
+save @n.xm12.nsg13_hv_nmos[ids]
+save @n.xm12.nsg13_hv_nmos[gds]
+save @n.xm12.nsg13_hv_nmos[cgg]
+save @n.xm12.nsg13_hv_nmos[vsat]
+save @n.xm12.nsg13_hv_nmos[cgd]
+
+print @n.xm12.nsg13_hv_nmos[ids]
+print @n.xm12.nsg13_hv_nmos[gds]
+print @n.xm12.nsg13_hv_nmos[gm]
+print @n.xm12.nsg13_hv_nmos[vds]
+print @n.xm12.nsg13_hv_nmos[vth]
+print @n.xm12.nsg13_hv_nmos[vsat]
+print @n.xm12.nsg13_hv_nmos[vgs]
+print @n.xm12.nsg13_hv_nmos[cgg]
+print @n.xm12.nsg13_hv_nmos[cgd]
+
+save @n.xm6.nsg13_hv_pmos[gm]
+save @n.xm6.nsg13_hv_pmos[vds]
+save @n.xm6.nsg13_hv_pmos[vgs]
+save @n.xm6.nsg13_hv_pmos[vth]
+save @n.xm6.nsg13_hv_pmos[ids]
+save @n.xm6.nsg13_hv_pmos[gds]
+save @n.xm6.nsg13_hv_pmos[cgg]
+save @n.xm6.nsg13_hv_pmos[vsat]
+save @n.xm6.nsg13_hv_pmos[cgd]
+
+print @n.xm6.nsg13_hv_pmos[ids]
+print @n.xm6.nsg13_hv_pmos[gds]
+print @n.xm6.nsg13_hv_pmos[gm]
+print @n.xm6.nsg13_hv_pmos[vds]
+print @n.xm6.nsg13_hv_pmos[vth]
+print @n.xm6.nsg13_hv_pmos[vsat]
+print @n.xm6.nsg13_hv_pmos[vgs]
+print @n.xm6.nsg13_hv_pmos[cgg]
+print @n.xm6.nsg13_hv_pmos[cgd]
+
+
+save @n.xm7.nsg13_hv_nmos[gm]
+save @n.xm7.nsg13_hv_nmos[vds]
+save @n.xm7.nsg13_hv_nmos[vgs]
+save @n.xm7.nsg13_hv_nmos[vth]
+save @n.xm7.nsg13_hv_nmos[ids]
+save @n.xm7.nsg13_hv_nmos[gds]
+save @n.xm7.nsg13_hv_nmos[cgg]
+save @n.xm7.nsg13_hv_nmos[vsat]
+save @n.xm7.nsg13_hv_nmos[cgd]
+
+print @n.xm7.nsg13_hv_nmos[ids]
+print @n.xm7.nsg13_hv_nmos[gds]
+print @n.xm7.nsg13_hv_nmos[gm]
+print @n.xm7.nsg13_hv_nmos[vds]
+print @n.xm7.nsg13_hv_nmos[vth]
+print @n.xm7.nsg13_hv_nmos[vsat]
+print @n.xm7.nsg13_hv_nmos[vgs]
+print @n.xm7.nsg13_hv_nmos[cgg]
+print @n.xm7.nsg13_hv_nmos[cgd]
+
+save @n.xm29.nsg13_lv_nmos[gm]
+save @n.xm29.nsg13_lv_nmos[vds]
+save @n.xm29.nsg13_lv_nmos[vgs]
+save @n.xm29.nsg13_lv_nmos[vth]
+save @n.xm29.nsg13_lv_nmos[ids]
+save @n.xm29.nsg13_lv_nmos[gds]
+save @n.xm29.nsg13_lv_nmos[cgg]
+save @n.xm29.nsg13_lv_nmos[cgd]
+save @n.xm29.nsg13_lv_nmos[vsat]
+
+print @n.xm29.nsg13_lv_nmos[ids]
+print @n.xm29.nsg13_lv_nmos[gds]
+print @n.xm29.nsg13_lv_nmos[gm]
+print @n.xm29.nsg13_lv_nmos[vds]
+print @n.xm29.nsg13_lv_nmos[vth]
+print @n.xm29.nsg13_lv_nmos[vsat]
+print @n.xm29.nsg13_lv_nmos[vgs]
+print @n.xm29.nsg13_lv_nmos[cgg]
+print @n.xm29.nsg13_lv_nmos[cgd]
+
+save @n.xm27.nsg13_lv_pmos[gm]
+save @n.xm27.nsg13_lv_pmos[vds]
+save @n.xm27.nsg13_lv_pmos[vgs]
+save @n.xm27.nsg13_lv_pmos[vth]
+save @n.xm27.nsg13_lv_pmos[ids]
+save @n.xm27.nsg13_lv_pmos[gds]
+save @n.xm27.nsg13_lv_pmos[cgg]
+save @n.xm27.nsg13_lv_pmos[cgd]
+save @n.xm27.nsg13_lv_pmos[vsat]
+
+print @n.xm27.nsg13_lv_pmos[ids]
+print @n.xm27.nsg13_lv_pmos[gds]
+print @n.xm27.nsg13_lv_pmos[gm]
+print @n.xm27.nsg13_lv_pmos[vds]
+print @n.xm27.nsg13_lv_pmos[vth]
+print @n.xm27.nsg13_lv_pmos[vsat]
+print @n.xm27.nsg13_lv_pmos[vgs]
+print @n.xm27.nsg13_lv_pmos[cgg]
+print @n.xm27.nsg13_lv_pmos[cgd]
+
+write clock_extraactor_op_2026.raw
+.endc
+
+
+**** end user architecture code
+**.ends
+.GLOBAL GND
+.GLOBAL VDD
+.GLOBAL VDD1
+.GLOBAL VDD2
+.end

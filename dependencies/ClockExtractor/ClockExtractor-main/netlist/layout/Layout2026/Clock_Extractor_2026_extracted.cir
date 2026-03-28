@@ -1,0 +1,45 @@
+* Extracted by KLayout with SG13G2 LVS runset on : 10/03/2026 01:40
+
+.SUBCKT Clock_Extractor_2026
+M$1 \$2 \$8 \$5 \$1 sg13_lv_nmos L=0.13u W=0.74u AS=0.2516p AD=0.2516p PS=2.16u
++ PD=2.16u
+M$2 \$2 \$2 \$17 \$1 sg13_hv_nmos L=10u W=3u AS=1.02p AD=0.57p PS=6.68u PD=3.38u
+M$3 \$17 \$17 \$2 \$1 sg13_hv_nmos L=10u W=3u AS=0.57p AD=0.57p PS=3.38u
++ PD=3.38u
+M$4 \$2 \$17 \$36 \$1 sg13_hv_nmos L=10u W=6u AS=1.14p AD=1.14p PS=6.76u
++ PD=6.76u
+M$6 \$2 \$2 \$2 \$1 sg13_hv_nmos L=10u W=3u AS=0.57p AD=1.02p PS=3.38u PD=6.68u
+M$7 \$2 \$15 \$8 \$1 sg13_hv_nmos L=0.45u W=1.05u AS=0.357p AD=0.357p PS=2.78u
++ PD=2.78u
+M$8 \$15 \$20 \$2 \$1 sg13_hv_nmos L=0.8u W=4.8u AS=1.092p AD=1.092p PS=7.82u
++ PD=7.82u
+M$12 \$2 \$2 \$2 \$1 sg13_hv_nmos L=0.45u W=4.8u AS=1.632p AD=1.632p PS=12.32u
++ PD=12.32u
+M$14 \$2 \$26 \$26 \$1 sg13_hv_nmos L=0.8u W=2.4u AS=0.816p AD=0.816p PS=6.16u
++ PD=6.16u
+M$15 \$2 \$26 \$20 \$1 sg13_hv_nmos L=0.8u W=2.4u AS=0.816p AD=0.816p PS=6.16u
++ PD=6.16u
+M$20 \$5 \$8 \$4 \$3 sg13_lv_pmos L=0.13u W=1.12u AS=0.3808p AD=0.3808p
++ PS=2.92u PD=2.92u
+M$21 \$8 \$15 \$4 \$3 sg13_hv_pmos L=0.4u W=1.43u AS=0.4862p AD=0.4862p
++ PS=3.54u PD=3.54u
+M$22 \$19 \$19 \$19 \$18 sg13_hv_pmos L=1.5u W=6u AS=1.44p AD=1.74p PS=9.44u
++ PD=11.74u
+M$23 \$19 \$36 \$15 \$18 sg13_hv_pmos L=1.5u W=12u AS=2.28p AD=2.28p PS=14.28u
++ PD=14.28u
+M$30 \$19 \$19 \$19 \$18 sg13_hv_pmos L=1u W=18u AS=6.12p AD=6.12p PS=38.72u
++ PD=38.72u
+M$31 \$38 \$43 \$20 \$18 sg13_hv_pmos L=1u W=9u AS=3.06p AD=3.06p PS=19.36u
++ PD=19.36u
+M$32 \$26 \$44 \$38 \$18 sg13_hv_pmos L=1u W=9u AS=3.06p AD=3.06p PS=19.36u
++ PD=19.36u
+M$38 \$19 \$19 \$36 \$18 sg13_hv_pmos L=1.5u W=2u AS=0.68p AD=0.38p PS=4.68u
++ PD=2.38u
+M$39 \$36 \$36 \$19 \$18 sg13_hv_pmos L=1.5u W=2u AS=0.38p AD=0.38p PS=2.38u
++ PD=2.38u
+M$40 \$19 \$36 \$38 \$18 sg13_hv_pmos L=1.5u W=12u AS=2.28p AD=2.28p PS=14.28u
++ PD=14.28u
+R$47 \$3 \$4 ntap1 A=8.976p P=59.84u
+R$49 \$18 \$19 ntap1 A=47.532p P=316.88u
+R$52 \$1 \$2 ptap1 A=58.89p P=392.6u
+.ENDS Clock_Extractor_2026

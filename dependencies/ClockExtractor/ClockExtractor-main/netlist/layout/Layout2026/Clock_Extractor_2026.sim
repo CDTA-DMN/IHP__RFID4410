@@ -1,0 +1,80 @@
+| units: 0.5 tech: ihp-sg13g2 format: MIT
+x VDD VDD VDD VDD d=61200,1936 l=200 w=900 x=-4180 y=1014 sg13_hv_pmos
+x VSS VSS VSS VSS d=16320,616 l=90 w=240 x=-4514 y=-1138 sg13_hv_nmos
+x 2stage_ota_0.gate_M2 VDD 2stage_ota_0.drain_M2_M12_outputOTA VDD s=15200,476 d=15200,476 l=300 w=400 x=-2999 y=-1056 sg13_hv_pmos
+x 2stage_ota_0.gate_M2 2stage_ota_0.drain_M2_M12_outputOTA VDD VDD s=15200,476 d=15200,476 l=300 w=400 x=-2999 y=-1432 sg13_hv_pmos
+x vin_P current_mirror_loadN_0.drain_M10 current_mirror3_0.drain_M1 VDD s=61200,1936 d=61200,1936 l=200 w=900 x=-3012 y=2527 sg13_hv_pmos
+x current_mirror_loadN_0.drain_M10 2stage_ota_0.drain_M2_M12_outputOTA VSS VSS s=9120,316 d=9120,316 l=160 w=240 x=-4435 y=-2180 sg13_hv_nmos
+x 2stage_ota_0.drain_M2_M12_outputOTA inverter_hv_0.vout_hv vdd_1v2 vdd_1v2 s=19448,708 d=19448,708 l=80 w=286 x=-2747 y=-4378 sg13_hv_pmos
+x 2stage_ota_0.gate_M2 2stage_ota_0.drain_M2_M12_outputOTA VDD VDD s=15200,476 d=15200,476 l=300 w=400 x=-2999 y=-2184 sg13_hv_pmos
+x 2stage_ota_0.gate_M2 VDD 2stage_ota_0.drain_M2_M12_outputOTA VDD s=15200,476 d=15200,476 l=300 w=400 x=-2999 y=-2560 sg13_hv_pmos
+x current_mirror_loadN_0.drain_M10 2stage_ota_0.drain_M2_M12_outputOTA VSS VSS s=16320,616 d=9120,316 l=160 w=240 x=-4435 y=-2652 sg13_hv_nmos
+x inverter_hv_0.vout_hv VSS vclk VSS s=10064,432 d=10064,432 l=26 w=148 x=-4471 y=-5262 sg13_lv_nmos
+x VDD VDD VDD VDD d=61200,1936 l=200 w=900 x=-4180 y=2527 sg13_hv_pmos
+x VDD VDD 2stage_ota_0.gate_M2 VDD s=27200,936 d=15200,476 l=300 w=400 x=-4245 y=4391 sg13_hv_pmos
+x 2stage_ota_0.gate_M2 VDD current_mirror3_0.drain_M1 VDD s=15200,476 d=15200,476 l=300 w=400 x=-2741 y=4391 sg13_hv_pmos
+x VDD VDD VDD VDD d=27200,936 l=300 w=400 x=-2999 y=-304 sg13_hv_pmos
+x 2stage_ota_0.gate_M2 2stage_ota_0.gate_M2 VDD VDD s=15200,476 d=15200,476 l=300 w=400 x=-3869 y=4391 sg13_hv_pmos
+x VDD VDD VDD VDD d=61200,1936 l=200 w=900 x=-2428 y=1014 sg13_hv_pmos
+x VSS VSS VSS VSS d=16320,616 l=90 w=240 x=-4066 y=3 sg13_hv_nmos
+x current_mirror_loadN_0.drain_M10 VSS 2stage_ota_0.drain_M2_M12_outputOTA VSS s=9120,316 d=16320,616 l=160 w=240 x=-4435 y=-1944 sg13_hv_nmos
+x VDD VDD VDD VDD d=15200,476 l=300 w=400 x=-1237 y=4391 sg13_hv_pmos
+x current_mirror_loadN_0.drain_M11 current_mirror_loadN_0.drain_M10 VSS VSS s=16320,616 d=16320,616 l=160 w=240 x=-4514 y=-400 sg13_hv_nmos
+x vin_P current_mirror3_0.drain_M1 current_mirror_loadN_0.drain_M10 VDD s=61200,1936 d=61200,1936 l=200 w=900 x=-3596 y=1014 sg13_hv_pmos
+x v_bm v_bm VSS VSS s=22800,676 d=22800,676 l=2000 w=600 x=-5717 y=-3370 sg13_hv_nmos
+x current_mirror_loadN_0.drain_M10 VSS 2stage_ota_0.drain_M2_M12_outputOTA VSS s=9120,316 d=9120,316 l=160 w=240 x=-4435 y=-2416 sg13_hv_nmos
+x VSS VSS VSS VSS d=40800,1336 l=2000 w=600 x=-5717 y=2857 sg13_hv_nmos
+x VDD VDD VDD VDD d=61200,1936 l=200 w=900 x=-2428 y=2527 sg13_hv_pmos
+x current_mirror_loadN_0.drain_M11 VSS current_mirror_loadN_0.drain_M11 VSS s=16320,616 d=16320,616 l=160 w=240 x=-4514 y=-804 sg13_hv_nmos
+x v_bm VSS 2stage_ota_0.gate_M2 VSS s=22800,676 d=22800,676 l=2000 w=600 x=-5717 y=-1294 sg13_hv_nmos
+x vin_N current_mirror3_0.drain_M1 current_mirror_loadN_0.drain_M11 VDD s=61200,1936 d=61200,1936 l=200 w=900 x=-3596 y=2527 sg13_hv_pmos
+x 2stage_ota_0.gate_M2 2stage_ota_0.drain_M2_M12_outputOTA VDD VDD s=15200,476 d=15200,476 l=300 w=400 x=-2999 y=-680 sg13_hv_pmos
+x current_mirror_loadN_0.drain_M11 current_mirror_loadN_0.drain_M11 VSS VSS s=16320,616 d=16320,616 l=160 w=240 x=-4066 y=-400 sg13_hv_nmos
+x 2stage_ota_0.gate_M2 current_mirror3_0.drain_M1 VDD VDD s=15200,476 d=15200,476 l=300 w=400 x=-2365 y=4391 sg13_hv_pmos
+x 2stage_ota_0.gate_M2 VDD current_mirror3_0.drain_M1 VDD s=15200,476 d=15200,476 l=300 w=400 x=-1989 y=4391 sg13_hv_pmos
+x v_bm 2stage_ota_0.gate_M2 VSS VSS s=22800,676 d=22800,676 l=2000 w=600 x=-5717 y=781 sg13_hv_nmos
+x current_mirror_loadN_0.drain_M11 VSS current_mirror_loadN_0.drain_M10 VSS s=16320,616 d=16320,616 l=160 w=240 x=-4066 y=-804 sg13_hv_nmos
+x 2stage_ota_0.drain_M2_M12_outputOTA VSS inverter_hv_0.vout_hv VSS s=14280,556 d=14280,556 l=90 w=210 x=-4417 y=-4278 sg13_hv_nmos
+x VSS VSS VSS VSS d=16320,616 l=90 w=240 x=-4066 y=-1138 sg13_hv_nmos
+x 2stage_ota_0.gate_M2 VDD 2stage_ota_0.drain_M2_M12_outputOTA VDD s=15200,476 d=15200,476 l=300 w=400 x=-2999 y=-1808 sg13_hv_pmos
+x 2stage_ota_0.gate_M2 VDD current_mirror3_0.drain_M1 VDD s=15200,476 d=15200,476 l=300 w=400 x=-3493 y=4391 sg13_hv_pmos
+x VDD VDD VDD VDD d=15200,476 l=300 w=400 x=-2999 y=-2936 sg13_hv_pmos
+x VSS VSS v_bm VSS s=40800,1336 d=22800,676 l=2000 w=600 x=-5717 y=-5446 sg13_hv_nmos
+x 2stage_ota_0.gate_M2 current_mirror3_0.drain_M1 VDD VDD s=15200,476 d=15200,476 l=300 w=400 x=-3117 y=4391 sg13_hv_pmos
+x 2stage_ota_0.gate_M2 current_mirror3_0.drain_M1 VDD VDD s=15200,476 d=15200,476 l=300 w=400 x=-1613 y=4391 sg13_hv_pmos
+x VSS VSS VSS VSS d=16320,616 l=90 w=240 x=-4514 y=3 sg13_hv_nmos
+x vin_N current_mirror_loadN_0.drain_M11 current_mirror3_0.drain_M1 VDD s=61200,1936 d=61200,1936 l=200 w=900 x=-3012 y=1014 sg13_hv_pmos
+x inverter_hv_0.vout_hv vclk vdd_1v2 vdd_1v2 s=15232,584 d=15232,584 l=26 w=224 x=-2631 y=-5328 sg13_lv_pmos
+C vin_P vin_N 2.1
+C VDD 2stage_ota_0.gate_M2 10.8
+C current_mirror3_0.drain_M1 VDD 2.6
+R vclk 20
+R vin_N 11
+C v_bm0 15.7
+R vdd_1v2 13
+C VDD0 4.2
+R VDD 119
+= VDD iput_diff_0.VDD
+= VDD 2stage_ota_0.VDD
+R VSS 112
+= VSS inverter_lv_0.VSS
+= VSS inverter_hv_0.VSS
+= VSS 2stage_ota_0.VSS
+= VSS current_mirror_loadN_0.VSS
+R inverter_hv_0.vout_hv 11
+= inverter_hv_0.vout_hv inverter_lv_0.vin_inv
+C 2stage_ota_0.drain_M2_M12_outputOTA0 2.3
+R 2stage_ota_0.drain_M2_M12_outputOTA 26
+= 2stage_ota_0.drain_M2_M12_outputOTA inverter_hv_0.VINH
+C current_mirror_loadN_0.drain_M100 2.6
+R current_mirror_loadN_0.drain_M10 26
+= current_mirror_loadN_0.drain_M10 iput_diff_0.drain_M3
+= current_mirror_loadN_0.drain_M10 2stage_ota_0.gate_M12
+C current_mirror_loadN_0.drain_M110 2.1
+R current_mirror_loadN_0.drain_M11 17
+= current_mirror_loadN_0.drain_M11 iput_diff_0.drain_M5
+R current_mirror3_0.drain_M1 32
+= current_mirror3_0.drain_M1 iput_diff_0.source_M3_M5
+R 2stage_ota_0.gate_M2 24
+= 2stage_ota_0.gate_M2 current_mirror2_0.drain_M31
+= 2stage_ota_0.gate_M2 current_mirror3_0.drain_M4

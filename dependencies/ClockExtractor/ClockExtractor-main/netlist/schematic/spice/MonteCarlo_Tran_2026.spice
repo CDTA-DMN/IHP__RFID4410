@@ -1,0 +1,152 @@
+** sch_path: /foss/designs/ClockExtractor2026/MonteCarlo_Tran_2026.sch
+**.subckt MonteCarlo_Tran_2026
+VDD VDD GND 3
+VDD1 VDD1 GND 1.2
+XM7 vout1 vout net3 net3 sg13_hv_nmos w=1.05u l=0.45u ng=1
+XM6 vout1 vout VDD1 VDD1 sg13_hv_pmos w=1.43u l=0.4u ng=1
+XM4 net1 net1 VDD VDD sg13_hv_pmos w=2u l=1.5u ng=1
+XM1 net7 net1 VDD VDD sg13_hv_pmos w=2u l=1.5u ng=1 m=6
+XM2 vout net1 VDD VDD sg13_hv_pmos w=2u l=1.5u ng=1 m=6
+XM3 net5 ANT11 net2 VDD sg13_hv_pmos w=4.5u l=1u ng=1 m=2
+XM5 net6 ANT22 net2 VDD sg13_hv_pmos w=4.5u l=1u ng=1 m=2
+XM10 v2 v1 net3 net3 sg13_hv_nmos w=1.2u l=0.8u ng=1 m=2
+XM11 v1 v1 net3 net3 sg13_hv_nmos w=1.2u l=0.8u ng=1 m=2
+XM12 net4 v2 net3 net3 sg13_hv_nmos w=1.2u l=0.8u ng=1 m=4
+Vmeas net3 GND 0
+.save i(vmeas)
+Vmeas1 net5 v2 0
+.save i(vmeas1)
+Vmeas2 net6 v1 0
+.save i(vmeas2)
+Vmeas3 vout net4 0
+.save i(vmeas3)
+Vmeas4 net7 net2 0
+.save i(vmeas4)
+XM27 vclk vout1 VDD2 VDD2 sg13_lv_pmos w=1.12u l=0.13u ng=1
+XM29 vclk vout1 net3 net3 sg13_lv_nmos w=0.74u l=0.13u ng=1
+VDD2 VDD2 GND 1.2
+XM31 net9 net8 net3 net3 sg13_hv_nmos w=3u l=10u ng=1 m=2
+XM32 net8 net8 net3 net3 sg13_hv_nmos w=3u l=10u ng=1
+Vmeas8 net1 net9 0
+.save i(vmeas8)
+I0 VDD net8 1u
+VIN1 net10 GND sine(0 4.3 13560k 0 0) 1 ac 1
+
+L9 GND net13 0.9u
+C2 net12 GND 106.14p
+R7 net11 net10 50
+C4 net12 net11 48.29p
+R8 net13 net12 4.79
+L11 net30 net21 5.43u
+XR16 ANT11 net21 sub! rsil w=2u l=1.23u m=1 b=0
+XR19 ANT22 net30 sub! rsil w=2u l=1.23u m=1 b=0
+XC6 ANT11 ANT22 cap_cmim w=40u l=50u
+XM8 ANT11 ANT11 net14 net14 sg13_hv_pmos w=w1 l=l1 ng=ng1 m=m1
+XM9 net17 net17 net25 net18 sg13_hv_pmos w=w1 l=l1 ng=ng1 m=m1
+R20 net27 ANT22 100K
+R21 ANT11 net19 100K
+XM13 ANT11 ANT11 net22 net28 sg13_hv_nmos w=w2 l=l2 ng=ng1 m=m2
+XM14 ANT22 ANT22 net22 net29 sg13_hv_nmos w=w2 l=l2 ng=ng1 m=m2
+C11 net23 VSS 1n
+R22 net20 VSS 5k
+Vmeas12 net19 net18 0
+.save i(vmeas12)
+C12 ANT11 VSS 46p
+C13 VSS ANT22 46p
+XM15 ANT11 ANT22 net24 net28 sg13_hv_nmos w=w2 l=l2 ng=ng1 m=m2
+XM16 ANT22 ANT11 net24 net29 sg13_hv_nmos w=w2 l=l2 ng=ng1 m=m2
+XM17 net14 net14 net15 net15 sg13_hv_pmos w=w1 l=l1 ng=ng1 m=m1
+XM18 net15 net15 net26 net27 sg13_hv_pmos w=w1 l=l1 ng=ng1 m=m1
+XM19 net16 net16 net17 net17 sg13_hv_pmos w=w1 l=l1 ng=ng1 m=m1
+XM20 ANT22 ANT22 net16 net16 sg13_hv_pmos w=w1 l=l1 ng=ng1 m=m1
+Vmeas7 Voo net20 0
+.save i(vmeas7)
+Vmeas9 Voo net23 0
+.save i(vmeas9)
+Vmeas10 net26 ANT22 0
+.save i(vmeas10)
+Vmeas11 ANT11 net25 0
+.save i(vmeas11)
+Vmeas13 net24 VSS 0
+.save i(vmeas13)
+Vmeas14 net22 Voo 0
+.save i(vmeas14)
+Vmeas15 net28 net24 0
+.save i(vmeas15)
+Vmeas16 net29 net24 0
+.save i(vmeas16)
+R24 VSS net31 1000Meg
+VIN2 net31 GND 0
+**** begin user architecture code
+
+.lib cornerMOShv.lib mos_tt_stat
+.lib cornerMOSlv.lib mos_tt_stat
+.lib cornerRES.lib res_typ
+.lib cornerCAP.lib cap_typ
+
+
+
+
+K1 L9 L11  0.7
+
+.param mm_ok=1
+.param mc_ok=1
+.param temp  = 27
+.param w1=5u
+.param w2=10u
+.param l1=0.5u
+.param l2=1u
+.param ng1=1
+.param m1=20
+.param m2=10
+.param Coef=0.1
+.save all
+.control
+
+let mc_runs = 200
+let run = 0
+
+shell rm MonteCarlo_Tran_10mars2026.csv
+
+set curplot=new
+set scratch=$curplot
+setplot $scratch
+
+dowhile run < mc_runs
+
+tran 50p 3.5u
+
+  meas tran t1 when v(vout)=0.6 rise=43
+  meas tran t2 when v(vout)=0.6 rise=45
+  let period = (t2 - t1)/2
+  let freq = 1/period
+
+print freq >> MonteCarlo_Tran_10mars2026.csv
+
+set run=$&run
+set ac=$curplot
+setplot $scratch
+
+let out{$run}={$ac}.vout
+let temp{$run}={$ac}.time
+setplot $ac
+reset
+let run=run+1
+end
+
+//plot {$scratch}.all vs {$scratch}.temp0
+//wrdata MonteCarlo_Tran_2026.csv  {$scratch}.freq
+//echo 'Monte Carlo Simulation Completed.'
+//echo 'Frequencies saved in MonteCarlo_Freq.csv'
+
+write MonteCarlo_Tran_2026.raw
+.endc
+
+
+**** end user architecture code
+**.ends
+.GLOBAL GND
+.GLOBAL VDD
+.GLOBAL VDD1
+.GLOBAL VDD2
+.end

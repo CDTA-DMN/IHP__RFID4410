@@ -1,0 +1,53 @@
+** sch_path: /foss/designs/YOUCEF_DOCKER/TowStageOTA_PSRR_2026.sch
+**.subckt TowStageOTA_PSRR_2026
+vip vip GND dc 1.65
+VDD VDD GND dc 3.3 ac 1
+XM4 net3 net3 VDD VDD sg13_hv_pmos w=2u l=1.5u ng=1
+XM1 net2 net3 VDD VDD sg13_hv_pmos w=2u l=1.5u ng=1 m=6
+XM2 vout net3 VDD VDD sg13_hv_pmos w=2u l=1.5u ng=1 m=6
+XM3 net4 vip net2 VDD sg13_hv_pmos w=4.5u l=1u ng=1 m=2
+XM5 net1 vin net2 VDD sg13_hv_pmos w=4.5u l=1u ng=1 m=2
+XM10 net4 net1 net5 net5 sg13_hv_nmos w=1.2u l=0.8u ng=1 m=2
+XM11 net1 net1 net5 net5 sg13_hv_nmos w=1.2u l=0.8u ng=1 m=2
+XM12 vout net4 net5 net5 sg13_hv_nmos w=1.2u l=0.8u ng=1 m=4
+I0 VDD net6 1u
+Vmeas net5 GND 0
+.save i(vmeas)
+XM6 net3 net6 net5 net5 sg13_hv_nmos w=3u l=10u ng=1 m=2
+XM7 net6 net6 net5 net5 sg13_hv_nmos w=3u l=10u ng=1
+vin vin GND dc 1.65
+**** begin user architecture code
+
+
+.param temp=27
+.control
+save all
+
+  op
+  ac dec 200 1 100Meg
+
+  let psrr_db = 20*log10(abs(v(vout)/v(VDD)))
+
+  meas ac psrr_dc     FIND psrr_db AT=1
+  meas ac psrr_100    FIND psrr_db AT=100
+  meas ac psrr_1k     FIND psrr_db AT=1k
+  meas ac psrr_10k    FIND psrr_db AT=10k
+  meas ac psrr_100k   FIND psrr_db AT=100k
+  meas ac psrr_13M56  FIND psrr_db AT=13.56Meg
+
+  print psrr_dc psrr_100 psrr_1k psrr_10k psrr_100k psrr_13M56
+  plot psrr_db
+write TowStageOTA_PSRR_2026.raw
+.endc
+
+
+
+.lib cornerMOShv.lib mos_tt
+.lib cornerRES.lib res_typ
+.lib cornerCAP.lib cap_typ
+
+**** end user architecture code
+**.ends
+.GLOBAL GND
+.GLOBAL VDD
+.end

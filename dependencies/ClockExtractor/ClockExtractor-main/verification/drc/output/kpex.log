@@ -1,0 +1,10 @@
+[2026-03-07 15:10:13,977] [INFO]    GDS input file passed, running in LVS mode
+[2026-03-07 15:10:13,978] [ERROR]    Can't read GDS file (LVS input) at path Clock_Extractor_2026.gds
+[2026-03-08 18:19:32,184] [INFO]    GDS input file passed, running in LVS mode
+[2026-03-08 18:19:32,186] [ERROR]    Can't read GDS file (LVS input) at path Clock_Extractor_2026.gds
+[2026-03-09 01:04:51,679] [INFO]    GDS input file passed, running in LVS mode
+[2026-03-09 01:04:51,680] [ERROR]    Can't read GDS file (LVS input) at path Clock_Extractor_2026.gds
+[2026-03-09 01:33:23,096] [INFO]    GDS input file passed, running in LVS mode
+[2026-03-09 01:33:23,097] [ERROR]    Can't read GDS file (LVS input) at path Clock_Extractor_2026.gds
+[2026-03-09 18:50:06,239] [INFO]    GDS input file passed, running in LVS mode
+[2026-03-09 18:50:06,241] [ERROR]    Can't read GDS file (LVS input) at path Clock_Extractor_2026.gds

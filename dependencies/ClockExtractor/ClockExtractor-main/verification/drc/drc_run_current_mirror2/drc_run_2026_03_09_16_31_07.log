@@ -1,0 +1,9 @@
+09-Mar-2026 17:31:07 | INFO    | KLayout version detected: 0.30.6
+09-Mar-2026 17:31:07 | INFO    | Using DRC JSON file: /foss/pdks/ihp-sg13g2/libs.tech/klayout/python/sg13g2_pycell_lib/sg13g2_tech_mod.json
+09-Mar-2026 17:31:07 | INFO    | Running IHP-SG13G2 main checks on design /foss/designs/Layout2026/Clock_Extractor_2026.gds, topcell: current_mirror2
+09-Mar-2026 17:31:10 | INFO    | Running IHP-SG13G2 sg13g2_maximal checks on design /foss/designs/Layout2026/Clock_Extractor_2026.gds, topcell: current_mirror2
+09-Mar-2026 17:31:13 | INFO    | Completed running Sg13g2_maximal checks.
+09-Mar-2026 17:31:13 | INFO    | =====================================================================================
+09-Mar-2026 17:31:13 | INFO    | ✅ --- KLayout DRC Check Passed: No DRC violations detected in the layout. --- ✅
+09-Mar-2026 17:31:13 | INFO    | =====================================================================================
+09-Mar-2026 17:31:13 | INFO    | Total DRC Run time: 5.88 seconds (including execution, analysis, and reporting)

@@ -1,0 +1,71 @@
+[2026-03-09 18:07:09,727] [INFO]    GDS input file passed, running in LVS mode
+[2026-03-09 18:07:09,729] [INFO]    No explicit top cell specified, using top cell 'Clock_Extractor_2026'
+[2026-03-09 18:07:09,730] [INFO]    LVS input schematic not specified (argument --schematic), using dummy schematic
+[2026-03-09 18:07:09,735] [INFO]    Calling MAGIC
+[2026-03-09 18:07:09,735] [SUBPROCESS]    magic -dnull -noconsole -rcfile /foss/pdks/ihp-sg13g2/libs.tech/magic/ihp-sg13g2.magicrc output/Clock_Extractor_2026__Clock_Extractor_2026/magic_RC/Clock_Extractor_2026_MAGIC_RC_Script.tcl, output file: output/Clock_Extractor_2026__Clock_Extractor_2026/magic_RC/Clock_Extractor_2026_MAGIC_RC_Output.txt
+[2026-03-09 18:07:09,750] [SUBPROCESS]    
+[2026-03-09 18:07:09,750] [SUBPROCESS]    Magic 8.3 revision 603 - Compiled on Sat Feb 14 01:20:09 AM CET 2026.
+[2026-03-09 18:07:09,751] [SUBPROCESS]    Starting magic under Tcl interpreter
+[2026-03-09 18:07:09,751] [SUBPROCESS]    Using the terminal as the console.
+[2026-03-09 18:07:09,751] [SUBPROCESS]    WARNING: RLIMIT_NOFILE is above 1024 and Tcl_Version<9 this may cause runtime issues [rlim_cur=1048576]
+[2026-03-09 18:07:09,752] [SUBPROCESS]    Using NULL graphics device.
+[2026-03-09 18:07:09,794] [SUBPROCESS]    Processing system .magicrc file
+[2026-03-09 18:07:09,799] [SUBPROCESS]    Switching to WIRING tool.
+[2026-03-09 18:07:09,800] [SUBPROCESS]    Switching to NETLIST tool.
+[2026-03-09 18:07:09,800] [SUBPROCESS]    Switching to PICK tool.
+[2026-03-09 18:07:09,800] [SUBPROCESS]    Switching to BOX tool.
+[2026-03-09 18:07:09,801] [SUBPROCESS]    Sourcing design .magicrc for technology ihp-sg13g2 ...
+[2026-03-09 18:07:09,801] [SUBPROCESS]    2 Magic internal units = 1 Lambda
+[2026-03-09 18:07:09,819] [SUBPROCESS]    Input style sg13g2(): scaleFactor=2, multiplier=2
+[2026-03-09 18:07:09,913] [SUBPROCESS]    The following types are not handled by extraction and will be treated as non-electrical types:
+[2026-03-09 18:07:09,914] [SUBPROCESS]        pblock sealcont difffill nemitter hvnemitter hvisodiffres sealvia1 sealvia2 sealvia3 sealvia4 sealvia5 sealvia6 pillar solder seal glass thruvia inductor 
+[2026-03-09 18:07:09,918] [SUBPROCESS]    Scaled tech values by 2 / 1 to match internal grid scaling
+[2026-03-09 18:07:09,919] [SUBPROCESS]    Loading ihp-sg13g2 Device Generator Menu ...
+[2026-03-09 18:07:09,921] [SUBPROCESS]    Loading "output/Clock_Extractor_2026__Clock_Extractor_2026/magic_RC/Clock_Extractor_2026_MAGIC_RC_Script.tcl" from command line.
+[2026-03-09 18:07:09,922] [SUBPROCESS]    Warning: Calma reading is not undoable!  I hope that's OK.
+[2026-03-09 18:07:09,922] [SUBPROCESS]    Library written using GDS-II Release 6.0
+[2026-03-09 18:07:09,922] [SUBPROCESS]    Library name: LIB
+[2026-03-09 18:07:09,923] [SUBPROCESS]    Reading "$$$CONTEXT_INFO$$$".
+[2026-03-09 18:07:09,923] [SUBPROCESS]    Reading "pmosHV$6".
+[2026-03-09 18:07:09,923] [SUBPROCESS]    Reading "nmosHV$8".
+[2026-03-09 18:07:09,925] [SUBPROCESS]    Reading "guard_ring$5".
+[2026-03-09 18:07:09,928] [SUBPROCESS]    Reading "pmosHV$2".
+[2026-03-09 18:07:09,929] [SUBPROCESS]    Reading "via_stack$3".
+[2026-03-09 18:07:09,930] [SUBPROCESS]    Reading "via_stack$5".
+[2026-03-09 18:07:09,930] [SUBPROCESS]    Reading "via_stack".
+[2026-03-09 18:07:09,931] [SUBPROCESS]    Reading "nmosHV$4".
+[2026-03-09 18:07:09,932] [SUBPROCESS]    Reading "nmosHV$6".
+[2026-03-09 18:07:09,932] [SUBPROCESS]    Reading "guard_ring$6".
+[2026-03-09 18:07:09,934] [SUBPROCESS]    Reading "via_stack$1".
+[2026-03-09 18:07:09,934] [SUBPROCESS]    Reading "pmosHV$5".
+[2026-03-09 18:07:09,937] [SUBPROCESS]    Reading "pmosHV".
+[2026-03-09 18:07:09,940] [SUBPROCESS]    Reading "nmosHV$7".
+[2026-03-09 18:07:09,941] [SUBPROCESS]    Reading "nmos$1".
+[2026-03-09 18:07:09,942] [SUBPROCESS]    Reading "pmos$1".
+[2026-03-09 18:07:09,943] [SUBPROCESS]    Reading "nmosHV".
+[2026-03-09 18:07:09,950] [SUBPROCESS]    Reading "via_stack$6".
+[2026-03-09 18:07:09,950] [SUBPROCESS]    Reading "via_stack$4".
+[2026-03-09 18:07:09,951] [SUBPROCESS]    Reading "current_mirror2".
+[2026-03-09 18:07:09,951] [SUBPROCESS]    Reading "iput_diff".
+[2026-03-09 18:07:09,952] [SUBPROCESS]    Reading "current_mirror_loadN".
+[2026-03-09 18:07:09,953] [SUBPROCESS]    Making label "VSS" on type metal1 in cell current_mirror_loadN sticky.
+[2026-03-09 18:07:09,953] [SUBPROCESS]    Reading "current_mirror3".
+[2026-03-09 18:07:09,953] [SUBPROCESS]    Error while reading cell "current_mirror3" (byte position 132488): Warning: cell "via_stack$5" placed on top of itself.  Ignoring the extra one.
+[2026-03-09 18:07:09,954] [SUBPROCESS]    Error while reading cell "current_mirror3" (byte position 132614): Warning: cell "via_stack$5" placed on top of itself.  Ignoring the extra one.
+[2026-03-09 18:07:09,954] [SUBPROCESS]    Reading "2stage_ota".
+[2026-03-09 18:07:09,955] [SUBPROCESS]    Reading "inverter_hv".
+[2026-03-09 18:07:09,955] [SUBPROCESS]    Reading "inverter_lv".
+[2026-03-09 18:07:09,955] [SUBPROCESS]    Reading "Clock_Extractor_2026".
+[2026-03-09 18:07:09,962] [SUBPROCESS]    Extracting Clock_Extractor_2026 into /foss/designs/Layout2026/output/Clock_Extractor_2026__Clock_Extractor_2026/magic_RC/Clock_Extractor_2026.ext:
+[2026-03-09 18:07:09,981] [SUBPROCESS]    Warning:  Ports "VDD_1v2" and "VDD" are electrically shorted.
+[2026-03-09 18:07:09,985] [SUBPROCESS]    Clock_Extractor_2026: 12 warnings
+[2026-03-09 18:07:09,986] [SUBPROCESS]    Total of 12 warnings.
+[2026-03-09 18:07:09,988] [SUBPROCESS]    Warning:  Ports "VDD_1v2" and "VDD" are electrically shorted.
+[2026-03-09 18:07:09,988] [SUBPROCESS]    exttosim finished.
+[2026-03-09 18:07:09,989] [SUBPROCESS]    Adding  2stage_ota_0.gate_M2; Tnew = 0.00ns, Told = -16719.54ns
+[2026-03-09 18:07:09,992] [SUBPROCESS]    Adding  current_mirror3_0.drain_M1
+[2026-03-09 18:07:09,993] [SUBPROCESS]    Adding  current_mirror_loadN_0.drain_M11
+[2026-03-09 18:07:09,995] [SUBPROCESS]    Adding  current_mirror_loadN_0.drain_M10
+[2026-03-09 18:07:09,996] [SUBPROCESS]    Adding  2stage_ota_0.drain_M2_M12_outputOTA
+[2026-03-09 18:07:09,997] [SUBPROCESS]    Adding  inverter_hv_0.vout_hv
+[2026-03-09 18:07:10,030] [SUBPROCESS]    Adding  VSS

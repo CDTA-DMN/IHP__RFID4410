@@ -1,0 +1,1074 @@
+GDS input file passed, running in LVS mode
+No explicit top cell specified, using top cell 'Clock_Extractor_2026'
+LVS input schematic not specified (argument --schematic), using dummy schematic
+Calling MAGIC
+magic -dnull -noconsole -rcfile /foss/pdks/ihp-sg13g2/libs.tech/magic/ihp-sg13g2.magicrc output/Clock_Extractor_2026__Clock_Extractor_2026/magic_RC/Clock_Extractor_2026_MAGIC_RC_Script.tcl, output file: output/Clock_Extractor_2026__Clock_Extractor_2026/magic_RC/Clock_Extractor_2026_MAGIC_RC_Output.txt
+
+Magic 8.3 revision 603 - Compiled on Sat Feb 14 01:20:09 AM CET 2026.
+Starting magic under Tcl interpreter
+Using the terminal as the console.
+WARNING: RLIMIT_NOFILE is above 1024 and Tcl_Version<9 this may cause runtime issues [rlim_cur=1048576]
+Using NULL graphics device.
+Processing system .magicrc file
+Switching to WIRING tool.
+Switching to NETLIST tool.
+Switching to PICK tool.
+Switching to BOX tool.
+Sourcing design .magicrc for technology ihp-sg13g2 ...
+2 Magic internal units = 1 Lambda
+Input style sg13g2(): scaleFactor=2, multiplier=2
+The following types are not handled by extraction and will be treated as non-electrical types:
+    pblock sealcont difffill nemitter hvnemitter hvisodiffres sealvia1 sealvia2 sealvia3 sealvia4 sealvia5 sealvia6 pillar solder seal glass thruvia inductor 
+Scaled tech values by 2 / 1 to match internal grid scaling
+Loading ihp-sg13g2 Device Generator Menu ...
+Loading "output/Clock_Extractor_2026__Clock_Extractor_2026/magic_RC/Clock_Extractor_2026_MAGIC_RC_Script.tcl" from command line.
+Warning: Calma reading is not undoable!  I hope that's OK.
+Library written using GDS-II Release 6.0
+Library name: LIB
+Reading "$$$CONTEXT_INFO$$$".
+Reading "nmosHV".
+Reading "pmos$1".
+Reading "nmos$1".
+Reading "nmosHV$7".
+Reading "pmosHV".
+Reading "pmosHV$5".
+Reading "via_stack$1".
+Reading "guard_ring$6".
+Reading "nmosHV$6".
+Reading "nmosHV$4".
+Reading "via_stack".
+Reading "via_stack$5".
+Reading "via_stack$3".
+Reading "pmosHV$2".
+Reading "guard_ring$5".
+Reading "nmosHV$8".
+Reading "pmosHV$6".
+Reading "inverter_lv".
+Reading "inverter_hv".
+Reading "via_stack$4".
+Reading "2stage_ota".
+Error while reading cell "2stage_ota" (byte position 126554): Warning: cell "via_stack$5" placed on top of itself.  Ignoring the extra one.
+Error while reading cell "2stage_ota" (byte position 126662): Warning: cell "via_stack$5" placed on top of itself.  Ignoring the extra one.
+Reading "current_mirror3".
+Error while reading cell "current_mirror3" (byte position 130330): Warning: cell "via_stack$5" placed on top of itself.  Ignoring the extra one.
+Error while reading cell "current_mirror3" (byte position 130438): Warning: cell "via_stack$5" placed on top of itself.  Ignoring the extra one.
+Reading "current_mirror_loadN".
+Reading "iput_diff".
+Reading "current_mirror2".
+Reading "via_stack$2".
+Reading "Clock_Extractor_2026".
+Extracting Clock_Extractor_2026 into /foss/designs/Layout2026/output/Clock_Extractor_2026__Clock_Extractor_2026/magic_RC/Clock_Extractor_2026.ext:
+Clock_Extractor_2026: 12 warnings
+Total of 12 warnings.
+exttosim finished.
+Adding  current_mirror_loadN_0.VSS
+Adding  2stage_ota_0.VDD
+Adding  2stage_ota_0.gate_M2; Tnew = -0.00ns, Told = -3806.06ns
+Adding  current_mirror3_0.drain_M1
+Adding  current_mirror2_0.v_bm; Tnew = 2884.81ns, Told = -844.03ns
+Adding  current_mirror_loadN_0.drain_M11; Tnew = 2884.81ns, Told = -5447.10ns
+Adding  current_mirror_loadN_0.drain_M10; Tnew = 2884.81ns, Told = -8328.29ns
+Adding  2stage_ota_0.drain_M2_M12_outputOTA
+Adding  inverter_hv_0.vout_hv
+Adding  inverter_lv_0.vclk
+Total Nets: 12
+Nets extracted: 10 (0.833333)
+Nets output: 10 (0.833333)
+exttospice finished.
+MAGIC succeeded after 0.3814s
+Report DB saved at: output/Clock_Extractor_2026__Clock_Extractor_2026/magic_RC/Clock_Extractor_2026_MAGIC_report.rdb.gz
+SPICE netlist saved at: output/Clock_Extractor_2026__Clock_Extractor_2026/magic_RC/Clock_Extractor_2026.pex.spice
+Copied expanded SPICE netlist to: ./Clock_Extractor_2026.spice
+* NGSPICE file created from Clock_Extractor_2026.ext - technology: ihp-sg13g2
+
+.subckt Clock_Extractor_2026
+X0 2stage_ota_0.VDD.t0 2stage_ota_0.VDD.t0 2stage_ota_0.VDD.t0 2stage_ota_0.VDD.t0 sg13_hv_pmos ad=1.53p pd=9.68u as=0 ps=0 w=4.5u l=1u
+X1 current_mirror_loadN_0.VSS.t33 current_mirror_loadN_0.VSS.t31 current_mirror_loadN_0.VSS.t32 current_mirror_loadN_0.VSS.t14 sg13_hv_nmos ad=0.408p pd=3.08u as=0 ps=0 w=1.2u l=0.45u
+X2 2stage_ota_0.drain_M2_M12_outputOTA.t2 2stage_ota_0.gate_M2.t3 2stage_ota_0.VDD.t0 2stage_ota_0.VDD.t0 sg13_hv_pmos ad=0.38p pd=2.38u as=0.38p ps=2.38u w=2u l=1.5u
+X3 2stage_ota_0.VDD.t0 2stage_ota_0.gate_M2.t3 2stage_ota_0.drain_M2_M12_outputOTA.t0 2stage_ota_0.VDD.t0 sg13_hv_pmos ad=0.38p pd=2.38u as=0.38p ps=2.38u w=2u l=1.5u
+X4 current_mirror3_0.drain_M1.t0 iput_diff_0.vin_P current_mirror_loadN_0.drain_M10.t2 2stage_ota_0.VDD.t0 sg13_hv_pmos ad=1.53p pd=9.68u as=1.53p ps=9.68u w=4.5u l=1u
+X5 current_mirror_loadN_0.VSS.t3 current_mirror_loadN_0.drain_M10.t4 2stage_ota_0.drain_M2_M12_outputOTA.t3 current_mirror_loadN_0.VSS.t2 sg13_hv_nmos ad=0.228p pd=1.58u as=0.228p ps=1.58u w=1.2u l=0.8u
+X6 2stage_ota_0.VDD.t11 2stage_ota_0.gate_M2.t3 2stage_ota_0.drain_M2_M12_outputOTA.t1 2stage_ota_0.VDD.t0 sg13_hv_pmos ad=0.38p pd=2.38u as=0.38p ps=2.38u w=2u l=1.5u
+X7 2stage_ota_0.drain_M2_M12_outputOTA.t1 2stage_ota_0.gate_M2.t3 2stage_ota_0.VDD.t0 2stage_ota_0.VDD.t0 sg13_hv_pmos ad=0.38p pd=2.38u as=0.38p ps=2.38u w=2u l=1.5u
+X8 current_mirror_loadN_0.VSS.t5 current_mirror_loadN_0.drain_M10.t4 2stage_ota_0.drain_M2_M12_outputOTA.t4 current_mirror_loadN_0.VSS.t2 sg13_hv_nmos ad=0.228p pd=1.58u as=0.408p ps=3.08u w=1.2u l=0.8u
+X9 2stage_ota_0.VDD.t0 2stage_ota_0.VDD.t0 2stage_ota_0.VDD.t0 2stage_ota_0.VDD.t0 sg13_hv_pmos ad=1.53p pd=9.68u as=0 ps=0 w=4.5u l=1u
+X10 2stage_ota_0.gate_M2.t0 2stage_ota_0.VDD.t0 2stage_ota_0.VDD.t0 2stage_ota_0.VDD.t0 sg13_hv_pmos ad=0.38p pd=2.38u as=0.68p ps=4.68u w=2u l=1.5u
+X11 current_mirror3_0.drain_M1.t5 2stage_ota_0.gate_M2.t1 2stage_ota_0.VDD.t0 2stage_ota_0.VDD.t0 sg13_hv_pmos ad=0.38p pd=2.38u as=0.38p ps=2.38u w=2u l=1.5u
+X12 2stage_ota_0.VDD.t0 2stage_ota_0.VDD.t0 2stage_ota_0.VDD.t0 2stage_ota_0.VDD.t0 sg13_hv_pmos ad=0.68p pd=4.68u as=0 ps=0 w=2u l=1.5u
+X13 2stage_ota_0.VDD.t0 2stage_ota_0.gate_M2.t1 2stage_ota_0.gate_M2.t0 2stage_ota_0.VDD.t0 sg13_hv_pmos ad=0.38p pd=2.38u as=0.38p ps=2.38u w=2u l=1.5u
+X14 2stage_ota_0.VDD.t0 2stage_ota_0.VDD.t0 2stage_ota_0.VDD.t0 2stage_ota_0.VDD.t0 sg13_hv_pmos ad=1.53p pd=9.68u as=0 ps=0 w=4.5u l=1u
+X15 current_mirror_loadN_0.VSS.t30 current_mirror_loadN_0.VSS.t25 current_mirror_loadN_0.VSS.t29 current_mirror_loadN_0.VSS.t16 sg13_hv_nmos ad=0.408p pd=3.08u as=0 ps=0 w=1.2u l=0.45u
+X16 2stage_ota_0.drain_M2_M12_outputOTA.t5 current_mirror_loadN_0.drain_M10.t4 current_mirror_loadN_0.VSS.t3 current_mirror_loadN_0.VSS.t2 sg13_hv_nmos ad=0.408p pd=3.08u as=0.228p ps=1.58u w=1.2u l=0.8u
+X17 2stage_ota_0.VDD.t0 2stage_ota_0.VDD.t0 2stage_ota_0.VDD.t0 2stage_ota_0.VDD.t0 sg13_hv_pmos ad=0.38p pd=2.38u as=0 ps=0 w=2u l=1.5u
+X18 current_mirror_loadN_0.VSS.t15 current_mirror_loadN_0.drain_M11.t2 current_mirror_loadN_0.drain_M10.t1 current_mirror_loadN_0.VSS.t14 sg13_hv_nmos ad=0.408p pd=3.08u as=0.408p ps=3.08u w=1.2u l=0.8u
+X19 current_mirror_loadN_0.drain_M10.t3 iput_diff_0.vin_P current_mirror3_0.drain_M1.t1 2stage_ota_0.VDD.t0 sg13_hv_pmos ad=1.53p pd=9.68u as=1.53p ps=9.68u w=4.5u l=1u
+X20 current_mirror_loadN_0.VSS.t10 current_mirror2_0.v_bm.t1 current_mirror2_0.v_bm.t0 current_mirror_loadN_0.VSS.t9 sg13_hv_nmos ad=0.57p pd=3.38u as=0.57p ps=3.38u w=3u l=10u
+X21 2stage_ota_0.drain_M2_M12_outputOTA.t3 current_mirror_loadN_0.drain_M10.t4 current_mirror_loadN_0.VSS.t5 current_mirror_loadN_0.VSS.t2 sg13_hv_nmos ad=0.228p pd=1.58u as=0.228p ps=1.58u w=1.2u l=0.8u
+X22 current_mirror_loadN_0.VSS.t8 current_mirror_loadN_0.VSS.t22 current_mirror_loadN_0.VSS.t24 current_mirror_loadN_0.VSS.t23 sg13_hv_nmos ad=1.02p pd=6.68u as=0 ps=0 w=3u l=10u
+X23 2stage_ota_0.VDD.t0 2stage_ota_0.VDD.t0 2stage_ota_0.VDD.t0 2stage_ota_0.VDD.t0 sg13_hv_pmos ad=1.53p pd=9.68u as=0 ps=0 w=4.5u l=1u
+X24 current_mirror_loadN_0.drain_M11.t3 current_mirror_loadN_0.drain_M11.t2 current_mirror_loadN_0.VSS.t19 current_mirror_loadN_0.VSS.t14 sg13_hv_nmos ad=0.408p pd=3.08u as=0.408p ps=3.08u w=1.2u l=0.8u
+X25 inverter_lv_0.vclk.t0 inverter_hv_0.vout_hv.t3 current_mirror_loadN_0.VSS.t13 current_mirror_loadN_0.VSS.t12 sg13_lv_nmos ad=0.2516p pd=2.16u as=0.2516p ps=2.16u w=0.74u l=0.13u
+X26 2stage_ota_0.gate_M2.t2 current_mirror2_0.v_bm.t1 current_mirror_loadN_0.VSS.t10 current_mirror_loadN_0.VSS.t9 sg13_hv_nmos ad=0.57p pd=3.38u as=0.57p ps=3.38u w=3u l=10u
+X27 current_mirror_loadN_0.drain_M11.t0 iput_diff_0.vin_N current_mirror3_0.drain_M1.t2 2stage_ota_0.VDD.t0 sg13_hv_pmos ad=1.53p pd=9.68u as=1.53p ps=9.68u w=4.5u l=1u
+X28 2stage_ota_0.VDD.t0 2stage_ota_0.gate_M2.t3 2stage_ota_0.drain_M2_M12_outputOTA.t2 2stage_ota_0.VDD.t0 sg13_hv_pmos ad=0.38p pd=2.38u as=0.38p ps=2.38u w=2u l=1.5u
+X29 current_mirror_loadN_0.VSS.t18 current_mirror_loadN_0.drain_M11.t2 current_mirror_loadN_0.drain_M11.t4 current_mirror_loadN_0.VSS.t16 sg13_hv_nmos ad=0.408p pd=3.08u as=0.408p ps=3.08u w=1.2u l=0.8u
+X30 2stage_ota_0.VDD.t0 2stage_ota_0.gate_M2.t1 current_mirror3_0.drain_M1.t5 2stage_ota_0.VDD.t0 sg13_hv_pmos ad=0.38p pd=2.38u as=0.38p ps=2.38u w=2u l=1.5u
+X31 current_mirror3_0.drain_M1.t6 2stage_ota_0.gate_M2.t1 2stage_ota_0.VDD.t0 2stage_ota_0.VDD.t0 sg13_hv_pmos ad=0.38p pd=2.38u as=0.38p ps=2.38u w=2u l=1.5u
+X32 current_mirror_loadN_0.VSS.t8 current_mirror2_0.v_bm.t1 2stage_ota_0.gate_M2.t2 current_mirror_loadN_0.VSS.t7 sg13_hv_nmos ad=0.57p pd=3.38u as=0.57p ps=3.38u w=3u l=10u
+X33 current_mirror_loadN_0.drain_M10.t0 current_mirror_loadN_0.drain_M11.t2 current_mirror_loadN_0.VSS.t17 current_mirror_loadN_0.VSS.t16 sg13_hv_nmos ad=0.408p pd=3.08u as=0.408p ps=3.08u w=1.2u l=0.8u
+X34 current_mirror_loadN_0.VSS.t36 current_mirror_loadN_0.VSS.t31 current_mirror_loadN_0.VSS.t35 current_mirror_loadN_0.VSS.t16 sg13_hv_nmos ad=0.408p pd=3.08u as=0 ps=0 w=1.2u l=0.45u
+X35 inverter_hv_0.vout_hv.t0 2stage_ota_0.drain_M2_M12_outputOTA.t7 current_mirror_loadN_0.VSS.t1 current_mirror_loadN_0.VSS.t0 sg13_hv_nmos ad=0.357p pd=2.78u as=0.357p ps=2.78u w=1.05u l=0.45u
+X36 2stage_ota_0.drain_M2_M12_outputOTA.t0 2stage_ota_0.gate_M2.t3 2stage_ota_0.VDD.t11 2stage_ota_0.VDD.t0 sg13_hv_pmos ad=0.38p pd=2.38u as=0.38p ps=2.38u w=2u l=1.5u
+X37 current_mirror3_0.drain_M1.t4 2stage_ota_0.gate_M2.t1 2stage_ota_0.VDD.t0 2stage_ota_0.VDD.t0 sg13_hv_pmos ad=0.38p pd=2.38u as=0.38p ps=2.38u w=2u l=1.5u
+X38 2stage_ota_0.VDD.t0 2stage_ota_0.VDD.t0 2stage_ota_0.VDD.t0 2stage_ota_0.VDD.t0 sg13_hv_pmos ad=0.38p pd=2.38u as=0 ps=0 w=2u l=1.5u
+X39 2stage_ota_0.VDD.t0 inverter_hv_0.vout_hv.t2 inverter_lv_0.vclk.t1 2stage_ota_0.VDD.t0 sg13_lv_pmos ad=0.3808p pd=2.92u as=0.3808p ps=2.92u w=1.12u l=0.13u
+X40 current_mirror2_0.v_bm.t0 current_mirror_loadN_0.VSS.t20 current_mirror_loadN_0.VSS.t21 current_mirror_loadN_0.VSS.t9 sg13_hv_nmos ad=0.57p pd=3.38u as=1.02p ps=6.68u w=3u l=10u
+X41 2stage_ota_0.VDD.t0 2stage_ota_0.gate_M2.t1 current_mirror3_0.drain_M1.t4 2stage_ota_0.VDD.t0 sg13_hv_pmos ad=0.38p pd=2.38u as=0.38p ps=2.38u w=2u l=1.5u
+X42 2stage_ota_0.VDD.t0 2stage_ota_0.gate_M2.t1 current_mirror3_0.drain_M1.t6 2stage_ota_0.VDD.t0 sg13_hv_pmos ad=0.38p pd=2.38u as=0.38p ps=2.38u w=2u l=1.5u
+X43 current_mirror_loadN_0.VSS.t27 current_mirror_loadN_0.VSS.t25 current_mirror_loadN_0.VSS.t26 current_mirror_loadN_0.VSS.t14 sg13_hv_nmos ad=0.408p pd=3.08u as=0 ps=0 w=1.2u l=0.45u
+X44 current_mirror3_0.drain_M1.t3 iput_diff_0.vin_N current_mirror_loadN_0.drain_M11.t1 2stage_ota_0.VDD.t0 sg13_hv_pmos ad=1.53p pd=9.68u as=1.53p ps=9.68u w=4.5u l=1u
+X45 2stage_ota_0.VDD.t0 2stage_ota_0.drain_M2_M12_outputOTA.t6 inverter_hv_0.vout_hv.t1 2stage_ota_0.VDD.t0 sg13_hv_pmos ad=0.4862p pd=3.54u as=0.4862p ps=3.54u w=1.43u l=0.4u
+C0 inverter_lv_0.vclk 2stage_ota_0.drain_M2_M12_outputOTA 0.07861f
+C1 current_mirror3_0.drain_M1 iput_diff_0.vin_N 0.2638f
+C2 iput_diff_0.vin_P current_mirror2_0.v_bm 0.16819f
+C3 2stage_ota_0.gate_M2 current_mirror_loadN_0.drain_M11 0.07103f
+C4 2stage_ota_0.gate_M2 inverter_lv_0.vclk 0.24951f
+C5 current_mirror_loadN_0.drain_M11 iput_diff_0.vin_N 0.254f
+C6 current_mirror3_0.drain_M1 current_mirror_loadN_0.drain_M10 0.3464f
+C7 iput_diff_0.vin_P 2stage_ota_0.gate_M2 0.08561f
+C8 2stage_ota_0.gate_M2 current_mirror2_0.v_bm 0.24602f
+C9 iput_diff_0.vin_P iput_diff_0.vin_N 2.14632f
+C10 inverter_hv_0.vout_hv inverter_lv_0.vclk 0.72591f
+C11 current_mirror2_0.v_bm iput_diff_0.vin_N 0.12793f
+C12 2stage_ota_0.gate_M2 2stage_ota_0.drain_M2_M12_outputOTA 0.52826f
+C13 current_mirror_loadN_0.drain_M10 inverter_lv_0.vclk 0.03852f
+C14 current_mirror_loadN_0.drain_M10 current_mirror_loadN_0.drain_M11 1.36863f
+C15 iput_diff_0.vin_P current_mirror_loadN_0.drain_M10 0.20285f
+C16 current_mirror2_0.v_bm current_mirror_loadN_0.drain_M10 0.02089f
+C17 2stage_ota_0.gate_M2 iput_diff_0.vin_N 0.066f
+C18 current_mirror3_0.drain_M1 current_mirror_loadN_0.drain_M11 0.33902f
+C19 inverter_hv_0.vout_hv 2stage_ota_0.drain_M2_M12_outputOTA 0.28162f
+C20 current_mirror_loadN_0.drain_M10 2stage_ota_0.drain_M2_M12_outputOTA 0.62831f
+C21 iput_diff_0.vin_P current_mirror3_0.drain_M1 0.24962f
+C22 2stage_ota_0.gate_M2 current_mirror_loadN_0.drain_M10 0.35156f
+C23 current_mirror_loadN_0.drain_M10 iput_diff_0.vin_N 0.17842f
+C24 iput_diff_0.vin_P current_mirror_loadN_0.drain_M11 0.05998f
+C25 2stage_ota_0.gate_M2 current_mirror3_0.drain_M1 0.52971f
+R0 inverter_lv_0.vclk.t0 inverter_lv_0.vclk.n0 21.1276
+R1 inverter_lv_0.vclk inverter_lv_0.vclk.n0 13.8187
+R2 inverter_lv_0.vclk.n0 inverter_lv_0.vclk.t1 15.042
+R3 inverter_hv_0.vout_hv.t0 inverter_hv_0.vout_hv.n1 16.3766
+R4 inverter_hv_0.vout_hv inverter_hv_0.vout_hv.n0 1.1767
+R5 inverter_hv_0.vout_hv inverter_hv_0.vout_hv.n1 0.30528
+R6 inverter_hv_0.vout_hv.n0 inverter_hv_0.vout_hv.t2 13.145
+R7 inverter_hv_0.vout_hv.n0 inverter_hv_0.vout_hv.t3 14.9196
+R8 inverter_hv_0.vout_hv.t1 inverter_hv_0.vout_hv.n1 14.045
+R9 2stage_ota_0.drain_M2_M12_outputOTA.t1 2stage_ota_0.drain_M2_M12_outputOTA.n1 4.18002
+R10 2stage_ota_0.drain_M2_M12_outputOTA.n5 2stage_ota_0.drain_M2_M12_outputOTA.n1 9.50047
+R11 2stage_ota_0.drain_M2_M12_outputOTA 2stage_ota_0.drain_M2_M12_outputOTA.n4 2.04503
+R12 2stage_ota_0.drain_M2_M12_outputOTA.n5 2stage_ota_0.drain_M2_M12_outputOTA.n4 0.364233
+R13 2stage_ota_0.drain_M2_M12_outputOTA 2stage_ota_0.drain_M2_M12_outputOTA.n5 0.00783333
+R14 2stage_ota_0.drain_M2_M12_outputOTA.n4 2stage_ota_0.drain_M2_M12_outputOTA.n3 10.0982
+R15 2stage_ota_0.drain_M2_M12_outputOTA.n3 2stage_ota_0.drain_M2_M12_outputOTA.n2 0.1105
+R16 2stage_ota_0.drain_M2_M12_outputOTA.n3 2stage_ota_0.drain_M2_M12_outputOTA.t4 7.66936
+R17 2stage_ota_0.drain_M2_M12_outputOTA.n2 2stage_ota_0.drain_M2_M12_outputOTA.t5 7.77936
+R18 2stage_ota_0.drain_M2_M12_outputOTA.n2 2stage_ota_0.drain_M2_M12_outputOTA.t3 6.15686
+R19 2stage_ota_0.drain_M2_M12_outputOTA.t7 2stage_ota_0.drain_M2_M12_outputOTA 14.1834
+R20 2stage_ota_0.drain_M2_M12_outputOTA.t6 2stage_ota_0.drain_M2_M12_outputOTA 13.4068
+R21 2stage_ota_0.drain_M2_M12_outputOTA.n1 2stage_ota_0.drain_M2_M12_outputOTA.n0 1.70894
+R22 2stage_ota_0.drain_M2_M12_outputOTA.n0 2stage_ota_0.drain_M2_M12_outputOTA.t0 3.54408
+R23 2stage_ota_0.drain_M2_M12_outputOTA.n0 2stage_ota_0.drain_M2_M12_outputOTA.t2 6.0186
+R24 current_mirror_loadN_0.drain_M10.t0 current_mirror_loadN_0.drain_M10.n4 14.9489
+R25 current_mirror_loadN_0.drain_M10.n3 current_mirror_loadN_0.drain_M10.n4 0.5703
+R26 current_mirror_loadN_0.drain_M10.n3 current_mirror_loadN_0.drain_M10.n1 2.0157
+R27 current_mirror_loadN_0.drain_M10.n2 current_mirror_loadN_0.drain_M10.n3 3.3841
+R28 current_mirror_loadN_0.drain_M10 current_mirror_loadN_0.drain_M10.n2 0.0159
+R29 current_mirror_loadN_0.drain_M10.n2 current_mirror_loadN_0.drain_M10.t4 12.6224
+R30 current_mirror_loadN_0.drain_M10 current_mirror_loadN_0.drain_M10.n1 0.00201724
+R31 current_mirror_loadN_0.drain_M10.n1 current_mirror_loadN_0.drain_M10.n0 2.1914
+R32 current_mirror_loadN_0.drain_M10.n0 current_mirror_loadN_0.drain_M10.t3 12.593
+R33 current_mirror_loadN_0.drain_M10.n0 current_mirror_loadN_0.drain_M10.t2 16.4037
+R34 current_mirror_loadN_0.drain_M10.n4 current_mirror_loadN_0.drain_M10.t1 15.5457
+R35 current_mirror_loadN_0.drain_M11.n2 current_mirror_loadN_0.drain_M11.t4 5.53294
+R36 current_mirror_loadN_0.drain_M11.t3 current_mirror_loadN_0.drain_M11.n2 7.50865
+R37 current_mirror_loadN_0.drain_M11.t2 current_mirror_loadN_0.drain_M11.n2 15.7902
+R38 current_mirror_loadN_0.drain_M11.n1 current_mirror_loadN_0.drain_M11.t2 13.3562
+R39 current_mirror_loadN_0.drain_M11 current_mirror_loadN_0.drain_M11.n1 0.00353448
+R40 current_mirror_loadN_0.drain_M11.n0 current_mirror_loadN_0.drain_M11.t1 0.90581
+R41 current_mirror_loadN_0.drain_M11.n1 current_mirror_loadN_0.drain_M11.n0 12.6501
+R42 current_mirror_loadN_0.drain_M11.n0 current_mirror_loadN_0.drain_M11.t0 6.43362
+R43 current_mirror2_0.v_bm.t0 current_mirror2_0.v_bm.n0 3.12718
+R44 current_mirror2_0.v_bm.n0 current_mirror2_0.v_bm.t1 15.0005
+R45 current_mirror2_0.v_bm current_mirror2_0.v_bm.n0 10.2902
+R46 current_mirror3_0.drain_M1.n4 current_mirror3_0.drain_M1.n0 1.56456
+R47 current_mirror3_0.drain_M1.n0 current_mirror3_0.drain_M1.t6 6.09175
+R48 current_mirror3_0.drain_M1 current_mirror3_0.drain_M1.n4 9.47096
+R49 current_mirror3_0.drain_M1 current_mirror3_0.drain_M1.n3 9.44353
+R50 current_mirror3_0.drain_M1.n2 current_mirror3_0.drain_M1.t0 0.90581
+R51 current_mirror3_0.drain_M1.n2 current_mirror3_0.drain_M1.t3 5.61629
+R52 current_mirror3_0.drain_M1.n3 current_mirror3_0.drain_M1.n2 2.27271
+R53 current_mirror3_0.drain_M1.n1 current_mirror3_0.drain_M1.t2 0.90581
+R54 current_mirror3_0.drain_M1.n1 current_mirror3_0.drain_M1.t1 5.61629
+R55 current_mirror3_0.drain_M1.n3 current_mirror3_0.drain_M1.n1 4.08509
+R56 current_mirror3_0.drain_M1.n4 current_mirror3_0.drain_M1.t4 4.53026
+R57 current_mirror3_0.drain_M1.n0 current_mirror3_0.drain_M1.t5 3.50923
+R58 2stage_ota_0.gate_M2.t0 2stage_ota_0.gate_M2.n0 3.60717
+R59 2stage_ota_0.gate_M2.n0 2stage_ota_0.gate_M2.t1 15.0005
+R60 2stage_ota_0.gate_M2 2stage_ota_0.gate_M2.n0 13.618
+R61 2stage_ota_0.gate_M2 2stage_ota_0.gate_M2.n2 11.4797
+R62 2stage_ota_0.gate_M2.n2 2stage_ota_0.gate_M2.n3 12.1251
+R63 2stage_ota_0.gate_M2.n3 2stage_ota_0.gate_M2 0.0401
+R64 2stage_ota_0.gate_M2.n3 2stage_ota_0.gate_M2.t3 14.7036
+R65 2stage_ota_0.gate_M2.n2 2stage_ota_0.gate_M2.n1 4.5269
+R66 2stage_ota_0.gate_M2.n1 2stage_ota_0.gate_M2 0.00960345
+R67 2stage_ota_0.gate_M2.n1 2stage_ota_0.gate_M2.t2 12.8555
+R68 2stage_ota_0.VDD.t11 2stage_ota_0.VDD.t0 22.8466
+R69 current_mirror_loadN_0.VSS.t35 current_mirror_loadN_0.VSS.n418 6.35945
+R70 current_mirror_loadN_0.VSS.n418 current_mirror_loadN_0.VSS.t32 6.23592
+R71 current_mirror_loadN_0.VSS.n0 current_mirror_loadN_0.VSS.t31 15.0005
+R72 current_mirror_loadN_0.VSS.n417 current_mirror_loadN_0.VSS.n0 0.230812
+R73 current_mirror_loadN_0.VSS.n0 current_mirror_loadN_0.VSS.n418 0.230812
+R74 current_mirror_loadN_0.VSS.n417 current_mirror_loadN_0.VSS.t36 6.3601
+R75 current_mirror_loadN_0.VSS.n417 current_mirror_loadN_0.VSS.t33 6.23592
+R76 current_mirror_loadN_0.VSS.n416 current_mirror_loadN_0.VSS.n417 0.468
+R77 current_mirror_loadN_0.VSS.n2 current_mirror_loadN_0.VSS.n3 0.159263
+R78 current_mirror_loadN_0.VSS.n5 current_mirror_loadN_0.VSS.n6 1.71406
+R79 current_mirror_loadN_0.VSS.n4 current_mirror_loadN_0.VSS.n5 0.00366943
+R80 current_mirror_loadN_0.VSS.n277 current_mirror_loadN_0.VSS.n4 29.1833
+R81 current_mirror_loadN_0.VSS.n43 current_mirror_loadN_0.VSS.n5 17.0005
+R82 current_mirror_loadN_0.VSS.n44 current_mirror_loadN_0.VSS.n5 17.0005
+R83 current_mirror_loadN_0.VSS.n45 current_mirror_loadN_0.VSS.n5 17.0005
+R84 current_mirror_loadN_0.VSS.n46 current_mirror_loadN_0.VSS.n5 17.0005
+R85 current_mirror_loadN_0.VSS.n47 current_mirror_loadN_0.VSS.n5 17.0005
+R86 current_mirror_loadN_0.VSS.n7 current_mirror_loadN_0.VSS.n5 1.97148
+R87 current_mirror_loadN_0.VSS.n48 current_mirror_loadN_0.VSS.n5 17.0005
+R88 current_mirror_loadN_0.VSS.n49 current_mirror_loadN_0.VSS.n5 17.0005
+R89 current_mirror_loadN_0.VSS.n50 current_mirror_loadN_0.VSS.n5 17.0005
+R90 current_mirror_loadN_0.VSS.n51 current_mirror_loadN_0.VSS.n5 17.0005
+R91 current_mirror_loadN_0.VSS.n52 current_mirror_loadN_0.VSS.n5 17.0005
+R92 current_mirror_loadN_0.VSS.n53 current_mirror_loadN_0.VSS.n5 17.0005
+R93 current_mirror_loadN_0.VSS.n7 current_mirror_loadN_0.VSS.n416 0.502988
+R94 current_mirror_loadN_0.VSS.n416 current_mirror_loadN_0.VSS.n6 0.558125
+R95 current_mirror_loadN_0.VSS.n231 current_mirror_loadN_0.VSS.n8 0.001
+R96 current_mirror_loadN_0.VSS.n8 current_mirror_loadN_0.VSS.n9 8.47086
+R97 current_mirror_loadN_0.VSS.n5 current_mirror_loadN_0.VSS.n55 0.001
+R98 current_mirror_loadN_0.VSS.n415 current_mirror_loadN_0.VSS.n7 0.42327
+R99 current_mirror_loadN_0.VSS current_mirror_loadN_0.VSS.n10 0.191167
+R100 current_mirror_loadN_0.VSS current_mirror_loadN_0.VSS.n415 0.0555
+R101 current_mirror_loadN_0.VSS.n2 current_mirror_loadN_0.VSS.n11 17.0005
+R102 current_mirror_loadN_0.VSS.n66 current_mirror_loadN_0.VSS.n54 5.66767
+R103 current_mirror_loadN_0.VSS.n12 current_mirror_loadN_0.VSS.n13 8.46995
+R104 current_mirror_loadN_0.VSS.n66 current_mirror_loadN_0.VSS.n65 8.501
+R105 current_mirror_loadN_0.VSS.n14 current_mirror_loadN_0.VSS.n65 0.001
+R106 current_mirror_loadN_0.VSS.n14 current_mirror_loadN_0.VSS.n15 8.46995
+R107 current_mirror_loadN_0.VSS.n66 current_mirror_loadN_0.VSS.n64 8.501
+R108 current_mirror_loadN_0.VSS.n16 current_mirror_loadN_0.VSS.n64 0.001
+R109 current_mirror_loadN_0.VSS.n16 current_mirror_loadN_0.VSS.n17 8.46995
+R110 current_mirror_loadN_0.VSS.n66 current_mirror_loadN_0.VSS.n63 8.501
+R111 current_mirror_loadN_0.VSS.n18 current_mirror_loadN_0.VSS.n63 0.001
+R112 current_mirror_loadN_0.VSS.n18 current_mirror_loadN_0.VSS.n19 8.46995
+R113 current_mirror_loadN_0.VSS.n66 current_mirror_loadN_0.VSS.n62 8.501
+R114 current_mirror_loadN_0.VSS.n20 current_mirror_loadN_0.VSS.n62 0.001
+R115 current_mirror_loadN_0.VSS.n20 current_mirror_loadN_0.VSS.n21 8.46995
+R116 current_mirror_loadN_0.VSS.n66 current_mirror_loadN_0.VSS.n61 8.501
+R117 current_mirror_loadN_0.VSS.n22 current_mirror_loadN_0.VSS.n61 0.001
+R118 current_mirror_loadN_0.VSS.n22 current_mirror_loadN_0.VSS.n23 8.46995
+R119 current_mirror_loadN_0.VSS.n66 current_mirror_loadN_0.VSS.n60 8.501
+R120 current_mirror_loadN_0.VSS.n24 current_mirror_loadN_0.VSS.n60 0.001
+R121 current_mirror_loadN_0.VSS.n24 current_mirror_loadN_0.VSS.n25 8.46995
+R122 current_mirror_loadN_0.VSS.n66 current_mirror_loadN_0.VSS.n59 8.501
+R123 current_mirror_loadN_0.VSS.n26 current_mirror_loadN_0.VSS.n59 0.001
+R124 current_mirror_loadN_0.VSS.n26 current_mirror_loadN_0.VSS.n27 17.0005
+R125 current_mirror_loadN_0.VSS.n66 current_mirror_loadN_0.VSS.n58 8.501
+R126 current_mirror_loadN_0.VSS.n26 current_mirror_loadN_0.VSS.n28 17.0005
+R127 current_mirror_loadN_0.VSS.n29 current_mirror_loadN_0.VSS.n58 0.001
+R128 current_mirror_loadN_0.VSS.n29 current_mirror_loadN_0.VSS.n30 8.46995
+R129 current_mirror_loadN_0.VSS.n66 current_mirror_loadN_0.VSS.n57 8.501
+R130 current_mirror_loadN_0.VSS.n31 current_mirror_loadN_0.VSS.n57 0.001
+R131 current_mirror_loadN_0.VSS.n31 current_mirror_loadN_0.VSS.n32 8.46995
+R132 current_mirror_loadN_0.VSS.n66 current_mirror_loadN_0.VSS.n56 8.501
+R133 current_mirror_loadN_0.VSS.n33 current_mirror_loadN_0.VSS.n56 0.001
+R134 current_mirror_loadN_0.VSS.n33 current_mirror_loadN_0.VSS.n34 8.46995
+R135 current_mirror_loadN_0.VSS.n66 current_mirror_loadN_0.VSS.n55 8.501
+R136 current_mirror_loadN_0.VSS.n415 current_mirror_loadN_0.VSS.n34 0.132772
+R137 current_mirror_loadN_0.VSS.n34 current_mirror_loadN_0.VSS.n32 0.250378
+R138 current_mirror_loadN_0.VSS.n32 current_mirror_loadN_0.VSS.n30 0.250378
+R139 current_mirror_loadN_0.VSS.n30 current_mirror_loadN_0.VSS.n28 0.187772
+R140 current_mirror_loadN_0.VSS.n28 current_mirror_loadN_0.VSS.n38 0.0738333
+R141 current_mirror_loadN_0.VSS.n38 current_mirror_loadN_0.VSS.n27 0.0518333
+R142 current_mirror_loadN_0.VSS.n27 current_mirror_loadN_0.VSS.n25 0.187772
+R143 current_mirror_loadN_0.VSS.n25 current_mirror_loadN_0.VSS.n23 0.250378
+R144 current_mirror_loadN_0.VSS.n23 current_mirror_loadN_0.VSS.n21 0.338378
+R145 current_mirror_loadN_0.VSS.n21 current_mirror_loadN_0.VSS.n19 0.250378
+R146 current_mirror_loadN_0.VSS.n19 current_mirror_loadN_0.VSS.n36 0.0997723
+R147 current_mirror_loadN_0.VSS.n36 current_mirror_loadN_0.VSS.n17 0.151106
+R148 current_mirror_loadN_0.VSS.n17 current_mirror_loadN_0.VSS.n15 0.250378
+R149 current_mirror_loadN_0.VSS.n15 current_mirror_loadN_0.VSS.n13 0.250378
+R150 current_mirror_loadN_0.VSS.n13 current_mirror_loadN_0.VSS.n11 0.187772
+R151 current_mirror_loadN_0.VSS.n11 current_mirror_loadN_0.VSS.n39 0.0701667
+R152 current_mirror_loadN_0.VSS.n41 current_mirror_loadN_0.VSS.n40 0.0108091
+R153 current_mirror_loadN_0.VSS.n2 current_mirror_loadN_0.VSS.n4 0.00332934
+R154 current_mirror_loadN_0.VSS.n43 current_mirror_loadN_0.VSS.n2 17.0005
+R155 current_mirror_loadN_0.VSS.n44 current_mirror_loadN_0.VSS.n2 17.0005
+R156 current_mirror_loadN_0.VSS.n45 current_mirror_loadN_0.VSS.n2 17.0005
+R157 current_mirror_loadN_0.VSS.n46 current_mirror_loadN_0.VSS.n2 17.0005
+R158 current_mirror_loadN_0.VSS.n47 current_mirror_loadN_0.VSS.n2 17.0005
+R159 current_mirror_loadN_0.VSS.n48 current_mirror_loadN_0.VSS.n2 17.0005
+R160 current_mirror_loadN_0.VSS.n49 current_mirror_loadN_0.VSS.n2 17.0005
+R161 current_mirror_loadN_0.VSS.n50 current_mirror_loadN_0.VSS.n2 17.0005
+R162 current_mirror_loadN_0.VSS.n2 current_mirror_loadN_0.VSS.n1 1.9709
+R163 current_mirror_loadN_0.VSS.n51 current_mirror_loadN_0.VSS.n2 17.0005
+R164 current_mirror_loadN_0.VSS.n52 current_mirror_loadN_0.VSS.n2 17.0005
+R165 current_mirror_loadN_0.VSS.n53 current_mirror_loadN_0.VSS.n2 17.0005
+R166 current_mirror_loadN_0.VSS.n54 current_mirror_loadN_0.VSS.n2 0.001
+R167 current_mirror_loadN_0.VSS.n39 current_mirror_loadN_0.VSS.n1 0.422425
+R168 current_mirror_loadN_0.VSS.n42 current_mirror_loadN_0.VSS.n39 0.246167
+R169 current_mirror_loadN_0.VSS.n1 current_mirror_loadN_0.VSS.n414 0.540381
+R170 current_mirror_loadN_0.VSS.n3 current_mirror_loadN_0.VSS.n414 1.28958
+R171 current_mirror_loadN_0.VSS.n3 current_mirror_loadN_0.VSS.n6 1.81827
+R172 current_mirror_loadN_0.VSS.n414 current_mirror_loadN_0.VSS.n413 0.4955
+R173 current_mirror_loadN_0.VSS.n413 current_mirror_loadN_0.VSS.t29 6.29135
+R174 current_mirror_loadN_0.VSS.n413 current_mirror_loadN_0.VSS.t26 6.30467
+R175 current_mirror_loadN_0.VSS.n411 current_mirror_loadN_0.VSS.t25 15.0005
+R176 current_mirror_loadN_0.VSS.n411 current_mirror_loadN_0.VSS.n412 0.23425
+R177 current_mirror_loadN_0.VSS.n413 current_mirror_loadN_0.VSS.n411 0.227375
+R178 current_mirror_loadN_0.VSS.n412 current_mirror_loadN_0.VSS.t30 6.29135
+R179 current_mirror_loadN_0.VSS.n412 current_mirror_loadN_0.VSS.t27 6.30467
+R180 current_mirror_loadN_0.VSS.n55 current_mirror_loadN_0.VSS.n33 0.001
+R181 current_mirror_loadN_0.VSS.n56 current_mirror_loadN_0.VSS.n31 0.001
+R182 current_mirror_loadN_0.VSS.n57 current_mirror_loadN_0.VSS.n29 0.001
+R183 current_mirror_loadN_0.VSS.n58 current_mirror_loadN_0.VSS.n26 0.001
+R184 current_mirror_loadN_0.VSS.n59 current_mirror_loadN_0.VSS.n24 0.001
+R185 current_mirror_loadN_0.VSS.n60 current_mirror_loadN_0.VSS.n22 0.001
+R186 current_mirror_loadN_0.VSS.n61 current_mirror_loadN_0.VSS.n20 0.001
+R187 current_mirror_loadN_0.VSS.n62 current_mirror_loadN_0.VSS.n18 0.001
+R188 current_mirror_loadN_0.VSS.n63 current_mirror_loadN_0.VSS.n16 0.001
+R189 current_mirror_loadN_0.VSS.n64 current_mirror_loadN_0.VSS.n14 0.001
+R190 current_mirror_loadN_0.VSS.n65 current_mirror_loadN_0.VSS.n12 0.001
+R191 current_mirror_loadN_0.VSS.n12 current_mirror_loadN_0.VSS.n54 0.001
+R192 current_mirror_loadN_0.VSS.n104 current_mirror_loadN_0.VSS.n199 0.001
+R193 current_mirror_loadN_0.VSS.n105 current_mirror_loadN_0.VSS.n344 1.00948
+R194 current_mirror_loadN_0.VSS.n104 current_mirror_loadN_0.VSS.n105 0.491227
+R195 current_mirror_loadN_0.VSS.n104 current_mirror_loadN_0.VSS.n106 0.00386729
+R196 current_mirror_loadN_0.VSS.n104 current_mirror_loadN_0.VSS.n67 0.016854
+R197 current_mirror_loadN_0.VSS.n103 current_mirror_loadN_0.VSS.n373 1.48083
+R198 current_mirror_loadN_0.VSS.n104 current_mirror_loadN_0.VSS.n103 0.0204864
+R199 current_mirror_loadN_0.VSS.n105 current_mirror_loadN_0.VSS.n375 1.08085
+R200 current_mirror_loadN_0.VSS.n243 current_mirror_loadN_0.VSS.n199 8.501
+R201 current_mirror_loadN_0.VSS.n108 current_mirror_loadN_0.VSS.n109 8.46995
+R202 current_mirror_loadN_0.VSS.n108 current_mirror_loadN_0.VSS.n200 0.001
+R203 current_mirror_loadN_0.VSS.n243 current_mirror_loadN_0.VSS.n200 8.501
+R204 current_mirror_loadN_0.VSS.n110 current_mirror_loadN_0.VSS.n111 8.46995
+R205 current_mirror_loadN_0.VSS.n110 current_mirror_loadN_0.VSS.n201 0.001
+R206 current_mirror_loadN_0.VSS.n243 current_mirror_loadN_0.VSS.n201 8.501
+R207 current_mirror_loadN_0.VSS.n112 current_mirror_loadN_0.VSS.n113 8.46995
+R208 current_mirror_loadN_0.VSS.n112 current_mirror_loadN_0.VSS.n202 0.001
+R209 current_mirror_loadN_0.VSS.n243 current_mirror_loadN_0.VSS.n202 8.501
+R210 current_mirror_loadN_0.VSS.n114 current_mirror_loadN_0.VSS.n115 17.0005
+R211 current_mirror_loadN_0.VSS.n114 current_mirror_loadN_0.VSS.n203 0.001
+R212 current_mirror_loadN_0.VSS.n114 current_mirror_loadN_0.VSS.n116 17.0005
+R213 current_mirror_loadN_0.VSS.n243 current_mirror_loadN_0.VSS.n203 8.501
+R214 current_mirror_loadN_0.VSS.n117 current_mirror_loadN_0.VSS.n118 8.46995
+R215 current_mirror_loadN_0.VSS.n117 current_mirror_loadN_0.VSS.n204 0.001
+R216 current_mirror_loadN_0.VSS.n243 current_mirror_loadN_0.VSS.n204 8.501
+R217 current_mirror_loadN_0.VSS.n119 current_mirror_loadN_0.VSS.n120 17.0005
+R218 current_mirror_loadN_0.VSS.n119 current_mirror_loadN_0.VSS.n205 0.001
+R219 current_mirror_loadN_0.VSS.n119 current_mirror_loadN_0.VSS.n121 17.0005
+R220 current_mirror_loadN_0.VSS.n243 current_mirror_loadN_0.VSS.n205 8.501
+R221 current_mirror_loadN_0.VSS.n122 current_mirror_loadN_0.VSS.n123 8.46995
+R222 current_mirror_loadN_0.VSS.n122 current_mirror_loadN_0.VSS.n206 0.001
+R223 current_mirror_loadN_0.VSS.n243 current_mirror_loadN_0.VSS.n206 8.501
+R224 current_mirror_loadN_0.VSS.n124 current_mirror_loadN_0.VSS.n125 8.46995
+R225 current_mirror_loadN_0.VSS.n124 current_mirror_loadN_0.VSS.n207 0.001
+R226 current_mirror_loadN_0.VSS.n243 current_mirror_loadN_0.VSS.n207 8.501
+R227 current_mirror_loadN_0.VSS.n126 current_mirror_loadN_0.VSS.n127 8.46995
+R228 current_mirror_loadN_0.VSS.n126 current_mirror_loadN_0.VSS.n208 0.001
+R229 current_mirror_loadN_0.VSS.n243 current_mirror_loadN_0.VSS.n208 8.501
+R230 current_mirror_loadN_0.VSS.n128 current_mirror_loadN_0.VSS.n129 8.46995
+R231 current_mirror_loadN_0.VSS.n128 current_mirror_loadN_0.VSS.n209 0.001
+R232 current_mirror_loadN_0.VSS.n243 current_mirror_loadN_0.VSS.n209 8.501
+R233 current_mirror_loadN_0.VSS.n130 current_mirror_loadN_0.VSS.n131 17.0005
+R234 current_mirror_loadN_0.VSS.n130 current_mirror_loadN_0.VSS.n210 0.001
+R235 current_mirror_loadN_0.VSS.n130 current_mirror_loadN_0.VSS.n132 17.0005
+R236 current_mirror_loadN_0.VSS.n243 current_mirror_loadN_0.VSS.n210 8.501
+R237 current_mirror_loadN_0.VSS.n133 current_mirror_loadN_0.VSS.n134 8.46995
+R238 current_mirror_loadN_0.VSS.n133 current_mirror_loadN_0.VSS.n211 0.001
+R239 current_mirror_loadN_0.VSS.n243 current_mirror_loadN_0.VSS.n211 8.501
+R240 current_mirror_loadN_0.VSS.n135 current_mirror_loadN_0.VSS.n136 8.46995
+R241 current_mirror_loadN_0.VSS.n135 current_mirror_loadN_0.VSS.n212 0.001
+R242 current_mirror_loadN_0.VSS.n243 current_mirror_loadN_0.VSS.n212 8.501
+R243 current_mirror_loadN_0.VSS.n137 current_mirror_loadN_0.VSS.n138 17.0005
+R244 current_mirror_loadN_0.VSS.n137 current_mirror_loadN_0.VSS.n213 0.001
+R245 current_mirror_loadN_0.VSS.n137 current_mirror_loadN_0.VSS.n139 17.0005
+R246 current_mirror_loadN_0.VSS.n243 current_mirror_loadN_0.VSS.n213 8.501
+R247 current_mirror_loadN_0.VSS.n140 current_mirror_loadN_0.VSS.n141 8.46995
+R248 current_mirror_loadN_0.VSS.n140 current_mirror_loadN_0.VSS.n214 0.001
+R249 current_mirror_loadN_0.VSS.n243 current_mirror_loadN_0.VSS.n214 8.501
+R250 current_mirror_loadN_0.VSS.n142 current_mirror_loadN_0.VSS.n143 8.46995
+R251 current_mirror_loadN_0.VSS.n142 current_mirror_loadN_0.VSS.n215 0.001
+R252 current_mirror_loadN_0.VSS.n243 current_mirror_loadN_0.VSS.n215 8.501
+R253 current_mirror_loadN_0.VSS.n144 current_mirror_loadN_0.VSS.n145 8.46995
+R254 current_mirror_loadN_0.VSS.n144 current_mirror_loadN_0.VSS.n216 0.001
+R255 current_mirror_loadN_0.VSS.n243 current_mirror_loadN_0.VSS.n216 8.501
+R256 current_mirror_loadN_0.VSS.n146 current_mirror_loadN_0.VSS.n147 8.46995
+R257 current_mirror_loadN_0.VSS.n146 current_mirror_loadN_0.VSS.n217 0.001
+R258 current_mirror_loadN_0.VSS.n243 current_mirror_loadN_0.VSS.n217 8.501
+R259 current_mirror_loadN_0.VSS.n148 current_mirror_loadN_0.VSS.n149 8.46995
+R260 current_mirror_loadN_0.VSS.n218 current_mirror_loadN_0.VSS.n148 0.001
+R261 current_mirror_loadN_0.VSS.n243 current_mirror_loadN_0.VSS.n218 8.501
+R262 current_mirror_loadN_0.VSS.n150 current_mirror_loadN_0.VSS.n151 8.46995
+R263 current_mirror_loadN_0.VSS.n219 current_mirror_loadN_0.VSS.n150 0.001
+R264 current_mirror_loadN_0.VSS.n243 current_mirror_loadN_0.VSS.n219 8.501
+R265 current_mirror_loadN_0.VSS.n152 current_mirror_loadN_0.VSS.n153 8.46995
+R266 current_mirror_loadN_0.VSS.n220 current_mirror_loadN_0.VSS.n152 0.001
+R267 current_mirror_loadN_0.VSS.n243 current_mirror_loadN_0.VSS.n220 8.501
+R268 current_mirror_loadN_0.VSS.n154 current_mirror_loadN_0.VSS.n155 8.46995
+R269 current_mirror_loadN_0.VSS.n221 current_mirror_loadN_0.VSS.n154 0.001
+R270 current_mirror_loadN_0.VSS.n243 current_mirror_loadN_0.VSS.n221 8.501
+R271 current_mirror_loadN_0.VSS.n156 current_mirror_loadN_0.VSS.n157 8.46995
+R272 current_mirror_loadN_0.VSS.n222 current_mirror_loadN_0.VSS.n156 0.001
+R273 current_mirror_loadN_0.VSS.n243 current_mirror_loadN_0.VSS.n222 8.501
+R274 current_mirror_loadN_0.VSS.n158 current_mirror_loadN_0.VSS.n159 8.46995
+R275 current_mirror_loadN_0.VSS.n223 current_mirror_loadN_0.VSS.n158 0.001
+R276 current_mirror_loadN_0.VSS.n243 current_mirror_loadN_0.VSS.n223 8.501
+R277 current_mirror_loadN_0.VSS.n160 current_mirror_loadN_0.VSS.n161 8.46995
+R278 current_mirror_loadN_0.VSS.n224 current_mirror_loadN_0.VSS.n160 0.001
+R279 current_mirror_loadN_0.VSS.n243 current_mirror_loadN_0.VSS.n224 8.501
+R280 current_mirror_loadN_0.VSS.n162 current_mirror_loadN_0.VSS.n163 8.46995
+R281 current_mirror_loadN_0.VSS.n225 current_mirror_loadN_0.VSS.n162 0.001
+R282 current_mirror_loadN_0.VSS.n243 current_mirror_loadN_0.VSS.n225 8.501
+R283 current_mirror_loadN_0.VSS.n164 current_mirror_loadN_0.VSS.n165 8.46995
+R284 current_mirror_loadN_0.VSS.n226 current_mirror_loadN_0.VSS.n164 0.001
+R285 current_mirror_loadN_0.VSS.n243 current_mirror_loadN_0.VSS.n226 8.501
+R286 current_mirror_loadN_0.VSS.n166 current_mirror_loadN_0.VSS.n167 8.46995
+R287 current_mirror_loadN_0.VSS.n227 current_mirror_loadN_0.VSS.n166 0.001
+R288 current_mirror_loadN_0.VSS.n243 current_mirror_loadN_0.VSS.n227 8.501
+R289 current_mirror_loadN_0.VSS.n168 current_mirror_loadN_0.VSS.n169 8.46995
+R290 current_mirror_loadN_0.VSS.n228 current_mirror_loadN_0.VSS.n168 0.001
+R291 current_mirror_loadN_0.VSS.n243 current_mirror_loadN_0.VSS.n228 8.501
+R292 current_mirror_loadN_0.VSS.n170 current_mirror_loadN_0.VSS.n171 8.46995
+R293 current_mirror_loadN_0.VSS.n229 current_mirror_loadN_0.VSS.n170 0.001
+R294 current_mirror_loadN_0.VSS.n243 current_mirror_loadN_0.VSS.n229 8.501
+R295 current_mirror_loadN_0.VSS.n172 current_mirror_loadN_0.VSS.n173 8.46995
+R296 current_mirror_loadN_0.VSS.n230 current_mirror_loadN_0.VSS.n172 0.001
+R297 current_mirror_loadN_0.VSS.n343 current_mirror_loadN_0.VSS.n173 0.0631056
+R298 current_mirror_loadN_0.VSS.n243 current_mirror_loadN_0.VSS.n230 8.501
+R299 current_mirror_loadN_0.VSS.n243 current_mirror_loadN_0.VSS.n231 8.501
+R300 current_mirror_loadN_0.VSS.n174 current_mirror_loadN_0.VSS.n175 8.46995
+R301 current_mirror_loadN_0.VSS.n232 current_mirror_loadN_0.VSS.n174 0.001
+R302 current_mirror_loadN_0.VSS.n243 current_mirror_loadN_0.VSS.n232 8.501
+R303 current_mirror_loadN_0.VSS.n176 current_mirror_loadN_0.VSS.n177 8.46995
+R304 current_mirror_loadN_0.VSS.n233 current_mirror_loadN_0.VSS.n176 0.001
+R305 current_mirror_loadN_0.VSS.n243 current_mirror_loadN_0.VSS.n233 8.501
+R306 current_mirror_loadN_0.VSS.n178 current_mirror_loadN_0.VSS.n179 8.46995
+R307 current_mirror_loadN_0.VSS.n234 current_mirror_loadN_0.VSS.n178 0.001
+R308 current_mirror_loadN_0.VSS.n243 current_mirror_loadN_0.VSS.n234 8.501
+R309 current_mirror_loadN_0.VSS.n180 current_mirror_loadN_0.VSS.n181 8.46995
+R310 current_mirror_loadN_0.VSS.n235 current_mirror_loadN_0.VSS.n180 0.001
+R311 current_mirror_loadN_0.VSS.n243 current_mirror_loadN_0.VSS.n235 8.501
+R312 current_mirror_loadN_0.VSS.n182 current_mirror_loadN_0.VSS.n183 8.46995
+R313 current_mirror_loadN_0.VSS.n236 current_mirror_loadN_0.VSS.n182 0.001
+R314 current_mirror_loadN_0.VSS.n243 current_mirror_loadN_0.VSS.n236 8.501
+R315 current_mirror_loadN_0.VSS.n184 current_mirror_loadN_0.VSS.n185 8.46995
+R316 current_mirror_loadN_0.VSS.n237 current_mirror_loadN_0.VSS.n184 0.001
+R317 current_mirror_loadN_0.VSS.n243 current_mirror_loadN_0.VSS.n237 8.501
+R318 current_mirror_loadN_0.VSS.n186 current_mirror_loadN_0.VSS.n187 8.46995
+R319 current_mirror_loadN_0.VSS.n238 current_mirror_loadN_0.VSS.n186 0.001
+R320 current_mirror_loadN_0.VSS.n243 current_mirror_loadN_0.VSS.n238 8.501
+R321 current_mirror_loadN_0.VSS.n188 current_mirror_loadN_0.VSS.n189 8.46631
+R322 current_mirror_loadN_0.VSS.n239 current_mirror_loadN_0.VSS.n188 0.001
+R323 current_mirror_loadN_0.VSS.n243 current_mirror_loadN_0.VSS.n239 8.501
+R324 current_mirror_loadN_0.VSS.n190 current_mirror_loadN_0.VSS.n191 8.46995
+R325 current_mirror_loadN_0.VSS.n240 current_mirror_loadN_0.VSS.n190 0.001
+R326 current_mirror_loadN_0.VSS.n243 current_mirror_loadN_0.VSS.n240 8.501
+R327 current_mirror_loadN_0.VSS.n192 current_mirror_loadN_0.VSS.n193 8.46995
+R328 current_mirror_loadN_0.VSS.n241 current_mirror_loadN_0.VSS.n192 0.001
+R329 current_mirror_loadN_0.VSS.n243 current_mirror_loadN_0.VSS.n241 8.501
+R330 current_mirror_loadN_0.VSS.n194 current_mirror_loadN_0.VSS.n195 8.46995
+R331 current_mirror_loadN_0.VSS.n242 current_mirror_loadN_0.VSS.n194 0.001
+R332 current_mirror_loadN_0.VSS.n243 current_mirror_loadN_0.VSS.n242 8.501
+R333 current_mirror_loadN_0.VSS.n196 current_mirror_loadN_0.VSS.n197 8.46995
+R334 current_mirror_loadN_0.VSS.n198 current_mirror_loadN_0.VSS.n243 5.66767
+R335 current_mirror_loadN_0.VSS.n40 current_mirror_loadN_0.VSS.n198 0.001
+R336 current_mirror_loadN_0.VSS.n42 current_mirror_loadN_0.VSS.n41 1.34572
+R337 current_mirror_loadN_0.VSS.n246 current_mirror_loadN_0.VSS.n277 4.25119
+R338 current_mirror_loadN_0.VSS.n247 current_mirror_loadN_0.VSS.n248 0.545212
+R339 current_mirror_loadN_0.VSS.n247 current_mirror_loadN_0.VSS.n279 8.5005
+R340 current_mirror_loadN_0.VSS.n247 current_mirror_loadN_0.VSS.n281 8.5005
+R341 current_mirror_loadN_0.VSS.n247 current_mirror_loadN_0.VSS.n49 8.5005
+R342 current_mirror_loadN_0.VSS.n247 current_mirror_loadN_0.VSS.n51 8.5005
+R343 current_mirror_loadN_0.VSS.n53 current_mirror_loadN_0.VSS.n247 8.5005
+R344 current_mirror_loadN_0.VSS.n247 current_mirror_loadN_0.VSS.n66 0.773227
+R345 current_mirror_loadN_0.VSS.n247 current_mirror_loadN_0.VSS.n244 1.9761
+R346 current_mirror_loadN_0.VSS.n247 current_mirror_loadN_0.VSS.n245 2.70629
+R347 current_mirror_loadN_0.VSS.n247 current_mirror_loadN_0.VSS.n268 0.001
+R348 current_mirror_loadN_0.VSS.n277 current_mirror_loadN_0.VSS.n268 8.501
+R349 current_mirror_loadN_0.VSS.n249 current_mirror_loadN_0.VSS.n250 8.46995
+R350 current_mirror_loadN_0.VSS.n249 current_mirror_loadN_0.VSS.n269 0.001
+R351 current_mirror_loadN_0.VSS.n277 current_mirror_loadN_0.VSS.n269 8.501
+R352 current_mirror_loadN_0.VSS.n251 current_mirror_loadN_0.VSS.n252 8.46995
+R353 current_mirror_loadN_0.VSS.n251 current_mirror_loadN_0.VSS.n270 0.001
+R354 current_mirror_loadN_0.VSS.n277 current_mirror_loadN_0.VSS.n270 8.501
+R355 current_mirror_loadN_0.VSS.n253 current_mirror_loadN_0.VSS.n254 8.46995
+R356 current_mirror_loadN_0.VSS.n253 current_mirror_loadN_0.VSS.n271 0.001
+R357 current_mirror_loadN_0.VSS.n277 current_mirror_loadN_0.VSS.n271 8.501
+R358 current_mirror_loadN_0.VSS.n255 current_mirror_loadN_0.VSS.n256 8.46995
+R359 current_mirror_loadN_0.VSS.n255 current_mirror_loadN_0.VSS.n272 0.001
+R360 current_mirror_loadN_0.VSS.n277 current_mirror_loadN_0.VSS.n272 8.501
+R361 current_mirror_loadN_0.VSS.n257 current_mirror_loadN_0.VSS.n258 8.45904
+R362 current_mirror_loadN_0.VSS.n257 current_mirror_loadN_0.VSS.n273 0.001
+R363 current_mirror_loadN_0.VSS.n277 current_mirror_loadN_0.VSS.n273 8.501
+R364 current_mirror_loadN_0.VSS.n259 current_mirror_loadN_0.VSS.n260 8.46995
+R365 current_mirror_loadN_0.VSS.n259 current_mirror_loadN_0.VSS.n274 0.001
+R366 current_mirror_loadN_0.VSS.n277 current_mirror_loadN_0.VSS.n274 8.501
+R367 current_mirror_loadN_0.VSS.n261 current_mirror_loadN_0.VSS.n262 8.46995
+R368 current_mirror_loadN_0.VSS.n261 current_mirror_loadN_0.VSS.n275 0.001
+R369 current_mirror_loadN_0.VSS.n277 current_mirror_loadN_0.VSS.n275 8.501
+R370 current_mirror_loadN_0.VSS.n263 current_mirror_loadN_0.VSS.n264 8.46995
+R371 current_mirror_loadN_0.VSS.n263 current_mirror_loadN_0.VSS.n276 0.001
+R372 current_mirror_loadN_0.VSS.n277 current_mirror_loadN_0.VSS.n276 8.501
+R373 current_mirror_loadN_0.VSS.n265 current_mirror_loadN_0.VSS.n267 8.46995
+R374 current_mirror_loadN_0.VSS.n266 current_mirror_loadN_0.VSS.n247 1.187
+R375 current_mirror_loadN_0.VSS.n247 current_mirror_loadN_0.VSS.n246 0.00137498
+R376 current_mirror_loadN_0.VSS.n247 current_mirror_loadN_0.VSS.n278 8.5005
+R377 current_mirror_loadN_0.VSS.n247 current_mirror_loadN_0.VSS.n280 8.5005
+R378 current_mirror_loadN_0.VSS.n247 current_mirror_loadN_0.VSS.n282 8.5005
+R379 current_mirror_loadN_0.VSS.n247 current_mirror_loadN_0.VSS.n50 8.5005
+R380 current_mirror_loadN_0.VSS.n247 current_mirror_loadN_0.VSS.n52 8.5005
+R381 current_mirror_loadN_0.VSS.n283 current_mirror_loadN_0.VSS.n244 0.375929
+R382 current_mirror_loadN_0.VSS.n287 current_mirror_loadN_0.VSS.n305 4.25119
+R383 current_mirror_loadN_0.VSS.n289 current_mirror_loadN_0.VSS.n290 1.49372
+R384 current_mirror_loadN_0.VSS.n289 current_mirror_loadN_0.VSS.n307 8.5005
+R385 current_mirror_loadN_0.VSS.n289 current_mirror_loadN_0.VSS.n309 8.5005
+R386 current_mirror_loadN_0.VSS.n51 current_mirror_loadN_0.VSS.n288 5.37112
+R387 current_mirror_loadN_0.VSS.n286 current_mirror_loadN_0.VSS.n53 6.34435
+R388 current_mirror_loadN_0.VSS.n286 current_mirror_loadN_0.VSS.n289 0.309093
+R389 current_mirror_loadN_0.VSS.n291 current_mirror_loadN_0.VSS.n285 0.262264
+R390 current_mirror_loadN_0.VSS.n289 current_mirror_loadN_0.VSS.n284 2.72414
+R391 current_mirror_loadN_0.VSS.n289 current_mirror_loadN_0.VSS.n285 2.72379
+R392 current_mirror_loadN_0.VSS.n289 current_mirror_loadN_0.VSS.n301 0.001
+R393 current_mirror_loadN_0.VSS.n305 current_mirror_loadN_0.VSS.n301 8.501
+R394 current_mirror_loadN_0.VSS.n292 current_mirror_loadN_0.VSS.n293 8.46995
+R395 current_mirror_loadN_0.VSS.n292 current_mirror_loadN_0.VSS.n302 0.001
+R396 current_mirror_loadN_0.VSS.n305 current_mirror_loadN_0.VSS.n302 8.501
+R397 current_mirror_loadN_0.VSS.n294 current_mirror_loadN_0.VSS.n295 8.46995
+R398 current_mirror_loadN_0.VSS.n294 current_mirror_loadN_0.VSS.n303 0.001
+R399 current_mirror_loadN_0.VSS.n305 current_mirror_loadN_0.VSS.n303 8.501
+R400 current_mirror_loadN_0.VSS.n296 current_mirror_loadN_0.VSS.n297 8.46995
+R401 current_mirror_loadN_0.VSS.n296 current_mirror_loadN_0.VSS.n304 0.001
+R402 current_mirror_loadN_0.VSS.n305 current_mirror_loadN_0.VSS.n304 8.501
+R403 current_mirror_loadN_0.VSS.n298 current_mirror_loadN_0.VSS.n300 8.46995
+R404 current_mirror_loadN_0.VSS.n289 current_mirror_loadN_0.VSS.n299 1.49312
+R405 current_mirror_loadN_0.VSS.n289 current_mirror_loadN_0.VSS.n287 0.00137498
+R406 current_mirror_loadN_0.VSS.n289 current_mirror_loadN_0.VSS.n306 8.5005
+R407 current_mirror_loadN_0.VSS.n289 current_mirror_loadN_0.VSS.n308 8.5005
+R408 current_mirror_loadN_0.VSS.n50 current_mirror_loadN_0.VSS.n289 8.5005
+R409 current_mirror_loadN_0.VSS.n289 current_mirror_loadN_0.VSS.n288 1.56594
+R410 current_mirror_loadN_0.VSS.n313 current_mirror_loadN_0.VSS.n324 0.001
+R411 current_mirror_loadN_0.VSS.n313 current_mirror_loadN_0.VSS.n314 2.28269
+R412 current_mirror_loadN_0.VSS.n313 current_mirror_loadN_0.VSS.n329 8.5005
+R413 current_mirror_loadN_0.VSS.n51 current_mirror_loadN_0.VSS.n313 8.5005
+R414 current_mirror_loadN_0.VSS.n53 current_mirror_loadN_0.VSS.n311 5.37112
+R415 current_mirror_loadN_0.VSS.n66 current_mirror_loadN_0.VSS.n313 1.88939
+R416 current_mirror_loadN_0.VSS.n315 current_mirror_loadN_0.VSS.n310 0.204311
+R417 current_mirror_loadN_0.VSS.n313 current_mirror_loadN_0.VSS.n310 3.31178
+R418 current_mirror_loadN_0.VSS.n327 current_mirror_loadN_0.VSS.n324 8.501
+R419 current_mirror_loadN_0.VSS.n316 current_mirror_loadN_0.VSS.n317 8.46995
+R420 current_mirror_loadN_0.VSS.n316 current_mirror_loadN_0.VSS.n325 0.001
+R421 current_mirror_loadN_0.VSS.n327 current_mirror_loadN_0.VSS.n325 8.501
+R422 current_mirror_loadN_0.VSS.n318 current_mirror_loadN_0.VSS.n319 8.46995
+R423 current_mirror_loadN_0.VSS.n326 current_mirror_loadN_0.VSS.n318 0.001
+R424 current_mirror_loadN_0.VSS.n327 current_mirror_loadN_0.VSS.n326 8.501
+R425 current_mirror_loadN_0.VSS.n320 current_mirror_loadN_0.VSS.n322 8.46995
+R426 current_mirror_loadN_0.VSS.n323 current_mirror_loadN_0.VSS.n327 5.66767
+R427 current_mirror_loadN_0.VSS.n313 current_mirror_loadN_0.VSS.n321 1.96625
+R428 current_mirror_loadN_0.VSS.n313 current_mirror_loadN_0.VSS.n323 0.001
+R429 current_mirror_loadN_0.VSS.n313 current_mirror_loadN_0.VSS.n328 8.5005
+R430 current_mirror_loadN_0.VSS.n313 current_mirror_loadN_0.VSS.n330 8.5005
+R431 current_mirror_loadN_0.VSS.n313 current_mirror_loadN_0.VSS.n311 1.56594
+R432 current_mirror_loadN_0.VSS.n313 current_mirror_loadN_0.VSS.n312 4.18423
+R433 current_mirror_loadN_0.VSS.n104 current_mirror_loadN_0.VSS.n107 0.347676
+R434 current_mirror_loadN_0.VSS.n107 current_mirror_loadN_0.VSS.t9 50.7476
+R435 current_mirror_loadN_0.VSS.n106 current_mirror_loadN_0.VSS.t9 24.9038
+R436 current_mirror_loadN_0.VSS.n106 current_mirror_loadN_0.VSS.n243 41.2015
+R437 current_mirror_loadN_0.VSS.n243 current_mirror_loadN_0.VSS.n66 57.4783
+R438 current_mirror_loadN_0.VSS.n66 current_mirror_loadN_0.VSS.n286 1.05822
+R439 current_mirror_loadN_0.VSS.n311 current_mirror_loadN_0.VSS.n52 5.37112
+R440 current_mirror_loadN_0.VSS.n52 current_mirror_loadN_0.VSS.n288 5.37112
+R441 current_mirror_loadN_0.VSS.n51 current_mirror_loadN_0.VSS.t12 20.1606
+R442 current_mirror_loadN_0.VSS.n50 current_mirror_loadN_0.VSS.t12 9.00822
+R443 current_mirror_loadN_0.VSS.n50 current_mirror_loadN_0.VSS.n330 11.1529
+R444 current_mirror_loadN_0.VSS.n330 current_mirror_loadN_0.VSS.t14 7.29246
+R445 current_mirror_loadN_0.VSS.t14 current_mirror_loadN_0.VSS.t0 9.43716
+R446 current_mirror_loadN_0.VSS.n49 current_mirror_loadN_0.VSS.t0 1.28732
+R447 current_mirror_loadN_0.VSS.n49 current_mirror_loadN_0.VSS.n329 11.1529
+R448 current_mirror_loadN_0.VSS.n329 current_mirror_loadN_0.VSS.t2 12.0108
+R449 current_mirror_loadN_0.VSS.n309 current_mirror_loadN_0.VSS.t2 3.43201
+R450 current_mirror_loadN_0.VSS.n309 current_mirror_loadN_0.VSS.n48 2.57413
+R451 current_mirror_loadN_0.VSS.n48 current_mirror_loadN_0.VSS.n328 11.1529
+R452 current_mirror_loadN_0.VSS.n328 current_mirror_loadN_0.VSS.n282 6.00565
+R453 current_mirror_loadN_0.VSS.n282 current_mirror_loadN_0.VSS.n308 9.43716
+R454 current_mirror_loadN_0.VSS.n308 current_mirror_loadN_0.VSS.n47 2.57413
+R455 current_mirror_loadN_0.VSS.n47 current_mirror_loadN_0.VSS.n327 11.1529
+R456 current_mirror_loadN_0.VSS.n327 current_mirror_loadN_0.VSS.n281 6.00565
+R457 current_mirror_loadN_0.VSS.n281 current_mirror_loadN_0.VSS.n307 9.43716
+R458 current_mirror_loadN_0.VSS.n307 current_mirror_loadN_0.VSS.n46 2.57413
+R459 current_mirror_loadN_0.VSS.n46 current_mirror_loadN_0.VSS.n280 17.1581
+R460 current_mirror_loadN_0.VSS.n280 current_mirror_loadN_0.VSS.n306 9.43716
+R461 current_mirror_loadN_0.VSS.n306 current_mirror_loadN_0.VSS.n45 12.8687
+R462 current_mirror_loadN_0.VSS.n279 current_mirror_loadN_0.VSS.n45 6.86353
+R463 current_mirror_loadN_0.VSS.n279 current_mirror_loadN_0.VSS.n305 9.43716
+R464 current_mirror_loadN_0.VSS.n305 current_mirror_loadN_0.VSS.n44 12.8687
+R465 current_mirror_loadN_0.VSS.n278 current_mirror_loadN_0.VSS.n44 6.86353
+R466 current_mirror_loadN_0.VSS.n278 current_mirror_loadN_0.VSS.t16 18.4449
+R467 current_mirror_loadN_0.VSS.n43 current_mirror_loadN_0.VSS.t16 3.86095
+R468 current_mirror_loadN_0.VSS.n277 current_mirror_loadN_0.VSS.n43 6.86353
+R469 current_mirror_loadN_0.VSS.n360 current_mirror_loadN_0.VSS.n104 0.001
+R470 current_mirror_loadN_0.VSS.n104 current_mirror_loadN_0.VSS.n102 3.31178
+R471 current_mirror_loadN_0.VSS.n367 current_mirror_loadN_0.VSS.n360 8.501
+R472 current_mirror_loadN_0.VSS.n348 current_mirror_loadN_0.VSS.n349 8.46995
+R473 current_mirror_loadN_0.VSS.n361 current_mirror_loadN_0.VSS.n348 0.001
+R474 current_mirror_loadN_0.VSS.n367 current_mirror_loadN_0.VSS.n361 8.501
+R475 current_mirror_loadN_0.VSS.n350 current_mirror_loadN_0.VSS.n351 8.46995
+R476 current_mirror_loadN_0.VSS.n362 current_mirror_loadN_0.VSS.n350 0.001
+R477 current_mirror_loadN_0.VSS.n367 current_mirror_loadN_0.VSS.n362 8.501
+R478 current_mirror_loadN_0.VSS.n352 current_mirror_loadN_0.VSS.n353 8.46995
+R479 current_mirror_loadN_0.VSS.n363 current_mirror_loadN_0.VSS.n352 0.001
+R480 current_mirror_loadN_0.VSS.n367 current_mirror_loadN_0.VSS.n363 8.501
+R481 current_mirror_loadN_0.VSS.n354 current_mirror_loadN_0.VSS.n355 8.44274
+R482 current_mirror_loadN_0.VSS.n364 current_mirror_loadN_0.VSS.n354 0.001
+R483 current_mirror_loadN_0.VSS.n367 current_mirror_loadN_0.VSS.n364 8.501
+R484 current_mirror_loadN_0.VSS.n356 current_mirror_loadN_0.VSS.n357 8.46995
+R485 current_mirror_loadN_0.VSS.n365 current_mirror_loadN_0.VSS.n356 0.001
+R486 current_mirror_loadN_0.VSS.n367 current_mirror_loadN_0.VSS.n365 8.501
+R487 current_mirror_loadN_0.VSS.n358 current_mirror_loadN_0.VSS.n359 8.46995
+R488 current_mirror_loadN_0.VSS.n366 current_mirror_loadN_0.VSS.n358 0.001
+R489 current_mirror_loadN_0.VSS.n367 current_mirror_loadN_0.VSS.n366 8.501
+R490 current_mirror_loadN_0.VSS.n41 current_mirror_loadN_0.VSS.n359 1.59351
+R491 current_mirror_loadN_0.VSS.n40 current_mirror_loadN_0.VSS.n68 0.910548
+R492 current_mirror_loadN_0.VSS.n68 current_mirror_loadN_0.VSS.n367 4.45569
+R493 current_mirror_loadN_0.VSS.n104 current_mirror_loadN_0.VSS.n101 2.46478
+R494 current_mirror_loadN_0.VSS.n410 current_mirror_loadN_0.VSS.n101 24.1464
+R495 current_mirror_loadN_0.VSS.n104 current_mirror_loadN_0.VSS.n100 2.46478
+R496 current_mirror_loadN_0.VSS.n409 current_mirror_loadN_0.VSS.n100 24.1464
+R497 current_mirror_loadN_0.VSS.n104 current_mirror_loadN_0.VSS.n99 2.46478
+R498 current_mirror_loadN_0.VSS.n104 current_mirror_loadN_0.VSS.n69 0.226392
+R499 current_mirror_loadN_0.VSS.n408 current_mirror_loadN_0.VSS.n99 24.1464
+R500 current_mirror_loadN_0.VSS.n104 current_mirror_loadN_0.VSS.n98 2.46478
+R501 current_mirror_loadN_0.VSS.n407 current_mirror_loadN_0.VSS.n98 24.1464
+R502 current_mirror_loadN_0.VSS.n104 current_mirror_loadN_0.VSS.n97 2.46478
+R503 current_mirror_loadN_0.VSS.n406 current_mirror_loadN_0.VSS.n97 24.1464
+R504 current_mirror_loadN_0.VSS.n104 current_mirror_loadN_0.VSS.n96 2.46478
+R505 current_mirror_loadN_0.VSS.n405 current_mirror_loadN_0.VSS.n96 24.1464
+R506 current_mirror_loadN_0.VSS.n104 current_mirror_loadN_0.VSS.n95 2.46478
+R507 current_mirror_loadN_0.VSS.n404 current_mirror_loadN_0.VSS.n95 24.1464
+R508 current_mirror_loadN_0.VSS.n104 current_mirror_loadN_0.VSS.n94 2.46478
+R509 current_mirror_loadN_0.VSS.n403 current_mirror_loadN_0.VSS.n94 24.1464
+R510 current_mirror_loadN_0.VSS.n104 current_mirror_loadN_0.VSS.n93 2.46478
+R511 current_mirror_loadN_0.VSS.n402 current_mirror_loadN_0.VSS.n93 24.1464
+R512 current_mirror_loadN_0.VSS.n104 current_mirror_loadN_0.VSS.n92 2.46478
+R513 current_mirror_loadN_0.VSS.n401 current_mirror_loadN_0.VSS.n92 24.1464
+R514 current_mirror_loadN_0.VSS.n104 current_mirror_loadN_0.VSS.n91 2.46478
+R515 current_mirror_loadN_0.VSS.n400 current_mirror_loadN_0.VSS.n91 24.1464
+R516 current_mirror_loadN_0.VSS.n104 current_mirror_loadN_0.VSS.n90 2.46478
+R517 current_mirror_loadN_0.VSS.n399 current_mirror_loadN_0.VSS.n90 24.1464
+R518 current_mirror_loadN_0.VSS.n104 current_mirror_loadN_0.VSS.n89 2.46478
+R519 current_mirror_loadN_0.VSS.n398 current_mirror_loadN_0.VSS.n89 24.1464
+R520 current_mirror_loadN_0.VSS.n104 current_mirror_loadN_0.VSS.n88 2.46478
+R521 current_mirror_loadN_0.VSS.n397 current_mirror_loadN_0.VSS.n88 24.1464
+R522 current_mirror_loadN_0.VSS.n104 current_mirror_loadN_0.VSS.n87 2.46478
+R523 current_mirror_loadN_0.VSS.n396 current_mirror_loadN_0.VSS.n87 24.1464
+R524 current_mirror_loadN_0.VSS.n104 current_mirror_loadN_0.VSS.n86 2.46478
+R525 current_mirror_loadN_0.VSS.n395 current_mirror_loadN_0.VSS.n86 24.1464
+R526 current_mirror_loadN_0.VSS.n104 current_mirror_loadN_0.VSS.n85 2.46478
+R527 current_mirror_loadN_0.VSS.n394 current_mirror_loadN_0.VSS.n85 24.1464
+R528 current_mirror_loadN_0.VSS.n104 current_mirror_loadN_0.VSS.n84 2.46478
+R529 current_mirror_loadN_0.VSS.n393 current_mirror_loadN_0.VSS.n84 24.1464
+R530 current_mirror_loadN_0.VSS.n104 current_mirror_loadN_0.VSS.n83 2.46478
+R531 current_mirror_loadN_0.VSS.n392 current_mirror_loadN_0.VSS.n83 24.1464
+R532 current_mirror_loadN_0.VSS.n104 current_mirror_loadN_0.VSS.n82 2.46478
+R533 current_mirror_loadN_0.VSS.n391 current_mirror_loadN_0.VSS.n82 24.1464
+R534 current_mirror_loadN_0.VSS.n104 current_mirror_loadN_0.VSS.n81 2.46478
+R535 current_mirror_loadN_0.VSS.n390 current_mirror_loadN_0.VSS.n81 24.1464
+R536 current_mirror_loadN_0.VSS.n104 current_mirror_loadN_0.VSS.n80 2.46478
+R537 current_mirror_loadN_0.VSS.n389 current_mirror_loadN_0.VSS.n80 24.1464
+R538 current_mirror_loadN_0.VSS.n104 current_mirror_loadN_0.VSS.n79 2.46478
+R539 current_mirror_loadN_0.VSS.n388 current_mirror_loadN_0.VSS.n79 24.1464
+R540 current_mirror_loadN_0.VSS.n104 current_mirror_loadN_0.VSS.n78 2.46478
+R541 current_mirror_loadN_0.VSS.n386 current_mirror_loadN_0.VSS.n78 24.1464
+R542 current_mirror_loadN_0.VSS.n387 current_mirror_loadN_0.VSS.n104 17.0005
+R543 current_mirror_loadN_0.VSS.n385 current_mirror_loadN_0.VSS.n104 17.0005
+R544 current_mirror_loadN_0.VSS.n104 current_mirror_loadN_0.VSS.n77 2.46478
+R545 current_mirror_loadN_0.VSS.n383 current_mirror_loadN_0.VSS.n77 24.1464
+R546 current_mirror_loadN_0.VSS.n104 current_mirror_loadN_0.VSS.n76 2.46478
+R547 current_mirror_loadN_0.VSS.n382 current_mirror_loadN_0.VSS.n76 24.1464
+R548 current_mirror_loadN_0.VSS.n104 current_mirror_loadN_0.VSS.n75 2.46478
+R549 current_mirror_loadN_0.VSS.n381 current_mirror_loadN_0.VSS.n75 24.1464
+R550 current_mirror_loadN_0.VSS.n104 current_mirror_loadN_0.VSS.n74 2.46478
+R551 current_mirror_loadN_0.VSS.n380 current_mirror_loadN_0.VSS.n74 24.1464
+R552 current_mirror_loadN_0.VSS.n104 current_mirror_loadN_0.VSS.n73 2.46478
+R553 current_mirror_loadN_0.VSS.n379 current_mirror_loadN_0.VSS.n73 24.1464
+R554 current_mirror_loadN_0.VSS.n104 current_mirror_loadN_0.VSS.n72 2.46478
+R555 current_mirror_loadN_0.VSS.n378 current_mirror_loadN_0.VSS.n72 24.1464
+R556 current_mirror_loadN_0.VSS.n104 current_mirror_loadN_0.VSS.n71 2.46478
+R557 current_mirror_loadN_0.VSS.n377 current_mirror_loadN_0.VSS.n71 24.1464
+R558 current_mirror_loadN_0.VSS.n104 current_mirror_loadN_0.VSS.n70 2.46478
+R559 current_mirror_loadN_0.VSS.n376 current_mirror_loadN_0.VSS.n70 24.1464
+R560 current_mirror_loadN_0.VSS.n104 current_mirror_loadN_0.VSS.n346 2.46478
+R561 current_mirror_loadN_0.VSS.n40 current_mirror_loadN_0.VSS.n347 2.46478
+R562 current_mirror_loadN_0.VSS.n40 current_mirror_loadN_0.VSS.n376 2.46478
+R563 current_mirror_loadN_0.VSS.n40 current_mirror_loadN_0.VSS.n377 2.46478
+R564 current_mirror_loadN_0.VSS.n40 current_mirror_loadN_0.VSS.n378 2.46478
+R565 current_mirror_loadN_0.VSS.n40 current_mirror_loadN_0.VSS.n379 2.46478
+R566 current_mirror_loadN_0.VSS.n40 current_mirror_loadN_0.VSS.n380 2.46478
+R567 current_mirror_loadN_0.VSS.n40 current_mirror_loadN_0.VSS.n381 2.46478
+R568 current_mirror_loadN_0.VSS.n40 current_mirror_loadN_0.VSS.n382 2.46478
+R569 current_mirror_loadN_0.VSS.n40 current_mirror_loadN_0.VSS.n383 2.46478
+R570 current_mirror_loadN_0.VSS.n40 current_mirror_loadN_0.VSS.n384 2.46478
+R571 current_mirror_loadN_0.VSS.n384 current_mirror_loadN_0.VSS.n385 12.0734
+R572 current_mirror_loadN_0.VSS.n40 current_mirror_loadN_0.VSS.n386 2.46478
+R573 current_mirror_loadN_0.VSS.n40 current_mirror_loadN_0.VSS.n388 2.46478
+R574 current_mirror_loadN_0.VSS.n40 current_mirror_loadN_0.VSS.n389 2.46478
+R575 current_mirror_loadN_0.VSS.n40 current_mirror_loadN_0.VSS.n390 2.46478
+R576 current_mirror_loadN_0.VSS.n40 current_mirror_loadN_0.VSS.n391 2.46478
+R577 current_mirror_loadN_0.VSS.n40 current_mirror_loadN_0.VSS.n392 2.46478
+R578 current_mirror_loadN_0.VSS.n40 current_mirror_loadN_0.VSS.n393 2.46478
+R579 current_mirror_loadN_0.VSS.n40 current_mirror_loadN_0.VSS.n394 2.46478
+R580 current_mirror_loadN_0.VSS.n40 current_mirror_loadN_0.VSS.n395 2.46478
+R581 current_mirror_loadN_0.VSS.n40 current_mirror_loadN_0.VSS.n396 2.46478
+R582 current_mirror_loadN_0.VSS.n40 current_mirror_loadN_0.VSS.n397 2.46478
+R583 current_mirror_loadN_0.VSS.n40 current_mirror_loadN_0.VSS.n398 2.46478
+R584 current_mirror_loadN_0.VSS.n40 current_mirror_loadN_0.VSS.n399 2.46478
+R585 current_mirror_loadN_0.VSS.n40 current_mirror_loadN_0.VSS.n400 2.46478
+R586 current_mirror_loadN_0.VSS.n40 current_mirror_loadN_0.VSS.n401 2.46478
+R587 current_mirror_loadN_0.VSS.n40 current_mirror_loadN_0.VSS.n402 2.46478
+R588 current_mirror_loadN_0.VSS.n40 current_mirror_loadN_0.VSS.n403 2.46478
+R589 current_mirror_loadN_0.VSS.n40 current_mirror_loadN_0.VSS.n404 2.46478
+R590 current_mirror_loadN_0.VSS.n40 current_mirror_loadN_0.VSS.n405 2.46478
+R591 current_mirror_loadN_0.VSS.n40 current_mirror_loadN_0.VSS.n406 2.46478
+R592 current_mirror_loadN_0.VSS.n40 current_mirror_loadN_0.VSS.n407 2.46478
+R593 current_mirror_loadN_0.VSS.n40 current_mirror_loadN_0.VSS.n408 2.46478
+R594 current_mirror_loadN_0.VSS.n40 current_mirror_loadN_0.VSS.n409 2.46478
+R595 current_mirror_loadN_0.VSS.n40 current_mirror_loadN_0.VSS.n410 2.46478
+R596 current_mirror_loadN_0.VSS.n101 current_mirror_loadN_0.VSS.n68 25.4389
+R597 current_mirror_loadN_0.VSS.n107 current_mirror_loadN_0.VSS.n347 17.905
+R598 current_mirror_loadN_0.VSS.n347 current_mirror_loadN_0.VSS.n346 24.1464
+R599 current_mirror_loadN_0.VSS.n346 current_mirror_loadN_0.VSS.n376 24.1464
+R600 current_mirror_loadN_0.VSS.n70 current_mirror_loadN_0.VSS.n377 24.1464
+R601 current_mirror_loadN_0.VSS.n71 current_mirror_loadN_0.VSS.n378 24.1464
+R602 current_mirror_loadN_0.VSS.n72 current_mirror_loadN_0.VSS.n379 24.1464
+R603 current_mirror_loadN_0.VSS.n73 current_mirror_loadN_0.VSS.n380 24.1464
+R604 current_mirror_loadN_0.VSS.n74 current_mirror_loadN_0.VSS.n381 24.1464
+R605 current_mirror_loadN_0.VSS.n75 current_mirror_loadN_0.VSS.n382 24.1464
+R606 current_mirror_loadN_0.VSS.n76 current_mirror_loadN_0.VSS.n383 24.1464
+R607 current_mirror_loadN_0.VSS.n77 current_mirror_loadN_0.VSS.n384 24.1464
+R608 current_mirror_loadN_0.VSS.n385 current_mirror_loadN_0.VSS.t7 39.2002
+R609 current_mirror_loadN_0.VSS.t7 current_mirror_loadN_0.VSS.n387 44.1001
+R610 current_mirror_loadN_0.VSS.n386 current_mirror_loadN_0.VSS.n387 12.0734
+R611 current_mirror_loadN_0.VSS.n78 current_mirror_loadN_0.VSS.n388 24.1464
+R612 current_mirror_loadN_0.VSS.n79 current_mirror_loadN_0.VSS.n389 24.1464
+R613 current_mirror_loadN_0.VSS.n80 current_mirror_loadN_0.VSS.n390 24.1464
+R614 current_mirror_loadN_0.VSS.n81 current_mirror_loadN_0.VSS.n391 24.1464
+R615 current_mirror_loadN_0.VSS.n82 current_mirror_loadN_0.VSS.n392 24.1464
+R616 current_mirror_loadN_0.VSS.n83 current_mirror_loadN_0.VSS.n393 24.1464
+R617 current_mirror_loadN_0.VSS.n84 current_mirror_loadN_0.VSS.n394 24.1464
+R618 current_mirror_loadN_0.VSS.n85 current_mirror_loadN_0.VSS.n395 24.1464
+R619 current_mirror_loadN_0.VSS.n86 current_mirror_loadN_0.VSS.n396 24.1464
+R620 current_mirror_loadN_0.VSS.n87 current_mirror_loadN_0.VSS.n397 24.1464
+R621 current_mirror_loadN_0.VSS.n88 current_mirror_loadN_0.VSS.n398 24.1464
+R622 current_mirror_loadN_0.VSS.n89 current_mirror_loadN_0.VSS.n399 24.1464
+R623 current_mirror_loadN_0.VSS.n90 current_mirror_loadN_0.VSS.n400 24.1464
+R624 current_mirror_loadN_0.VSS.n91 current_mirror_loadN_0.VSS.n401 24.1464
+R625 current_mirror_loadN_0.VSS.n92 current_mirror_loadN_0.VSS.t23 12.0734
+R626 current_mirror_loadN_0.VSS.t23 current_mirror_loadN_0.VSS.n402 12.0734
+R627 current_mirror_loadN_0.VSS.n93 current_mirror_loadN_0.VSS.n403 24.1464
+R628 current_mirror_loadN_0.VSS.n94 current_mirror_loadN_0.VSS.n404 24.1464
+R629 current_mirror_loadN_0.VSS.n95 current_mirror_loadN_0.VSS.n405 24.1464
+R630 current_mirror_loadN_0.VSS.n96 current_mirror_loadN_0.VSS.n406 24.1464
+R631 current_mirror_loadN_0.VSS.n97 current_mirror_loadN_0.VSS.n407 24.1464
+R632 current_mirror_loadN_0.VSS.n98 current_mirror_loadN_0.VSS.n408 24.1464
+R633 current_mirror_loadN_0.VSS.n99 current_mirror_loadN_0.VSS.n409 24.1464
+R634 current_mirror_loadN_0.VSS.n100 current_mirror_loadN_0.VSS.n410 24.1464
+R635 current_mirror_loadN_0.VSS.n349 current_mirror_loadN_0.VSS.n351 0.250378
+R636 current_mirror_loadN_0.VSS.n351 current_mirror_loadN_0.VSS.n353 0.250378
+R637 current_mirror_loadN_0.VSS.n355 current_mirror_loadN_0.VSS.n353 0.304801
+R638 current_mirror_loadN_0.VSS.n357 current_mirror_loadN_0.VSS.n355 0.304801
+R639 current_mirror_loadN_0.VSS.n359 current_mirror_loadN_0.VSS.n357 0.250378
+R640 current_mirror_loadN_0.VSS.n199 current_mirror_loadN_0.VSS.n108 0.001
+R641 current_mirror_loadN_0.VSS.n200 current_mirror_loadN_0.VSS.n110 0.001
+R642 current_mirror_loadN_0.VSS.n201 current_mirror_loadN_0.VSS.n112 0.001
+R643 current_mirror_loadN_0.VSS.n202 current_mirror_loadN_0.VSS.n114 0.001
+R644 current_mirror_loadN_0.VSS.n203 current_mirror_loadN_0.VSS.n117 0.001
+R645 current_mirror_loadN_0.VSS.n204 current_mirror_loadN_0.VSS.n119 0.001
+R646 current_mirror_loadN_0.VSS.n205 current_mirror_loadN_0.VSS.n122 0.001
+R647 current_mirror_loadN_0.VSS.n206 current_mirror_loadN_0.VSS.n124 0.001
+R648 current_mirror_loadN_0.VSS.n207 current_mirror_loadN_0.VSS.n126 0.001
+R649 current_mirror_loadN_0.VSS.n208 current_mirror_loadN_0.VSS.n128 0.001
+R650 current_mirror_loadN_0.VSS.n209 current_mirror_loadN_0.VSS.n130 0.001
+R651 current_mirror_loadN_0.VSS.n210 current_mirror_loadN_0.VSS.n133 0.001
+R652 current_mirror_loadN_0.VSS.n211 current_mirror_loadN_0.VSS.n135 0.001
+R653 current_mirror_loadN_0.VSS.n212 current_mirror_loadN_0.VSS.n137 0.001
+R654 current_mirror_loadN_0.VSS.n213 current_mirror_loadN_0.VSS.n140 0.001
+R655 current_mirror_loadN_0.VSS.n214 current_mirror_loadN_0.VSS.n142 0.001
+R656 current_mirror_loadN_0.VSS.n215 current_mirror_loadN_0.VSS.n144 0.001
+R657 current_mirror_loadN_0.VSS.n216 current_mirror_loadN_0.VSS.n146 0.001
+R658 current_mirror_loadN_0.VSS.n217 current_mirror_loadN_0.VSS.n148 0.001
+R659 current_mirror_loadN_0.VSS.n150 current_mirror_loadN_0.VSS.n218 0.001
+R660 current_mirror_loadN_0.VSS.n152 current_mirror_loadN_0.VSS.n219 0.001
+R661 current_mirror_loadN_0.VSS.n154 current_mirror_loadN_0.VSS.n220 0.001
+R662 current_mirror_loadN_0.VSS.n156 current_mirror_loadN_0.VSS.n221 0.001
+R663 current_mirror_loadN_0.VSS.n158 current_mirror_loadN_0.VSS.n222 0.001
+R664 current_mirror_loadN_0.VSS.n160 current_mirror_loadN_0.VSS.n223 0.001
+R665 current_mirror_loadN_0.VSS.n162 current_mirror_loadN_0.VSS.n224 0.001
+R666 current_mirror_loadN_0.VSS.n164 current_mirror_loadN_0.VSS.n225 0.001
+R667 current_mirror_loadN_0.VSS.n166 current_mirror_loadN_0.VSS.n226 0.001
+R668 current_mirror_loadN_0.VSS.n168 current_mirror_loadN_0.VSS.n227 0.001
+R669 current_mirror_loadN_0.VSS.n170 current_mirror_loadN_0.VSS.n228 0.001
+R670 current_mirror_loadN_0.VSS.n172 current_mirror_loadN_0.VSS.n229 0.001
+R671 current_mirror_loadN_0.VSS.n8 current_mirror_loadN_0.VSS.n230 0.001
+R672 current_mirror_loadN_0.VSS.n174 current_mirror_loadN_0.VSS.n231 0.001
+R673 current_mirror_loadN_0.VSS.n176 current_mirror_loadN_0.VSS.n232 0.001
+R674 current_mirror_loadN_0.VSS.n178 current_mirror_loadN_0.VSS.n233 0.001
+R675 current_mirror_loadN_0.VSS.n180 current_mirror_loadN_0.VSS.n234 0.001
+R676 current_mirror_loadN_0.VSS.n182 current_mirror_loadN_0.VSS.n235 0.001
+R677 current_mirror_loadN_0.VSS.n184 current_mirror_loadN_0.VSS.n236 0.001
+R678 current_mirror_loadN_0.VSS.n186 current_mirror_loadN_0.VSS.n237 0.001
+R679 current_mirror_loadN_0.VSS.n188 current_mirror_loadN_0.VSS.n238 0.001
+R680 current_mirror_loadN_0.VSS.n190 current_mirror_loadN_0.VSS.n239 0.001
+R681 current_mirror_loadN_0.VSS.n192 current_mirror_loadN_0.VSS.n240 0.001
+R682 current_mirror_loadN_0.VSS.n194 current_mirror_loadN_0.VSS.n241 0.001
+R683 current_mirror_loadN_0.VSS.n196 current_mirror_loadN_0.VSS.n242 0.001
+R684 current_mirror_loadN_0.VSS.n198 current_mirror_loadN_0.VSS.n196 0.001
+R685 current_mirror_loadN_0.VSS.n348 current_mirror_loadN_0.VSS.n360 0.001
+R686 current_mirror_loadN_0.VSS.n350 current_mirror_loadN_0.VSS.n361 0.001
+R687 current_mirror_loadN_0.VSS.n352 current_mirror_loadN_0.VSS.n362 0.001
+R688 current_mirror_loadN_0.VSS.n354 current_mirror_loadN_0.VSS.n363 0.001
+R689 current_mirror_loadN_0.VSS.n356 current_mirror_loadN_0.VSS.n364 0.001
+R690 current_mirror_loadN_0.VSS.n358 current_mirror_loadN_0.VSS.n365 0.001
+R691 current_mirror_loadN_0.VSS.n40 current_mirror_loadN_0.VSS.n366 0.001
+R692 current_mirror_loadN_0.VSS.n103 current_mirror_loadN_0.VSS.n375 1.43768
+R693 current_mirror_loadN_0.VSS.n67 current_mirror_loadN_0.VSS.n373 1.41889
+R694 current_mirror_loadN_0.VSS.n67 current_mirror_loadN_0.VSS.n370 1.47842
+R695 current_mirror_loadN_0.VSS.n69 current_mirror_loadN_0.VSS.n370 1.23386
+R696 current_mirror_loadN_0.VSS.n69 current_mirror_loadN_0.VSS.n369 1.22575
+R697 current_mirror_loadN_0.VSS.n369 current_mirror_loadN_0.VSS.n102 0.328425
+R698 current_mirror_loadN_0.VSS.n102 current_mirror_loadN_0.VSS.n349 0.391574
+R699 current_mirror_loadN_0.VSS.n374 current_mirror_loadN_0.VSS.t20 15.0005
+R700 current_mirror_loadN_0.VSS.n375 current_mirror_loadN_0.VSS.n374 0.340813
+R701 current_mirror_loadN_0.VSS.n374 current_mirror_loadN_0.VSS.t21 3.39273
+R702 current_mirror_loadN_0.VSS.n371 current_mirror_loadN_0.VSS.t10 1.8148
+R703 current_mirror_loadN_0.VSS.n373 current_mirror_loadN_0.VSS.n371 1.79413
+R704 current_mirror_loadN_0.VSS.n372 current_mirror_loadN_0.VSS.t8 1.8148
+R705 current_mirror_loadN_0.VSS.n370 current_mirror_loadN_0.VSS.n372 1.79413
+R706 current_mirror_loadN_0.VSS.n372 current_mirror_loadN_0.VSS.n371 14.1115
+R707 current_mirror_loadN_0.VSS.n368 current_mirror_loadN_0.VSS.t22 15.0005
+R708 current_mirror_loadN_0.VSS.n369 current_mirror_loadN_0.VSS.n368 0.340813
+R709 current_mirror_loadN_0.VSS.n368 current_mirror_loadN_0.VSS.t24 3.39273
+R710 current_mirror_loadN_0.VSS.n345 current_mirror_loadN_0.VSS.n331 0.191167
+R711 current_mirror_loadN_0.VSS.n321 current_mirror_loadN_0.VSS.n331 0.567506
+R712 current_mirror_loadN_0.VSS.n321 current_mirror_loadN_0.VSS.n322 0.578283
+R713 current_mirror_loadN_0.VSS.n344 current_mirror_loadN_0.VSS.n109 0.132772
+R714 current_mirror_loadN_0.VSS.n109 current_mirror_loadN_0.VSS.n111 0.250378
+R715 current_mirror_loadN_0.VSS.n111 current_mirror_loadN_0.VSS.n113 0.250378
+R716 current_mirror_loadN_0.VSS.n113 current_mirror_loadN_0.VSS.n115 0.187772
+R717 current_mirror_loadN_0.VSS.n115 current_mirror_loadN_0.VSS.n342 0.1215
+R718 current_mirror_loadN_0.VSS.n342 current_mirror_loadN_0.VSS.n116 0.00416667
+R719 current_mirror_loadN_0.VSS.n116 current_mirror_loadN_0.VSS.n118 0.187772
+R720 current_mirror_loadN_0.VSS.n118 current_mirror_loadN_0.VSS.n120 0.187772
+R721 current_mirror_loadN_0.VSS.n120 current_mirror_loadN_0.VSS 0.0848333
+R722 current_mirror_loadN_0.VSS current_mirror_loadN_0.VSS.n121 0.0408333
+R723 current_mirror_loadN_0.VSS.n341 current_mirror_loadN_0.VSS.n121 0.0115
+R724 current_mirror_loadN_0.VSS.n341 current_mirror_loadN_0.VSS.n123 0.176772
+R725 current_mirror_loadN_0.VSS.n123 current_mirror_loadN_0.VSS.n125 0.250378
+R726 current_mirror_loadN_0.VSS.n345 current_mirror_loadN_0.VSS.n125 0.0887723
+R727 current_mirror_loadN_0.VSS.n127 current_mirror_loadN_0.VSS.n345 0.162106
+R728 current_mirror_loadN_0.VSS.n129 current_mirror_loadN_0.VSS.n127 0.250378
+R729 current_mirror_loadN_0.VSS.n131 current_mirror_loadN_0.VSS.n129 0.187772
+R730 current_mirror_loadN_0.VSS.n339 current_mirror_loadN_0.VSS.n131 0.0555
+R731 current_mirror_loadN_0.VSS.n339 current_mirror_loadN_0.VSS.n132 0.0701667
+R732 current_mirror_loadN_0.VSS.n132 current_mirror_loadN_0.VSS.n134 0.187772
+R733 current_mirror_loadN_0.VSS.n134 current_mirror_loadN_0.VSS.n136 0.250378
+R734 current_mirror_loadN_0.VSS.n136 current_mirror_loadN_0.VSS 0.141939
+R735 current_mirror_loadN_0.VSS current_mirror_loadN_0.VSS.n138 0.0463333
+R736 current_mirror_loadN_0.VSS.n338 current_mirror_loadN_0.VSS.n138 0.00416667
+R737 current_mirror_loadN_0.VSS.n338 current_mirror_loadN_0.VSS.n139 0.1215
+R738 current_mirror_loadN_0.VSS.n141 current_mirror_loadN_0.VSS.n139 0.187772
+R739 current_mirror_loadN_0.VSS.n143 current_mirror_loadN_0.VSS.n141 0.250378
+R740 current_mirror_loadN_0.VSS.n335 current_mirror_loadN_0.VSS.n143 0.136439
+R741 current_mirror_loadN_0.VSS.n335 current_mirror_loadN_0.VSS.n145 0.114439
+R742 current_mirror_loadN_0.VSS.n145 current_mirror_loadN_0.VSS.n147 0.250378
+R743 current_mirror_loadN_0.VSS.n147 current_mirror_loadN_0.VSS.n149 0.250378
+R744 current_mirror_loadN_0.VSS.n149 current_mirror_loadN_0.VSS.n151 0.250378
+R745 current_mirror_loadN_0.VSS.n151 current_mirror_loadN_0.VSS.n153 0.250378
+R746 current_mirror_loadN_0.VSS.n153 current_mirror_loadN_0.VSS.n155 0.250378
+R747 current_mirror_loadN_0.VSS.n155 current_mirror_loadN_0.VSS.n157 0.250378
+R748 current_mirror_loadN_0.VSS.n157 current_mirror_loadN_0.VSS.n159 0.250378
+R749 current_mirror_loadN_0.VSS.n159 current_mirror_loadN_0.VSS 0.070439
+R750 current_mirror_loadN_0.VSS current_mirror_loadN_0.VSS.n334 0.0298333
+R751 current_mirror_loadN_0.VSS.n161 current_mirror_loadN_0.VSS.n334 0.151106
+R752 current_mirror_loadN_0.VSS.n163 current_mirror_loadN_0.VSS.n161 0.250378
+R753 current_mirror_loadN_0.VSS.n165 current_mirror_loadN_0.VSS.n163 0.250378
+R754 current_mirror_loadN_0.VSS.n167 current_mirror_loadN_0.VSS.n165 0.250378
+R755 current_mirror_loadN_0.VSS.n169 current_mirror_loadN_0.VSS.n167 0.250378
+R756 current_mirror_loadN_0.VSS.n171 current_mirror_loadN_0.VSS.n169 0.250378
+R757 current_mirror_loadN_0.VSS.n173 current_mirror_loadN_0.VSS.n171 0.250378
+R758 current_mirror_loadN_0.VSS current_mirror_loadN_0.VSS.n344 1.4085
+R759 current_mirror_loadN_0.VSS.n343 current_mirror_loadN_0.VSS.n283 0.246167
+R760 current_mirror_loadN_0.VSS.n283 current_mirror_loadN_0.VSS.n266 0.787334
+R761 current_mirror_loadN_0.VSS.n266 current_mirror_loadN_0.VSS.n267 0.794148
+R762 current_mirror_loadN_0.VSS.n9 current_mirror_loadN_0.VSS.n343 0.0759521
+R763 current_mirror_loadN_0.VSS.n10 current_mirror_loadN_0.VSS.n9 0.0612855
+R764 current_mirror_loadN_0.VSS.n342 current_mirror_loadN_0.VSS.n315 0.191167
+R765 current_mirror_loadN_0.VSS.n315 current_mirror_loadN_0.VSS.n314 0.515808
+R766 current_mirror_loadN_0.VSS.n340 current_mirror_loadN_0.VSS.n341 0.145857
+R767 current_mirror_loadN_0.VSS.n310 current_mirror_loadN_0.VSS.n340 0.251415
+R768 current_mirror_loadN_0.VSS.n340 current_mirror_loadN_0.VSS.n312 0.312676
+R769 current_mirror_loadN_0.VSS.n331 current_mirror_loadN_0.VSS.n312 0.146176
+R770 current_mirror_loadN_0.VSS.n340 current_mirror_loadN_0.VSS.t13 8.86193
+R771 current_mirror_loadN_0.VSS.n291 current_mirror_loadN_0.VSS.n339 0.191167
+R772 current_mirror_loadN_0.VSS.n290 current_mirror_loadN_0.VSS.n291 0.709283
+R773 current_mirror_loadN_0.VSS.n336 current_mirror_loadN_0.VSS.n338 0.151241
+R774 current_mirror_loadN_0.VSS.n285 current_mirror_loadN_0.VSS.n336 0.371481
+R775 current_mirror_loadN_0.VSS.n284 current_mirror_loadN_0.VSS.n336 0.36731
+R776 current_mirror_loadN_0.VSS.n337 current_mirror_loadN_0.VSS.n284 0.262801
+R777 current_mirror_loadN_0.VSS.n337 current_mirror_loadN_0.VSS.n335 0.191167
+R778 current_mirror_loadN_0.VSS.n299 current_mirror_loadN_0.VSS.n337 0.70835
+R779 current_mirror_loadN_0.VSS.n299 current_mirror_loadN_0.VSS.n300 0.707416
+R780 current_mirror_loadN_0.VSS.n336 current_mirror_loadN_0.VSS.t1 6.16101
+R781 current_mirror_loadN_0.VSS.n334 current_mirror_loadN_0.VSS.n332 0.254875
+R782 current_mirror_loadN_0.VSS.n248 current_mirror_loadN_0.VSS.n332 0.976363
+R783 current_mirror_loadN_0.VSS.n245 current_mirror_loadN_0.VSS.n332 0.426322
+R784 current_mirror_loadN_0.VSS.n333 current_mirror_loadN_0.VSS.n245 0.426322
+R785 current_mirror_loadN_0.VSS.n244 current_mirror_loadN_0.VSS.n333 0.440922
+R786 current_mirror_loadN_0.VSS.n333 current_mirror_loadN_0.VSS.t3 6.77948
+R787 current_mirror_loadN_0.VSS.n332 current_mirror_loadN_0.VSS.t5 6.77948
+R788 current_mirror_loadN_0.VSS.n314 current_mirror_loadN_0.VSS.n317 0.514762
+R789 current_mirror_loadN_0.VSS.n317 current_mirror_loadN_0.VSS.n319 0.250378
+R790 current_mirror_loadN_0.VSS.n322 current_mirror_loadN_0.VSS.n319 0.279711
+R791 current_mirror_loadN_0.VSS.n324 current_mirror_loadN_0.VSS.n316 0.001
+R792 current_mirror_loadN_0.VSS.n325 current_mirror_loadN_0.VSS.n318 0.001
+R793 current_mirror_loadN_0.VSS.n320 current_mirror_loadN_0.VSS.n326 0.001
+R794 current_mirror_loadN_0.VSS.n323 current_mirror_loadN_0.VSS.n320 0.001
+R795 current_mirror_loadN_0.VSS.n290 current_mirror_loadN_0.VSS.n293 0.706716
+R796 current_mirror_loadN_0.VSS.n293 current_mirror_loadN_0.VSS.n295 0.250378
+R797 current_mirror_loadN_0.VSS.n295 current_mirror_loadN_0.VSS.n297 0.268711
+R798 current_mirror_loadN_0.VSS.n300 current_mirror_loadN_0.VSS.n297 0.250378
+R799 current_mirror_loadN_0.VSS.n301 current_mirror_loadN_0.VSS.n292 0.001
+R800 current_mirror_loadN_0.VSS.n302 current_mirror_loadN_0.VSS.n294 0.001
+R801 current_mirror_loadN_0.VSS.n303 current_mirror_loadN_0.VSS.n296 0.001
+R802 current_mirror_loadN_0.VSS.n304 current_mirror_loadN_0.VSS.n298 0.001
+R803 current_mirror_loadN_0.VSS.n298 current_mirror_loadN_0.VSS.n287 0.00162501
+R804 current_mirror_loadN_0.VSS.n248 current_mirror_loadN_0.VSS.n250 1.11118
+R805 current_mirror_loadN_0.VSS.n252 current_mirror_loadN_0.VSS.n250 0.250378
+R806 current_mirror_loadN_0.VSS.n254 current_mirror_loadN_0.VSS.n252 0.250378
+R807 current_mirror_loadN_0.VSS.n256 current_mirror_loadN_0.VSS.n254 0.250378
+R808 current_mirror_loadN_0.VSS.n258 current_mirror_loadN_0.VSS.n256 0.272189
+R809 current_mirror_loadN_0.VSS.n260 current_mirror_loadN_0.VSS.n258 0.272189
+R810 current_mirror_loadN_0.VSS.n262 current_mirror_loadN_0.VSS.n260 0.250378
+R811 current_mirror_loadN_0.VSS.n264 current_mirror_loadN_0.VSS.n262 0.250378
+R812 current_mirror_loadN_0.VSS.n267 current_mirror_loadN_0.VSS.n264 0.250378
+R813 current_mirror_loadN_0.VSS.n268 current_mirror_loadN_0.VSS.n249 0.001
+R814 current_mirror_loadN_0.VSS.n269 current_mirror_loadN_0.VSS.n251 0.001
+R815 current_mirror_loadN_0.VSS.n270 current_mirror_loadN_0.VSS.n253 0.001
+R816 current_mirror_loadN_0.VSS.n271 current_mirror_loadN_0.VSS.n255 0.001
+R817 current_mirror_loadN_0.VSS.n272 current_mirror_loadN_0.VSS.n257 0.001
+R818 current_mirror_loadN_0.VSS.n273 current_mirror_loadN_0.VSS.n259 0.001
+R819 current_mirror_loadN_0.VSS.n274 current_mirror_loadN_0.VSS.n261 0.001
+R820 current_mirror_loadN_0.VSS.n275 current_mirror_loadN_0.VSS.n263 0.001
+R821 current_mirror_loadN_0.VSS.n276 current_mirror_loadN_0.VSS.n265 0.001
+R822 current_mirror_loadN_0.VSS.n265 current_mirror_loadN_0.VSS.n246 0.00162501
+R823 current_mirror_loadN_0.VSS.n10 current_mirror_loadN_0.VSS.n175 0.081439
+R824 current_mirror_loadN_0.VSS.n175 current_mirror_loadN_0.VSS.n177 0.250378
+R825 current_mirror_loadN_0.VSS.n177 current_mirror_loadN_0.VSS.n179 0.250378
+R826 current_mirror_loadN_0.VSS.n179 current_mirror_loadN_0.VSS.n181 0.250378
+R827 current_mirror_loadN_0.VSS.n181 current_mirror_loadN_0.VSS.n183 0.250378
+R828 current_mirror_loadN_0.VSS.n183 current_mirror_loadN_0.VSS.n185 0.250378
+R829 current_mirror_loadN_0.VSS.n185 current_mirror_loadN_0.VSS.n187 0.250378
+R830 current_mirror_loadN_0.VSS.n187 current_mirror_loadN_0.VSS.n189 0.257655
+R831 current_mirror_loadN_0.VSS.n189 current_mirror_loadN_0.VSS.n191 0.257655
+R832 current_mirror_loadN_0.VSS.n191 current_mirror_loadN_0.VSS.n193 0.250378
+R833 current_mirror_loadN_0.VSS.n193 current_mirror_loadN_0.VSS.n195 0.250378
+R834 current_mirror_loadN_0.VSS.n195 current_mirror_loadN_0.VSS.n197 0.250378
+R835 current_mirror_loadN_0.VSS.n197 current_mirror_loadN_0.VSS.n42 0.132772
+R836 current_mirror_loadN_0.VSS.n37 current_mirror_loadN_0.VSS.t19 5.53294
+R837 current_mirror_loadN_0.VSS.n37 current_mirror_loadN_0.VSS.t17 7.06387
+R838 current_mirror_loadN_0.VSS.n38 current_mirror_loadN_0.VSS.n37 0.975475
+R839 current_mirror_loadN_0.VSS.n35 current_mirror_loadN_0.VSS.t15 5.53294
+R840 current_mirror_loadN_0.VSS.n35 current_mirror_loadN_0.VSS.t18 7.06387
+R841 current_mirror_loadN_0.VSS.n36 current_mirror_loadN_0.VSS.n35 0.975475
+C26 inverter_lv_0.vclk current_mirror_loadN_0.VSS 2.66094f $ **FLOATING
+C27 inverter_hv_0.vout_hv current_mirror_loadN_0.VSS 1.29623f $ **FLOATING
+C28 2stage_ota_0.drain_M2_M12_outputOTA current_mirror_loadN_0.VSS 2.74078f $ **FLOATING
+C29 current_mirror_loadN_0.drain_M10 current_mirror_loadN_0.VSS 2.64487f $ **FLOATING
+C30 current_mirror_loadN_0.drain_M11 current_mirror_loadN_0.VSS 2.15121f $ **FLOATING
+C31 iput_diff_0.vin_P current_mirror_loadN_0.VSS 0.50066f $ **FLOATING
+C32 iput_diff_0.vin_N current_mirror_loadN_0.VSS 0.58643f $ **FLOATING
+C33 current_mirror2_0.v_bm current_mirror_loadN_0.VSS 15.69785f $ **FLOATING
+C34 current_mirror3_0.drain_M1 current_mirror_loadN_0.VSS 0.71423f $ **FLOATING
+C35 2stage_ota_0.gate_M2 current_mirror_loadN_0.VSS 2.19027f $ **FLOATING
+C36 2stage_ota_0.VDD.t0 current_mirror_loadN_0.VSS 5.45569f $ **FLOATING
+C37 2stage_ota_0.VDD.t11 current_mirror_loadN_0.VSS 17.3917f $ **FLOATING
+C38 2stage_ota_0.gate_M2.t0 current_mirror_loadN_0.VSS 0.17419f $ **FLOATING
+C39 2stage_ota_0.gate_M2.n0 current_mirror_loadN_0.VSS 0.25274f $ **FLOATING
+C40 2stage_ota_0.gate_M2.t1 current_mirror_loadN_0.VSS 5.8124f $ **FLOATING
+C41 2stage_ota_0.gate_M2.t2 current_mirror_loadN_0.VSS 0.34667f $ **FLOATING
+C42 2stage_ota_0.gate_M2.n1 current_mirror_loadN_0.VSS 0.20458f $ **FLOATING
+C43 2stage_ota_0.gate_M2.n2 current_mirror_loadN_0.VSS 1.02097f $ **FLOATING
+C44 2stage_ota_0.gate_M2.t3 current_mirror_loadN_0.VSS 4.38113f $ **FLOATING
+C45 2stage_ota_0.gate_M2.n3 current_mirror_loadN_0.VSS 0.34198f $ **FLOATING
+C46 current_mirror3_0.drain_M1.t6 current_mirror_loadN_0.VSS 0.27899f $ **FLOATING
+C47 current_mirror3_0.drain_M1.t5 current_mirror_loadN_0.VSS 0.21113f $ **FLOATING
+C48 current_mirror3_0.drain_M1.n0 current_mirror_loadN_0.VSS 0.29542f $ **FLOATING
+C49 current_mirror3_0.drain_M1.t4 current_mirror_loadN_0.VSS 0.23665f $ **FLOATING
+C50 current_mirror3_0.drain_M1.n1 current_mirror_loadN_0.VSS 0.34981f $ **FLOATING
+C51 current_mirror3_0.drain_M1.t2 current_mirror_loadN_0.VSS 0.39252f $ **FLOATING
+C52 current_mirror3_0.drain_M1.t1 current_mirror_loadN_0.VSS 0.60017f $ **FLOATING
+C53 current_mirror3_0.drain_M1.n2 current_mirror_loadN_0.VSS 0.26793f $ **FLOATING
+C54 current_mirror3_0.drain_M1.t0 current_mirror_loadN_0.VSS 0.39252f $ **FLOATING
+C55 current_mirror3_0.drain_M1.t3 current_mirror_loadN_0.VSS 0.60017f $ **FLOATING
+C56 current_mirror3_0.drain_M1.n3 current_mirror_loadN_0.VSS 0.29009f $ **FLOATING
+C57 current_mirror3_0.drain_M1.n4 current_mirror_loadN_0.VSS 0.18923f $ **FLOATING
+C58 current_mirror2_0.v_bm.t1 current_mirror_loadN_0.VSS 0.6358f $ **FLOATING
+C59 current_mirror_loadN_0.drain_M11.t3 current_mirror_loadN_0.VSS 0.09097f $ **FLOATING
+C60 current_mirror_loadN_0.drain_M11.t2 current_mirror_loadN_0.VSS 1.13935f $ **FLOATING
+C61 current_mirror_loadN_0.drain_M11.n0 current_mirror_loadN_0.VSS 0.27629f $ **FLOATING
+C62 current_mirror_loadN_0.drain_M11.t1 current_mirror_loadN_0.VSS 0.2791f $ **FLOATING
+C63 current_mirror_loadN_0.drain_M11.t0 current_mirror_loadN_0.VSS 0.45337f $ **FLOATING
+C64 current_mirror_loadN_0.drain_M11.n1 current_mirror_loadN_0.VSS 0.42795f $ **FLOATING
+C65 current_mirror_loadN_0.drain_M11.n2 current_mirror_loadN_0.VSS 0.12802f $ **FLOATING
+C66 current_mirror_loadN_0.drain_M11.t4 current_mirror_loadN_0.VSS 0.07443f $ **FLOATING
+C67 current_mirror_loadN_0.drain_M10.t0 current_mirror_loadN_0.VSS 0.13144f $ **FLOATING
+C68 current_mirror_loadN_0.drain_M10.t1 current_mirror_loadN_0.VSS 0.13496f $ **FLOATING
+C69 current_mirror_loadN_0.drain_M10.t2 current_mirror_loadN_0.VSS 0.61279f $ **FLOATING
+C70 current_mirror_loadN_0.drain_M10.t3 current_mirror_loadN_0.VSS 0.50105f $ **FLOATING
+C71 current_mirror_loadN_0.drain_M10.n0 current_mirror_loadN_0.VSS 0.81327f $ **FLOATING
+C72 current_mirror_loadN_0.drain_M10.n1 current_mirror_loadN_0.VSS 0.32843f $ **FLOATING
+C73 current_mirror_loadN_0.drain_M10.t4 current_mirror_loadN_0.VSS 1.1963f $ **FLOATING
+C74 current_mirror_loadN_0.drain_M10.n2 current_mirror_loadN_0.VSS 0.22679f $ **FLOATING
+C75 current_mirror_loadN_0.drain_M10.n3 current_mirror_loadN_0.VSS 0.2959f $ **FLOATING
+C76 current_mirror_loadN_0.drain_M10.n4 current_mirror_loadN_0.VSS 0.14426f $ **FLOATING
+C77 2stage_ota_0.drain_M2_M12_outputOTA.t1 current_mirror_loadN_0.VSS 0.19538f $ **FLOATING
+C78 2stage_ota_0.drain_M2_M12_outputOTA.t2 current_mirror_loadN_0.VSS 0.23768f $ **FLOATING
+C79 2stage_ota_0.drain_M2_M12_outputOTA.n0 current_mirror_loadN_0.VSS 0.25917f $ **FLOATING
+C80 2stage_ota_0.drain_M2_M12_outputOTA.t0 current_mirror_loadN_0.VSS 0.18192f $ **FLOATING
+C81 2stage_ota_0.drain_M2_M12_outputOTA.n1 current_mirror_loadN_0.VSS 0.16744f $ **FLOATING
+C82 2stage_ota_0.drain_M2_M12_outputOTA.t6 current_mirror_loadN_0.VSS 0.21808f $ **FLOATING
+C83 2stage_ota_0.drain_M2_M12_outputOTA.t7 current_mirror_loadN_0.VSS 0.20845f $ **FLOATING
+C84 2stage_ota_0.drain_M2_M12_outputOTA.t3 current_mirror_loadN_0.VSS 0.10395f $ **FLOATING
+C85 2stage_ota_0.drain_M2_M12_outputOTA.n2 current_mirror_loadN_0.VSS 0.16888f $ **FLOATING
+C86 2stage_ota_0.drain_M2_M12_outputOTA.t5 current_mirror_loadN_0.VSS 0.11302f $ **FLOATING
+C87 2stage_ota_0.drain_M2_M12_outputOTA.t4 current_mirror_loadN_0.VSS 0.1114f $ **FLOATING
+C88 2stage_ota_0.drain_M2_M12_outputOTA.n3 current_mirror_loadN_0.VSS 0.15305f $ **FLOATING
+C89 2stage_ota_0.drain_M2_M12_outputOTA.n4 current_mirror_loadN_0.VSS 0.47205f $ **FLOATING
+C90 2stage_ota_0.drain_M2_M12_outputOTA.n5 current_mirror_loadN_0.VSS 0.10021f $ **FLOATING
+C91 inverter_hv_0.vout_hv.t0 current_mirror_loadN_0.VSS 0.17139f $ **FLOATING
+C92 inverter_hv_0.vout_hv.t1 current_mirror_loadN_0.VSS 0.21393f $ **FLOATING
+C93 inverter_hv_0.vout_hv.t3 current_mirror_loadN_0.VSS 0.12749f $ **FLOATING
+C94 inverter_hv_0.vout_hv.t2 current_mirror_loadN_0.VSS 0.13736f $ **FLOATING
+C95 inverter_hv_0.vout_hv.n0 current_mirror_loadN_0.VSS 0.5705f $ **FLOATING
+C96 inverter_hv_0.vout_hv.n1 current_mirror_loadN_0.VSS 0.52115f $ **FLOATING
+C97 inverter_lv_0.vclk.t0 current_mirror_loadN_0.VSS 0.12938f $ **FLOATING
+C98 inverter_lv_0.vclk.t1 current_mirror_loadN_0.VSS 0.14644f $ **FLOATING
+C99 inverter_lv_0.vclk.n0 current_mirror_loadN_0.VSS 1.21235f $ **FLOATING
+.ends
+
