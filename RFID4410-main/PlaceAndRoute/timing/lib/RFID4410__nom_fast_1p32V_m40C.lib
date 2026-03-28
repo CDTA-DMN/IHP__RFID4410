@@ -1,0 +1,158 @@
+library (RFID4410) {
+  comment                        : "";
+  delay_model                    : table_lookup;
+  simulation                     : false;
+  capacitive_load_unit (1,pF);
+  leakage_power_unit             : 1pW;
+  current_unit                   : "1uA";
+  pulling_resistance_unit        : "1kohm";
+  time_unit                      : "1ns";
+  voltage_unit                   : "1v";
+  library_features(report_delay_calculation);
+
+  input_threshold_pct_rise : 50;
+  input_threshold_pct_fall : 50;
+  output_threshold_pct_rise : 50;
+  output_threshold_pct_fall : 50;
+  slew_lower_threshold_pct_rise : 20;
+  slew_lower_threshold_pct_fall : 20;
+  slew_upper_threshold_pct_rise : 80;
+  slew_upper_threshold_pct_fall : 80;
+  slew_derate_from_library : 1.0;
+
+
+  nom_process                    : 1.0;
+  nom_temperature                : -40.0;
+  nom_voltage                    : 1.32;
+
+  type ("force_state_PAD") {
+    base_type : array;
+    data_type : bit;
+    bit_width : 4;
+    bit_from : 3;
+    bit_to : 0;
+  }
+  type ("state_dbg_PAD") {
+    base_type : array;
+    data_type : bit;
+    bit_width : 4;
+    bit_from : 3;
+    bit_to : 0;
+  }
+
+  cell ("RFID4410") {
+    area : 848002.188 
+    is_macro_cell : true;
+    pin("DFT_EN_PAD") {
+      direction : inout;
+      capacitance : 0.2399;
+    }
+    pin("DFT_S0_PAD") {
+      direction : inout;
+      capacitance : 0.2399;
+    }
+    pin("DFT_S1_PAD") {
+      direction : inout;
+      capacitance : 0.2399;
+    }
+    pin("DFT_S2_PAD") {
+      direction : inout;
+      capacitance : 0.2399;
+    }
+    pin("analog_ANTENNA1_PAD") {
+      direction : inout;
+      capacitance : 1.0000;
+    }
+    pin("analog_ANTENNA2_PAD") {
+      direction : inout;
+      capacitance : 1.0000;
+    }
+    pin("analog_CLK_PAD") {
+      direction : inout;
+      capacitance : 1.0000;
+    }
+    pin("analog_DFT_PAD") {
+      direction : inout;
+      capacitance : 1.0000;
+    }
+    pin("analog_RESET_PAD") {
+      direction : inout;
+      capacitance : 1.0000;
+    }
+    pin("analog_VBIASP_PAD") {
+      direction : inout;
+      capacitance : 1.0000;
+    }
+    pin("analog_V_BGR_PAD") {
+      direction : inout;
+      capacitance : 1.0000;
+    }
+    pin("clk_PAD") {
+      direction : inout;
+      capacitance : 0.2399;
+    }
+    pin("clk_out_PAD") {
+      direction : inout;
+      capacitance : 0.0000;
+    }
+    pin("rst_n_PAD") {
+      direction : inout;
+      capacitance : 0.2399;
+    }
+    pin("rx_in_PAD") {
+      direction : inout;
+      capacitance : 0.2399;
+    }
+    pin("test_mode_PAD") {
+      direction : inout;
+      capacitance : 0.2399;
+    }
+    pin("tx_out_PAD") {
+      direction : inout;
+      capacitance : 0.0000;
+    }
+    bus("force_state_PAD") {
+      bus_type : force_state_PAD;
+      direction : inout;
+      capacitance : 0.0000;
+    pin("force_state_PAD[3]") {
+      direction : inout;
+      capacitance : 0.2399;
+    }
+    pin("force_state_PAD[2]") {
+      direction : inout;
+      capacitance : 0.2399;
+    }
+    pin("force_state_PAD[1]") {
+      direction : inout;
+      capacitance : 0.2399;
+    }
+    pin("force_state_PAD[0]") {
+      direction : inout;
+      capacitance : 0.2399;
+    }
+    }
+    bus("state_dbg_PAD") {
+      bus_type : state_dbg_PAD;
+      direction : inout;
+      capacitance : 0.0000;
+    pin("state_dbg_PAD[3]") {
+      direction : inout;
+      capacitance : 0.0000;
+    }
+    pin("state_dbg_PAD[2]") {
+      direction : inout;
+      capacitance : 0.0000;
+    }
+    pin("state_dbg_PAD[1]") {
+      direction : inout;
+      capacitance : 0.0000;
+    }
+    pin("state_dbg_PAD[0]") {
+      direction : inout;
+      capacitance : 0.0000;
+    }
+    }
+  }
+
+}
