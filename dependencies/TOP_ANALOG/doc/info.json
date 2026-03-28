@@ -1,0 +1,22 @@
+{
+  "name": "TOP_ANALOG",
+  "design_type": "A",
+  "technology": "IHP",
+  "unique_id": "4410",
+  "license": "Apache-2.0",
+  "trl": 0,
+  "sealring_x": 1.0,
+  "sealring_y": 1.0,
+  "repository": "",
+  "pdk_version": "",
+  "process": "SG13CMOS",
+  "dependencies": {},
+  "tools": {},
+  "top_cell_name": "TOP_ANALOG",
+  "release": {
+    "version": "v.1.0.0",
+    "gds": "release/v.1.0.0/gds/TOP_ANALOG.gds",
+    "netlist": "",
+    "doc": "release/v.1.0.0/doc"
+  }
+}

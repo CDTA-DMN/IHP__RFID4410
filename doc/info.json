@@ -15,7 +15,7 @@
   "top_cell_name": "RFID4410",
   "release": {
     "version": "v.1.0.0",
-    "gds": "release/v.1.0.0/gds",
+    "gds": "release/v.1.0.0/gds/RFID4410.gds",
     "netlist": "release/v.1.0.0/netlist",
     "doc": "release/v.1.0.0/doc"
   }

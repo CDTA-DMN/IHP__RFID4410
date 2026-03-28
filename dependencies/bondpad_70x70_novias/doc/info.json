@@ -1,0 +1,22 @@
+{
+  "name": "bondpad_70x70_novias",
+  "design_type": "D",
+  "technology": "IHP",
+  "unique_id": "4410",
+  "license": "Apache-2.0",
+  "trl": 0,
+  "sealring_x": 0,
+  "sealring_y": 0,
+  "repository": "",
+  "pdk_version": "",
+  "process": "SG13G2",
+  "dependencies": {},
+  "tools": {},
+  "top_cell_name": "bondpad_70x70_novias",
+  "release": {
+    "version": "v.1.0.0",
+    "gds": "release/v.1.0.0/gds/bondpad_70x70_novias.gds",
+    "netlist": "",
+    "doc": "release/v.1.0.0/doc"
+  }
+}
