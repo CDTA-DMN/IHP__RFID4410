@@ -1,5 +1,5 @@
 # RFID4410
-![Chip](doc/fig/full_chip.jpg)
+![Chip](doc/fig/full_chip.png)
 
 
 
@@ -8,7 +8,7 @@
 | **Category** | Mixed-Signal / RFID |
 | **Technology** | IHP SG13CMOS |
 | **Top Cell** | `RFID4410` |
-| **Die Size** | 1.22 mm × 1.22 mm |
+| **Die Size** | 1414um x 1414um |
 | **License** | Apache-2.0 |
 
 ---
