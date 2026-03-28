@@ -1,0 +1,195 @@
+** sch_path: /foss/designs/PMU/PMU_DC_TB.sch
+**.subckt PMU_DC_TB
+VDD VDD GND {VDD}
+Vmeas2 net1 VSS 0
+.save i(vmeas2)
+VSS VSS GND 0
+C1 Vout net2 {CL} m=1
+R7 Vout net2 {Rload} m=1
+x1 VDD VP V_Ref VFB Vout VFB net3 LDO_NMOS_1V2
+Vmeas net3 VSS 0
+.save i(vmeas)
+Vmeas1 net4 VSS 0
+.save i(vmeas1)
+x2 VDD net4 V_Ref VP BGR_I_ZTAT
+x3 VDD VP net1 net5 1u_Ref
+Vmeas3 net2 GND 0
+.save i(vmeas3)
+**** begin user architecture code
+
+
+
+** IHP MODELS
+
+.lib cornerMOShv.lib mos_tt
+.lib cornerRES.lib res_typ
+.lib cornerCAP.lib cap_typ
+
+
+
+
+.include LDO_DC_TB.save
+.save all
+.options rshunt = 1e12
+.options gmin=1e-12
+.options reltol = 0.01 abstol = 1p
+.param temp = 27
+.param CL = 100p
+.param Rload = 2.4e3
+.param VDD = 3
+.control
+
+save all
+dc VDD 0 3.3 0.01
+write LDO_DC_TB.raw
+.endc
+
+
+**** end user architecture code
+**.ends
+
+* expanding   symbol:  LDO_NMOS_1V2.sym # of pins=7
+** sym_path: /foss/designs/LDO_NMOS_1V2.sym
+** sch_path: /foss/designs/LDO_NMOS_1V2.sch
+.subckt LDO_NMOS_1V2 VDD I_Bais V_P V_N Vout V_FB VSS
+*.iopin Vout
+*.iopin VDD
+*.iopin I_Bais
+*.iopin V_P
+*.iopin V_N
+*.iopin V_FB
+*.iopin VSS
+Vmeas net6 VSS 0
+.save i(vmeas)
+XM6 VDD VG2 Vout GND sg13_hv_nmos w=10u l=0.45u ng=10 m=50
+Vmeas1 net3 VSS 0
+.save i(vmeas1)
+x1 VDD I_Bais V_P V_N net1 VG2 net6 OpAmp_2etags
+XC3 net2 net1 cap_cmim w=40e-6 l=40e-6 m=3
+XC4 VG2 net3 cap_cmim w=40e-6 l=40e-6 m=4
+XR1 net2 VG2 sub! rhigh w=0.5e-6 l=15e-6 m=1 b=0
+XR3 net5 V_FB sub! rhigh w=0.5e-6 l=18e-6 m=2 b=0
+XR2 V_FB Vout sub! rhigh w=0.5e-6 l=18e-6 m=2 b=0
+XR4 net4 net5 sub! rhigh w=0.5e-6 l=18e-6 m=2 b=0
+XR5 net3 net4 sub! rhigh w=0.5e-6 l=18e-6 m=2 b=0
+.ends
+
+
+* expanding   symbol:  /foss/designs/bgr/BGR_I_ZTAT.sym # of pins=4
+** sym_path: /foss/designs/bgr/BGR_I_ZTAT.sym
+** sch_path: /foss/designs/bgr/BGR_I_ZTAT.sch
+.subckt BGR_I_ZTAT VDD VSS V_Ref I_Bais
+*.iopin VDD
+*.iopin I_Bais
+*.iopin V_Ref
+*.iopin VSS
+XM7 net10 V_out VDD VDD sg13_hv_pmos w=1u l=3u ng=1 m=1
+XM8 net2 V_out VDD VDD sg13_hv_pmos w=1u l=3u ng=1 m=1
+XC1 VDD V_out cap_cmim w=40e-6 l=40e-6 m=2
+Vmeas1 net2 Vp 0
+.save i(vmeas1)
+Vmeas22 Vn net1 0
+.save i(vmeas22)
+x2 VDD I_Bais Vp Vn V_out net3 Stage1
+XM2 Vp1 Vp1 VSS VSS sg13_hv_nmos w=7.5u l=4u ng=1 m=2
+XM3 net1 net1 VSS VSS sg13_hv_nmos w=7.5u l=4u ng=1 m=1
+Vmeas2 net10 Vn 0
+.save i(vmeas2)
+Vmeas5 net8 Vp1 0
+.save i(vmeas5)
+Vmeas6 net3 VSS 0
+.save i(vmeas6)
+XM1 net9 V_out VDD VDD sg13_hv_pmos w=1u l=3u ng=1 m=1
+Vmeas3 net9 V_Ref 0
+.save i(vmeas3)
+XM4 V_Ref V_Ref VSS VSS sg13_hv_nmos w=2u l=2.75u ng=1 m=1
+XM6 VS1 Vn VSS VSS sg13_hv_nmos w=4u l=2u ng=1 m=1
+XM5 net4 net4 VDD VDD sg13_hv_pmos w=4u l=1u ng=1 m=1
+XM9 net5 net4 VDD VDD sg13_hv_pmos w=4u l=1u ng=1 m=1
+Vmeas4 net5 VS1 0
+.save i(vmeas4)
+XC3 net6 VSS cap_cmim w=5e-6 l=5e-6 m=1
+XM10 VSS VDD net4 VDD sg13_hv_pmos w=4u l=1u ng=1 m=1
+XMSU V_out VS1 net7 net7 sg13_hv_nmos w=4u l=2u ng=1 m=1
+Vmeas8 net4 net6 0
+.save i(vmeas8)
+Vmeas9 net7 VSS 0
+.save i(vmeas9)
+XR4 VSS Vp sub! rhigh w=0.5e-6 l=80e-6 m=1 b=0
+XR5 net8 Vp sub! rhigh w=0.5e-6 l=210e-6 m=1 b=0
+.ends
+
+
+* expanding   symbol:  1u_Ref.sym # of pins=4
+** sym_path: /foss/designs/1u_Ref.sym
+** sch_path: /foss/designs/1u_Ref.sch
+.subckt 1u_Ref VDD VP VSS VR
+*.iopin VDD
+*.iopin VSS
+*.iopin VP
+*.iopin VR
+XM1 VP VP VDD VDD sg13_hv_pmos w=10u l=2u ng=1 m=1
+XM2 net3 VP VDD VDD sg13_hv_pmos w=10u l=2u ng=1 m=1
+Vmeas2 net1 VSS 0
+.save i(vmeas2)
+XM4 net3 VR net1 net1 sg13_hv_nmos w=10u l=1u ng=1 m=1
+XM3 net2 net3 VR VSS sg13_hv_nmos w=10u l=1u ng=1 m=4
+Vmeas1 VP net2 0
+.save i(vmeas1)
+Vmeas3 VP net7 0
+.save i(vmeas3)
+XR1 VSS VR sub! rhigh w=0.5e-6 l=185e-6 m=1 b=0
+XM8 VS1 VR VSS VSS sg13_hv_nmos w=10u l=0.45u ng=1 m=2
+XM9 net4 net4 net6 net6 sg13_hv_pmos w=10u l=1u ng=1 m=1
+XM10 net5 net4 net6 net6 sg13_hv_pmos w=10u l=1u ng=1 m=1
+Vmeas6 net5 VS1 0
+.save i(vmeas6)
+XC3 VS2 VSS cap_cmim w=10e-6 l=6.63e-6 m=1
+XMSU net7 VS1 VR VSS sg13_hv_nmos w=10u l=0.45u ng=1 m=10
+Vmeas7 net4 VS2 0
+.save i(vmeas7)
+Vmeas5 VDD net6 0
+.save i(vmeas5)
+.ends
+
+
+* expanding   symbol:  OpAmp_2etags.sym # of pins=7
+** sym_path: /foss/designs/OpAmp_2etags.sym
+** sch_path: /foss/designs/OpAmp_2etags.sch
+.subckt OpAmp_2etags VDD I_Bais VP VN VG VOUT VSS
+*.iopin VDD
+*.iopin I_Bais
+*.iopin VP
+*.iopin VN
+*.iopin VG
+*.iopin VOUT
+*.iopin VSS
+XM3 net1 net1 VSS VSS sg13_hv_nmos w=10u l=2u ng=1 m=2
+XM1 net1 VN net2 VDD sg13_hv_pmos w=5u l=2u ng=1 m=2
+XM2 VG VP net2 VDD sg13_hv_pmos w=5u l=2u ng=1 m=2
+XM4 VG net1 VSS VSS sg13_hv_nmos w=10u l=2u ng=1 m=2
+XM5 net2 I_Bais VDD VDD sg13_hv_pmos w=10u l=2u ng=1 m=4
+XM7 VOUT I_Bais VDD VDD sg13_hv_pmos w=10u l=2u ng=1 m=8
+XM6 VOUT VG VSS VSS sg13_hv_nmos w=10u l=2u ng=1 m=8
+.ends
+
+
+* expanding   symbol:  Stage1.sym # of pins=6
+** sym_path: /foss/designs/Stage1.sym
+** sch_path: /foss/designs/Stage1.sch
+.subckt Stage1 VDD VB Vin1 Vin2 Vout1 VSS
+*.iopin VDD
+*.ipin VB
+*.ipin Vin1
+*.ipin Vin2
+*.iopin VSS
+*.opin Vout1
+XM1 net1 Vin1 VX VDD sg13_hv_pmos w=10u l=5u ng=2 m=2
+XM2 net1 net1 VSS VSS sg13_hv_nmos w=5u l=1u ng=2 m=2
+XM3 Vout1 net1 VSS VSS sg13_hv_nmos w=5u l=1u ng=2 m=2
+XM4 Vout1 Vin2 VX VDD sg13_hv_pmos w=10u l=5u ng=2 m=2
+XM5 VX VB VDD VDD sg13_hv_pmos w=10u l=2u ng=1 m=4
+.ends
+
+.GLOBAL GND
+.end

@@ -1,0 +1,11 @@
+28-Mar-2026 01:04:29 | INFO    | KLayout version detected: 0.30.5
+28-Mar-2026 01:04:29 | INFO    | Using DRC JSON file: /foss/pdks/ihp-sg13g2/libs.tech/klayout/python/sg13g2_pycell_lib/sg13g2_tech_mod.json
+28-Mar-2026 01:04:29 | INFO    | Running IHP-SG13G2 main checks on design /foss/designs/TagWave/Brahim_layout/LDO/PMU.gds, topcell: pmu_tagwave
+28-Mar-2026 01:04:32 | INFO    | Running IHP-SG13G2 antenna checks on design /foss/designs/TagWave/Brahim_layout/LDO/PMU.gds, topcell: pmu_tagwave
+28-Mar-2026 01:04:34 | INFO    | Completed running Antenna checks.
+28-Mar-2026 01:04:34 | INFO    | Running IHP-SG13G2 sg13g2_maximal checks on design /foss/designs/TagWave/Brahim_layout/LDO/PMU.gds, topcell: pmu_tagwave
+28-Mar-2026 01:05:10 | INFO    | Completed running Sg13g2_maximal checks.
+28-Mar-2026 01:05:10 | INFO    | =====================================================================================
+28-Mar-2026 01:05:10 | INFO    | ✅ --- KLayout DRC Check Passed: No DRC violations detected in the layout. --- ✅
+28-Mar-2026 01:05:10 | INFO    | =====================================================================================
+28-Mar-2026 01:05:10 | INFO    | Total DRC Run time: 40.88 seconds (including execution, analysis, and reporting)
