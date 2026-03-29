@@ -13,6 +13,9 @@
 
 ---
 
+## Pinout
+![Pinout](doc/fig/pinout.png)
+
 ## Overview
 
 RFID4410 implements a complete digital baseband for a HF RFID tag. It handles multi-level anti-collision, CRC-16 frame integrity, and 8 Kbit SRAM user memory — all within a chip-level design that includes padring and sealring.
