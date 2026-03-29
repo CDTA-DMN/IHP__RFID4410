@@ -21,7 +21,7 @@ This project is the result of a collaborative team effort combining expertise in
 - [Daoui Moulay](https://github.com/daouimoulay)
 - [Hamzi Kheir Eddine Yassine](https://github.com/yacine-hk)
 - [Mehdiya Redadaa](https://github.com/R-mehdiya)
-- [Salah](https://github.com/sa19lah)
+- [Khorchef Salah Eddin](https://github.com/sa19lah)
 - [Talhi Mehdi](https://github.com/Mehdi-Talhi)
 - [Yasmina Salsabil Semmadi](https://github.com/SalsabilSmd)
 
