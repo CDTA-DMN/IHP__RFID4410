@@ -1,5 +1,6 @@
 # RFID4410
 ![Chip](doc/fig/full_chip.png)
+![3DChip](doc/fig/3d-chip.jpg)
 
 
 
