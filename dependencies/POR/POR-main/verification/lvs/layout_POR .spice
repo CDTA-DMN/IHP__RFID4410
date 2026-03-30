@@ -1,0 +1,71 @@
+** sch_path: /foss/designs/layout/layout_POR .sch
+.subckt layout_POR  Reset vdd gnd Vref Vin
+*.PININFO Reset:B vdd:B gnd:B Vref:I Vin:B
+M15 net7 net8 vdd net9 sg13_lv_pmos w=5.2u l=0.13u ng=1
+M16 net7 net3 gnd net10 sg13_lv_nmos w=0.52u l=0.13u ng=1
+M17 net8 net1 vdd net9 sg13_lv_pmos w=5.2u l=0.13u ng=1
+M18 net8 Vref net2 net10 sg13_lv_nmos w=3.64u l=3.7u ng=1
+M19 net1 net1 vdd net9 sg13_lv_pmos w=5.2u l=0.13u ng=1
+M20 net1 Vin net2 net10 sg13_lv_nmos w=3.64u l=3.7u ng=1
+M21 net2 net3 gnd net10 sg13_lv_nmos w=5.3u l=1.95u ng=1
+M22 net3 net3 gnd net10 sg13_lv_nmos w=0.15u l=0.15u ng=1
+M23 net6 net4 vdd net9 sg13_lv_pmos w=2.6u l=0.13u ng=1
+M24 Reset net4 net6 net9 sg13_lv_pmos w=2.6u l=0.13u ng=1
+M25 Reset net4 net5 net10 sg13_lv_nmos w=1.3u l=0.13u ng=1
+M26 net5 net4 gnd net10 sg13_lv_nmos w=1.3u l=0.13u ng=1
+M27 net6 Reset gnd net9 sg13_lv_pmos w=2.950u l=0.13u ng=1
+M28 net5 Reset vdd net10 sg13_lv_nmos w=2.950u l=0.13u ng=1
+C2 Reset gnd cap_cmim w=26.98e-6 l=26.98e-6
+C1 net4 gnd cap_cmim w=41.52e-6 l=41.52e-6
+M1 vdd vdd vdd net9 sg13_lv_pmos w=2.6u l=0.13u ng=1
+M2 vdd vdd vdd net9 sg13_lv_pmos w=2.6u l=0.13u ng=1
+M5 gnd gnd gnd net10 sg13_lv_nmos w=1.3u l=0.13u ng=1
+M6 gnd gnd gnd net10 sg13_lv_nmos w=1.3u l=0.13u ng=1
+M7 gnd gnd gnd net10 sg13_lv_nmos w=3.64u l=3.7u ng=1
+M8 gnd gnd gnd net10 sg13_lv_nmos w=3.64u l=3.7u ng=1
+M3 vdd vdd vdd net9 sg13_lv_pmos w=5.2u l=0.13u ng=1
+M4 vdd vdd vdd net9 sg13_lv_pmos w=5.2u l=0.13u ng=1
+R1 net4 net7 rppd w=2e-6 l=7.45e-6 m=1 b=0
+R36 gnd net10 ptap1 A=4.44e-12 P=2.96e-05
+R37 gnd net10 ptap1 A=3.24e-12 P=2.16e-05
+R38 gnd net10 ptap1 A=3.24e-12 P=2.16e-05
+R39 gnd net10 ptap1 A=5.04e-12 P=3.36e-05
+R40 gnd net10 ptap1 A=7.44e-12 P=4.96e-05
+R41 gnd net10 ptap1 A=1.524e-11 P=0.0001016
+R42 vdd net9 ntap1 A=7.44e-12 P=4.96e-05
+R43 vdd net9 ntap1 A=5.34e-12 P=3.56e-05
+R44 vdd net9 ntap1 A=7.74e-12 P=5.16e-05
+R2 vdd net11 rppd w=2e-6 l=38.31e-6 m=4 b=0
+R12 net11 net12 rppd w=2e-6 l=38.31e-6 m=1 b=0
+R14 net12 net13 rppd w=2e-6 l=38.31e-6 m=1 b=0
+R15 net13 net14 rppd w=2e-6 l=38.31e-6 m=1 b=0
+R16 net14 net15 rppd w=2e-6 l=38.31e-6 m=1 b=0
+R17 net15 net16 rppd w=2e-6 l=38.31e-6 m=1 b=0
+R18 net16 net17 rppd w=2e-6 l=38.31e-6 m=1 b=0
+R19 net17 net18 rppd w=2e-6 l=38.31e-6 m=1 b=0
+R20 net18 net19 rppd w=2e-6 l=38.31e-6 m=1 b=0
+R21 net19 net20 rppd w=2e-6 l=38.31e-6 m=1 b=0
+R22 net20 net21 rppd w=2e-6 l=38.31e-6 m=1 b=0
+R23 net21 net22 rppd w=2e-6 l=38.31e-6 m=1 b=0
+R24 net22 net23 rppd w=2e-6 l=38.31e-6 m=1 b=0
+R25 net23 net24 rppd w=2e-6 l=38.31e-6 m=1 b=0
+R26 net24 net25 rppd w=2e-6 l=38.31e-6 m=1 b=0
+R27 net25 net26 rppd w=2e-6 l=38.31e-6 m=1 b=0
+R28 net26 net27 rppd w=2e-6 l=38.31e-6 m=1 b=0
+R29 net27 net28 rppd w=2e-6 l=38.31e-6 m=1 b=0
+R30 net28 net29 rppd w=2e-6 l=38.31e-6 m=1 b=0
+R31 net29 net30 rppd w=2e-6 l=38.31e-6 m=1 b=0
+R32 net30 net31 rppd w=2e-6 l=38.31e-6 m=1 b=0
+R33 net31 net32 rppd w=2e-6 l=38.31e-6 m=1 b=0
+R34 net32 net33 rppd w=2e-6 l=38.31e-6 m=1 b=0
+R35 net33 net34 rppd w=2e-6 l=38.31e-6 m=1 b=0
+R3 net34 net35 rppd w=2e-6 l=38.31e-6 m=1 b=0
+R4 net35 net36 rppd w=2e-6 l=38.31e-6 m=1 b=0
+R5 net36 net37 rppd w=2e-6 l=38.31e-6 m=1 b=0
+R6 net37 net38 rppd w=2e-6 l=38.31e-6 m=1 b=0
+R7 net38 net39 rppd w=2e-6 l=38.31e-6 m=1 b=0
+R8 net39 net40 rppd w=2e-6 l=38.31e-6 m=1 b=0
+R9 net40 net41 rppd w=2e-6 l=38.31e-6 m=1 b=0
+R11 net41 net42 rppd w=2e-6 l=38.31e-6 m=1 b=0
+R13 net42 net3 rppd w=2e-6 l=38.31e-6 m=1 b=0
+.ends

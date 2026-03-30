@@ -1,0 +1,305 @@
+VERSION 5.7 ;
+   NAMESCASESENSITIVE ON ;
+   DIVIDERCHAR "/" ;
+   BUSBITCHARS "()" ;
+   DESIGN layout_POR ;
+   TECHNOLOGY ihp-sg13g2 ;
+   UNITS DISTANCE MICRONS 1000 ;
+   DIEAREA ( -26975 -33135 ) ( 58615 52670 ) ;
+
+VIAS 0 ;
+END VIAS
+
+COMPONENTS 135 ;
+   - via_stack_2 via_stack
+      + PLACED ( -18600 -7050 ) W ;
+   - nmos_1 nmos
+      + PLACED ( -23025 -2970 ) E ;
+   - nmos_0 nmos
+      + PLACED ( -23025 -7560 ) E ;
+   - via_stack_0 via_stack
+      + PLACED ( -22880 -1355 ) W ;
+   - via_stack$16_0 via_stack$16
+      + PLACED ( -21160 -2870 ) N ;
+   - via_stack$32_0 via_stack$32
+      + PLACED ( -18305 -1030 ) N ;
+   - via_stack_3 via_stack
+      + PLACED ( -18600 9185 ) W ;
+   - nmos_3 nmos
+      + PLACED ( -23025 6210 ) E ;
+   - nmos_2 nmos
+      + PLACED ( -23025 1620 ) E ;
+   - via_stack_1 via_stack
+      + PLACED ( -22880 3385 ) W ;
+   - via_stack$6_0 via_stack$6
+      + PLACED ( -19005 1425 ) E ;
+   - via_stack$10_0 via_stack$10
+      + PLACED ( -21160 5795 ) N ;
+   - via_stack$12_0 via_stack$12
+      + PLACED ( -21160 8000 ) N ;
+   - guard_ring$11_0 guard_ring$11
+      + PLACED ( -14155 -5535 ) E ;
+   - via_stack$5_0 via_stack$5
+      + PLACED ( -11350 -5270 ) N ;
+   - pmos$3_0 pmos$3
+      + PLACED ( -12895 2465 ) N ;
+   - pmos$3_1 pmos$3
+      + PLACED ( -10855 2465 ) N ;
+   - via_stack$44_0 via_stack$44
+      + PLACED ( -11255 -520 ) N ;
+   - via_stack$36_0 via_stack$36
+      + PLACED ( -10700 -1030 ) N ;
+   - pmos$3_2 pmos$3
+      + PLACED ( -9835 2465 ) N ;
+   - via_stack$18_0 via_stack$18
+      + PLACED ( -10195 5265 ) N ;
+   - via_stack$14_0 via_stack$14
+      + PLACED ( -10365 2135 ) N ;
+   - pmos$3_3 pmos$3
+      + PLACED ( -11875 2465 ) N ;
+   - guard_ring$17_0 guard_ring$17
+      + PLACED ( -10455 5065 ) N ;
+   - guard_ring_0 guard_ring
+      + PLACED ( -11905 410 ) E ;
+   - pmos$2_0 pmos$2
+      + PLACED ( -12195 -1180 ) FW ;
+   - via_stack$14_4 via_stack$14
+      + PLACED ( -12575 7925 ) N ;
+   - via_stack$14_3 via_stack$14
+      + PLACED ( -11470 7995 ) N ;
+   - via_stack$8_0 via_stack$8
+      + PLACED ( -10460 8000 ) N ;
+   - via_stack$4_5 via_stack$4
+      + PLACED ( -10150 9535 ) N ;
+   - via_stack$4_0 via_stack$4
+      + PLACED ( -11250 8790 ) N ;
+   - via_stack$4_4 via_stack$4
+      + PLACED ( -3490 -4275 ) N ;
+   - via_stack$37_1 via_stack$37
+      + PLACED ( -8625 -975 ) E ;
+   - via_stack$7_0 via_stack$7
+      + PLACED ( -9685 4655 ) N ;
+   - via_stack$4_7 via_stack$4
+      + PLACED ( -9685 -2870 ) N ;
+   - pmos$3_4 pmos$3
+      + PLACED ( -8815 2465 ) N ;
+   - via_stack$14_7 via_stack$14
+      + PLACED ( -5025 -795 ) N ;
+   - nmos$1_0 nmos$1
+      + PLACED ( -5430 -2515 ) N ;
+   - nmos$1_2 nmos$1
+      + PLACED ( -3690 -2515 ) N ;
+   - nmos$1_1 nmos$1
+      + PLACED ( -4200 -2515 ) N ;
+   - via_stack$20_2 via_stack$20
+      + PLACED ( -3540 -820 ) FS ;
+   - via_stack$24_1 via_stack$24
+      + PLACED ( -3030 -1865 ) FS ;
+   - via_stack$24_0 via_stack$24
+      + PLACED ( -3540 -1885 ) FS ;
+   - via_stack$30_0 via_stack$30
+      + PLACED ( -3540 760 ) N ;
+   - pmos$1_3 pmos$1
+      + PLACED ( -5360 3940 ) N ;
+   - via_stack$20_3 via_stack$20
+      + PLACED ( -3540 3525 ) FS ;
+   - pmos$1_2 pmos$1
+      + PLACED ( -3690 3940 ) N ;
+   - pmos$1_1 pmos$1
+      + PLACED ( -4200 3940 ) N ;
+   - guard_ring$15_0 guard_ring$15
+      + PLACED ( -3465 -1635 ) N ;
+   - guard_ring$2_0 guard_ring$2
+      + PLACED ( -3605 5065 ) N ;
+   - via_stack$14_8 via_stack$14
+      + PLACED ( -4955 6960 ) N ;
+   - via_stack$14_2 via_stack$14
+      + PLACED ( -8325 7925 ) N ;
+   - via_stack$14_1 via_stack$14
+      + PLACED ( -9430 7995 ) N ;
+   - via_stack$28_1 via_stack$28
+      + PLACED ( -3030 5285 ) N ;
+   - via_stack$28_0 via_stack$28
+      + PLACED ( -3540 5370 ) N ;
+   - via_stack$4_1 via_stack$4
+      + PLACED ( -3555 8780 ) N ;
+   - guard_ring$12_1 guard_ring$12
+      + PLACED ( 3160 -1635 ) S ;
+   - guard_ring$12_0 guard_ring$12
+      + PLACED ( 640 -1635 ) S ;
+   - pmos$1_0 pmos$1
+      + PLACED ( -2530 3940 ) N ;
+   - via_stack$20_1 via_stack$20
+      + PLACED ( 830 -940 ) E ;
+   - via_stack$4_6 via_stack$4
+      + PLACED ( 630 2460 ) N ;
+   - nmos$8_0 nmos$8
+      + PLACED ( 185 -1755 ) S ;
+   - nmos$1_3 nmos$1
+      + PLACED ( -2370 -2515 ) N ;
+   - via_stack$14_6 via_stack$14
+      + PLACED ( -1965 -795 ) FN ;
+   - nmos$10_0 nmos$10
+      + PLACED ( 2760 -2100 ) S ;
+   - via_stack$40_0 via_stack$40
+      + PLACED ( 3780 -2085 ) E ;
+   - via_stack$37_0 via_stack$37
+      + PLACED ( 3290 -945 ) E ;
+   - nmos$4_0 nmos$4
+      + PLACED ( 1670 2745 ) N ;
+   - via_stack$25_0 via_stack$25
+      + PLACED ( 2985 2460 ) N ;
+   - via_stack$9_0 via_stack$9
+      + PLACED ( 1820 1460 ) N ;
+   - via_stack$18_1 via_stack$18
+      + PLACED ( 1820 5370 ) N ;
+   - guard_ring$13_0 guard_ring$13
+      + PLACED ( 2935 5195 ) N ;
+   - via_stack$14_5 via_stack$14
+      + PLACED ( -2125 6960 ) FN ;
+   - via_stack$4_2 via_stack$4
+      + PLACED ( 3455 9535 ) N ;
+   - via_stack$4_3 via_stack$4
+      + PLACED ( 6300 -4275 ) N ;
+   - via_stack$38_0 via_stack$38
+      + PLACED ( 10905 -3935 ) N ;
+   - rppd$5_0 rppd$5
+      + PLACED ( 7045 1805 ) FS ;
+   - guard_ring$8_0 guard_ring$8
+      + PLACED ( 5625 -50 ) E ;
+   - nmos$2_0 nmos$2
+      + PLACED ( 6075 -2440 ) E ;
+   - via_stack$31_1 via_stack$31
+      + PLACED ( 6330 -560 ) E ;
+   - via_stack$20_0 via_stack$20
+      + PLACED ( 9680 -2090 ) S ;
+   - via_stack$31_0 via_stack$31
+      + PLACED ( 6330 -1070 ) E ;
+   - via_stack$41_0 via_stack$41
+      + PLACED ( 8055 1525 ) N ;
+   - via_stack$35_0 via_stack$35
+      + PLACED ( 8055 760 ) N ;
+   - via_stack$45_0 via_stack$45
+      + PLACED ( 11860 740 ) N ;
+   - via_stack$1_0 via_stack$1
+      + PLACED ( 8050 9530 ) N ;
+   - via_stack$45_1 via_stack$45
+      + PLACED ( 15400 740 ) N ;
+   - cmim_0 cmim
+      + PLACED ( -14995 -32535 ) N ;
+   - cmim$2_0 cmim$2
+      + PLACED ( 14485 -32535 ) N ;
+   - via_stack$1_1 via_stack$1
+      + PLACED ( -21625 13655 ) FS ;
+   - rppd_2 rppd
+      + PLACED ( -22635 13930 ) FN ;
+   - rppd_3 rppd
+      + PLACED ( -20435 13930 ) FN ;
+   - rppd_6 rppd
+      + PLACED ( -18235 13930 ) FN ;
+   - rppd_7 rppd
+      + PLACED ( -16035 13930 ) FN ;
+   - rppd_1 rppd
+      + PLACED ( -13835 13930 ) FN ;
+   - via_stack$34_0 via_stack$34
+      + PLACED ( -12445 12275 ) N ;
+   - rppd_13 rppd
+      + PLACED ( -11635 13930 ) FN ;
+   - via_stack$26_1 via_stack$26
+      + PLACED ( -8825 10735 ) N ;
+   - rppd_8 rppd
+      + PLACED ( -9435 13930 ) FN ;
+   - rppd_4 rppd
+      + PLACED ( -7235 13930 ) FN ;
+   - rppd_5 rppd
+      + PLACED ( -5035 13930 ) FN ;
+   - via_stack$26_3 via_stack$26
+      + PLACED ( -2730 10730 ) N ;
+   - rppd_9 rppd
+      + PLACED ( -2835 13930 ) FN ;
+   - via_stack$35_1 via_stack$35
+      + PLACED ( 365 13650 ) N ;
+   - rppd_10 rppd
+      + PLACED ( -635 13930 ) FN ;
+   - rppd_11 rppd
+      + PLACED ( 1565 13930 ) FN ;
+   - rppd_12 rppd
+      + PLACED ( 3765 13930 ) FN ;
+   - via_stack$9_1 via_stack$9
+      + PLACED ( 6335 12220 ) N ;
+   - rppd_14 rppd
+      + PLACED ( 5965 13930 ) FN ;
+   - via_stack$26_2 via_stack$26
+      + PLACED ( 9780 10715 ) N ;
+   - rppd_15 rppd
+      + PLACED ( 8165 13930 ) FN ;
+   - via_stack$26_0 via_stack$26
+      + PLACED ( 10915 10705 ) N ;
+   - rppd_16 rppd
+      + PLACED ( 10365 13930 ) FN ;
+   - rppd_0 rppd
+      + PLACED ( 12565 13930 ) FN ;
+   - rppd_35 rppd
+      + PLACED ( 14765 13930 ) FN ;
+   - rppd_17 rppd
+      + PLACED ( 16965 13930 ) FN ;
+   - rppd_18 rppd
+      + PLACED ( 19165 13930 ) FN ;
+   - rppd_19 rppd
+      + PLACED ( 21365 13930 ) FN ;
+   - rppd_24 rppd
+      + PLACED ( 23565 13930 ) FN ;
+   - rppd_25 rppd
+      + PLACED ( 25765 13930 ) FN ;
+   - rppd_26 rppd
+      + PLACED ( 27965 13930 ) FN ;
+   - rppd_27 rppd
+      + PLACED ( 30165 13930 ) FN ;
+   - rppd_20 rppd
+      + PLACED ( 32365 13930 ) FN ;
+   - rppd_21 rppd
+      + PLACED ( 34565 13930 ) FN ;
+   - rppd_22 rppd
+      + PLACED ( 36765 13930 ) FN ;
+   - rppd_23 rppd
+      + PLACED ( 38965 13930 ) FN ;
+   - rppd_31 rppd
+      + PLACED ( 41165 13930 ) FN ;
+   - rppd_30 rppd
+      + PLACED ( 43365 13930 ) FN ;
+   - rppd_29 rppd
+      + PLACED ( 45565 13930 ) FN ;
+   - rppd_28 rppd
+      + PLACED ( 47765 13930 ) FN ;
+   - rppd_34 rppd
+      + PLACED ( 49965 13930 ) FN ;
+   - rppd_33 rppd
+      + PLACED ( 52165 13930 ) FN ;
+   - via_stack$42_0 via_stack$42
+      + PLACED ( 55360 12245 ) N ;
+   - rppd_32 rppd
+      + PLACED ( 54365 13930 ) FN ;
+   - via_stack$41_1 via_stack$41
+      + PLACED ( 55365 52515 ) N ;
+END COMPONENTS
+
+PINS 5 ;
+   - VDD + NET VDD
+     + PORT
+        + LAYER Metal2 ( -1110 -412.5 ) ( 1110 412.5 )        + PLACED ( 57505 12242.5 ) N ;
+   - Vin + NET Vin
+     + PORT
+        + LAYER Metal2 ( -582.5 -557.5 ) ( 582.5 557.5 )        + PLACED ( -26387.5 3797.5 ) N ;
+   - Vref + NET Vref
+     + PORT
+        + LAYER Metal2 ( -582.5 -557.5 ) ( 582.5 557.5 )        + PLACED ( -26387.5 -952.5 ) N ;
+   - GND + NET GND
+     + PORT
+        + LAYER Metal1 ( -582.5 -557.5 ) ( 582.5 557.5 )        + PLACED ( -26392.5 -5792.5 ) N ;
+   - Reset + NET Reset
+     + PORT
+        + LAYER Metal4 ( -1110 -412.5 ) ( 1110 412.5 )        + PLACED ( 57505 10722.5 ) N ;
+END PINS
+
+END DESIGN
+

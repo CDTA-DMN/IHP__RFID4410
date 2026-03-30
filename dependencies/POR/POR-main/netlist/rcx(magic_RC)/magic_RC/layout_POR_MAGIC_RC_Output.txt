@@ -1,0 +1,129 @@
+
+Magic 8.3 revision 603 - Compiled on Sat Feb 14 01:20:09 AM CET 2026.
+Starting magic under Tcl interpreter
+Using the terminal as the console.
+WARNING: RLIMIT_NOFILE is above 1024 and Tcl_Version<9 this may cause runtime issues [rlim_cur=1048576]
+Using NULL graphics device.
+Processing system .magicrc file
+Switching to WIRING tool.
+Switching to NETLIST tool.
+Switching to PICK tool.
+Switching to BOX tool.
+Sourcing design .magicrc for technology ihp-sg13g2 ...
+2 Magic internal units = 1 Lambda
+Input style sg13g2(): scaleFactor=2, multiplier=2
+The following types are not handled by extraction and will be treated as non-electrical types:
+    pblock sealcont difffill nemitter hvnemitter hvisodiffres sealvia1 sealvia2 sealvia3 sealvia4 sealvia5 sealvia6 pillar solder seal glass thruvia inductor 
+Scaled tech values by 2 / 1 to match internal grid scaling
+Loading ihp-sg13g2 Device Generator Menu ...
+Loading "output/layout_POR__layout_POR/magic_RC/layout_POR_MAGIC_RC_Script.tcl" from command line.
+Warning: Calma reading is not undoable!  I hope that's OK.
+Library written using GDS-II Release 6.0
+Library name: LIB
+Reading "$$$CONTEXT_INFO$$$".
+Reading "nmos$10".
+Reading "via_stack$44".
+Reading "via_stack$40".
+Reading "guard_ring$15".
+Reading "guard_ring".
+Reading "rppd$5".
+Reading "via_stack$34".
+Reading "guard_ring$11".
+Reading "nmos".
+Reading "via_stack".
+Reading "pmos$1".
+Reading "nmos$1".
+Reading "pmos$2".
+Reading "nmos$2".
+Reading "guard_ring$2".
+Reading "guard_ring$8".
+Reading "pmos$3".
+Reading "via_stack$14".
+Reading "nmos$4".
+Reading "guard_ring$13".
+Reading "nmos$8".
+Reading "guard_ring$12".
+Reading "rppd".
+Reading "cmim".
+Reading "cmim$2".
+Reading "via_stack$41".
+Reading "via_stack$42".
+Reading "via_stack$1".
+Reading "via_stack$4".
+Reading "via_stack$5".
+Reading "via_stack$6".
+Reading "via_stack$7".
+Reading "via_stack$9".
+Reading "via_stack$8".
+Reading "via_stack$10".
+Reading "via_stack$12".
+Reading "via_stack$16".
+Reading "via_stack$25".
+Reading "guard_ring$17".
+Reading "via_stack$18".
+Reading "via_stack$20".
+Reading "via_stack$24".
+Reading "via_stack$26".
+Reading "via_stack$28".
+Reading "via_stack$31".
+Reading "via_stack$30".
+Reading "via_stack$35".
+Reading "via_stack$36".
+Reading "via_stack$32".
+Reading "via_stack$37".
+Reading "via_stack$38".
+Reading "via_stack$45".
+Reading "layout_POR".
+Extracting layout_POR into /foss/designs/simulations/Post_layout/output/layout_POR__layout_POR/magic_RC/layout_POR.ext:
+layout_POR: 8 warnings
+Total of 8 warnings.
+exttosim finished.
+Adding  a_n4527_10448#; Tnew = 0.00ns, Told = -69.15ns
+Adding  a_n4527_2700#
+Adding  a_n4087_2700#; Tnew = 0.00ns, Told = -119.06ns
+Adding  a_n3647_10448#; Tnew = 0.00ns, Told = -90.95ns
+Adding  a_n3207_2700#; Tnew = 0.00ns, Told = -140.17ns
+Adding  a_n2767_10448#; Tnew = 0.00ns, Told = -90.95ns
+Adding  a_n2327_2700#; Tnew = 0.00ns, Told = -142.18ns
+Adding  a_n1887_10448#; Tnew = 0.00ns, Told = -90.95ns
+Adding  a_n1447_2700#; Tnew = 0.00ns, Told = -141.34ns
+Adding  a_n1007_10448#; Tnew = 0.00ns, Told = -90.95ns
+Adding  a_n567_2700#; Tnew = 0.00ns, Told = -137.64ns
+Adding  a_n127_10448#; Tnew = 0.00ns, Told = -90.95ns
+Adding  a_313_2700#; Tnew = 0.00ns, Told = -118.07ns
+Adding  a_753_10448#; Tnew = 0.00ns, Told = -90.95ns
+Adding  a_1193_2700#; Tnew = 0.00ns, Told = -119.74ns
+Adding  a_1633_10448#; Tnew = 0.00ns, Told = -90.95ns
+Adding  a_2073_2700#; Tnew = 0.00ns, Told = -112.36ns
+Adding  a_2513_10448#; Tnew = 0.00ns, Told = -90.95ns
+Adding  a_2953_2700#; Tnew = 0.00ns, Told = -115.82ns
+Adding  a_3393_10448#; Tnew = 0.00ns, Told = -90.95ns
+Adding  a_3833_2700#; Tnew = 0.00ns, Told = -115.82ns
+Adding  a_4273_10448#; Tnew = 0.00ns, Told = -90.95ns
+Adding  a_4713_2700#; Tnew = 0.00ns, Told = -115.82ns
+Adding  a_5153_10448#; Tnew = 0.00ns, Told = -90.95ns
+Adding  a_5593_2700#; Tnew = 0.00ns, Told = -115.82ns
+Adding  a_6033_10448#; Tnew = 0.00ns, Told = -90.95ns
+Adding  a_6473_2700#; Tnew = 0.00ns, Told = -115.82ns
+Adding  a_6913_10448#; Tnew = 0.00ns, Told = -90.95ns
+Adding  a_7353_2700#; Tnew = 0.00ns, Told = -115.82ns
+Adding  a_7793_10448#; Tnew = 0.00ns, Told = -90.95ns
+Adding  a_8233_2700#; Tnew = 0.00ns, Told = -115.82ns
+Adding  a_8673_10448#; Tnew = 0.00ns, Told = -91.10ns
+Adding  a_9113_2700#; Tnew = 0.00ns, Told = -237.84ns
+Adding  a_n2077_493#
+Adding  a_n4595_1122#; Tnew = 0.00ns, Told = -4425.23ns
+Adding  a_n4595_204#; Tnew = 0.00ns, Told = -5263.27ns
+Adding  a_n4595_n604#; Tnew = 0.00ns, Told = -5795.05ns
+Adding  a_n772_n539#; Tnew = 0.00ns, Told = -1923.11ns
+Adding  a_n2439_n142#
+Adding  a_n746_n503#; Tnew = 0.00ns, Told = -3363.57ns
+Adding  GND
+Adding  VDD; Tnew = 0.11ns, Told = 0.00ns
+Adding  Vin; Tnew = 0.00ns, Told = 0.00ns
+Adding  Reset; Tnew = 0.19ns, Told = 0.00ns
+Adding  Vref; Tnew = 0.00ns, Told = 0.00ns
+Total Nets: 83
+Nets extracted: 45 (0.542169)
+Nets output: 45 (0.542169)
+exttospice finished.
